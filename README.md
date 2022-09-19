@@ -1,1 +1,1 @@
-"# Softcare_PocketTrainer" 
+Este repositorio contiene el código fuente de la aplicación Pocket Trainer, desarrollada por SoftCare
