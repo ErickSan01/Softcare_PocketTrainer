@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SeleccionHorarioActivity">
+
+    <TextView
+        android:id="@+id/textViewHoras"
+        android:layout_width="299dp"
+        android:layout_height="55dp"
+        android:text="@string/seleccion_horas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="44dp" />
+
+    <EditText
+        android:id="@+id/editTextTime2"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+
+    <TextView
+        android:id="@+id/textViewJuevesHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/seleccion_jueves"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMiercolesHora" />
+
+    <TextView
+        android:id="@+id/textViewSabadoHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/seleccion_sabado"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewViernesHora" />
+
+    <Button
+        android:id="@+id/buttonLunes"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:onClick="mostrarTimePicker"
+        android:text="@string/elegir"
+        app:layout_constraintStart_toEndOf="@+id/editTextTime"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+    <EditText
+        android:id="@+id/editTextTime6"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textViewSabadoHora"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime5" />
+
+    <Button
+        android:id="@+id/buttonMiercoles"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:onClick="mostrarTimePicker"
+        android:text="@string/elegir"
+        app:layout_constraintStart_toEndOf="@+id/editTextTime3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMartes" />
+
+    <Button
+        android:id="@+id/buttonJueves"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:onClick="mostrarTimePicker"
+        android:text="@string/elegir"
+        app:layout_constraintStart_toEndOf="@+id/editTextTime4"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMiercoles" />
+
+    <TextView
+        android:id="@+id/textViewMiercolesHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/seleccion_miercoles"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMartesHora" />
+
+    <EditText
+        android:id="@+id/editTextTime3"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textViewMiercolesHora"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime2" />
+
+    <EditText
+        android:id="@+id/editTextTime4"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textViewJuevesHora"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime3" />
+
+    <EditText
+        android:id="@+id/editTextTime5"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textViewViernesHora"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime4" />
+
+    <EditText
+        android:id="@+id/editTextTime7"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textViewDomingoHora"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime6" />
+
+    <Button
+        android:id="@+id/buttonHechoHorario"
+        android:layout_width="94dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/hecho"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime7" />
+
+    <Button
+        android:id="@+id/buttonSabado"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:onClick="mostrarTimePicker"
+        android:text="@string/elegir"
+        app:layout_constraintStart_toEndOf="@+id/editTextTime6"
+        app:layout_constraintTop_toBottomOf="@+id/buttonViernes" />
+
+    <TextView
+        android:id="@+id/textViewDomingoHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/seleccion_domingo"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSabadoHora" />
+
+    <Button
+        android:id="@+id/buttonViernes"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:onClick="mostrarTimePicker"
+        android:text="@string/elegir"
+        app:layout_constraintStart_toEndOf="@+id/editTextTime5"
+        app:layout_constraintTop_toBottomOf="@+id/buttonJueves" />
+
+    <TextView
+        android:id="@+id/textViewMartesHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/seleccion_martes"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLunesHora" />
+
+    <Button
+        android:id="@+id/buttonMartes"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:onClick="mostrarTimePicker"
+        android:text="@string/elegir"
+        app:layout_constraintStart_toEndOf="@+id/editTextTime2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLunes" />
+
+    <Button
+        android:id="@+id/buttonDomingo"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:onClick="mostrarTimePicker"
+        android:text="@string/elegir"
+        app:layout_constraintStart_toEndOf="@+id/editTextTime7"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSabado" />
+
+    <EditText
+        android:id="@+id/editTextTime"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="time"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textViewLunesHora"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+    <TextView
+        android:id="@+id/textViewViernesHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/seleccion_viernes"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewJuevesHora" />
+
+    <TextView
+        android:id="@+id/textViewLunesHora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/seleccion_lunes"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
