@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class EjerciciosControlador {
     private AyudanteBaseDeDatos ayudanteBaseDeDatos;
-    private String NOMBRE_TABLA = "ejercicios";
+    private String NOMBRE_TABLA = "Ejercicios";
 
     public EjerciciosControlador (Context contexto){
         ayudanteBaseDeDatos = new AyudanteBaseDeDatos(contexto);
@@ -74,6 +74,6 @@ public class EjerciciosControlador {
         return baseDeDatos.delete(NOMBRE_TABLA, "id = ?", argumentos);
     }
 }
-    //id_ejercicio int primary key, nombre text, descripcion text, set_imagenes blob, id_material int,
+
 
 
