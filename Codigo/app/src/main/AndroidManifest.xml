@@ -28,7 +28,30 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".SeleccionTiempoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SeleccionHorarioActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PantallaPrincipalActivity"
+            android:exported="false"
+            android:label="@string/title_activity_pantalla_principal"
+            android:theme="@style/Theme.PocketTrainer.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PrimerPantallaActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.PocketTrainer.NoActionBar" >

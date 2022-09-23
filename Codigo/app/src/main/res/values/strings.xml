@@ -9,4 +9,34 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_pantalla_principal">PantallaPrincipalActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="bienvenida">Bienvenido/a a Pocket Trainer!</string>
+    <string name="lema">Tu entrenador personal por excelencia</string>
+    <string name="comenzar">Comencemos con algunas preguntas para personalizar tu rutina y encontrar lo más óptimo para tí!</string>
+    <string name="iniciar_cuestionario">Comenzar!</string>
+
+    <string name="seleccion_horario">A continuación, selecciona los días que tienes libres a la semana para ejercitarte:</string>
+    <string name="seleccion_lunes">Lunes</string>
+    <string name="seleccion_martes">Martes</string>
+    <string name="seleccion_miercoles">Miercoles</string>
+    <string name="seleccion_jueves">Jueves</string>
+    <string name="seleccion_viernes">Viernes</string>
+    <string name="seleccion_sabado">Sabado</string>
+    <string name="seleccion_domingo">Domingo</string>
+    <string name="seleccion_horas">Ahora selecciona tu horario, ten en cuenta que se necesita al menos una hora para completar la rutina:</string>
+    <string name="hecho">Hecho!</string>
+    <string name="elegir">Elegir</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="title_activity_seleccion_tiempo">SeleccionTiempoActivity</string>
+
 </resources>
