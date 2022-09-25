@@ -23,10 +23,10 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         System.out.println("Database");
 
-        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(id_material int primary key, nombre text, descripcion text, set_imagenes blob)", NOMBRE_TABLA_MATERIALES));
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(id_material int primary key, nombre text, descripcion text, set_imagenes text)", NOMBRE_TABLA_MATERIALES));
 
-        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(id_ejercicio int primary key, nombre text, descripcion text, set_imagenes blob, id_material int," +
-                "FOREIGN KEY (id_material) REFERENCES Materiales(id_material))", NOMBRE_TABLA_EJERCICIOS));
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(id_ejercicio int primary key, nombre text, descripcion text, set_imagenes text, id_material int," +
+                "FOREIGN KEY (id_material) REFERENCES Materiales(id_material)", NOMBRE_TABLA_EJERCICIOS));
     }
 
     @Override

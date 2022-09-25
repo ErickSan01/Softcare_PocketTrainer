@@ -13,7 +13,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="#a3dcef"
+        android:backgroundTint="@color/boton"
         android:text="@string/menu"
         app:iconTint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
         android:text="@string/mi_rutina"
-        android:textColor="#a2b9ed"
+        android:textColor="@color/texto"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn" />
@@ -39,7 +39,7 @@
         android:layout_marginTop="75dp"
         android:layout_marginEnd="51dp"
         android:text="@string/parte_a_trabajar"
-        android:textColor="#a2b9ed"
+        android:textColor="@color/texto"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +51,7 @@
         android:layout_height="9dp"
         android:layout_marginBottom="200dp"
         android:background="?attr/colorPrimary"
-        android:backgroundTint="#9a9ce9"
+        android:backgroundTint="@color/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="#a3dcef"
+        android:backgroundTint="@color/boton"
         android:text="@string/modificar_rutina"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:backgroundTint="#a3dcef"
+        android:backgroundTint="@color/boton"
         android:text="@string/actualizar_rutina"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
@@ -89,7 +89,7 @@
         android:layout_marginBottom="10dp"
         android:text="@string/back"
         android:textColor="@android:color/black"
-        android:backgroundTint="#a2dcee"
+        android:backgroundTint="@color/boton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
