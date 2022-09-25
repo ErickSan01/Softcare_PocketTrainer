@@ -39,4 +39,17 @@
     <string name="siguiente">Siguiente</string>
     <string name="title_activity_seleccion_tiempo">SeleccionTiempoActivity</string>
 
+    <string name="menu">menu</string>
+    <string name="mi_rutina">Mi Rutina</string>
+    <string name="parte_a_trabajar">Parte a Trabajar</string>
+    <string name="pierna">Pierna</string>
+    <string name="brazo">Brazo</string>
+    <string name="abdomen">Abdomen</string>
+    <string name="espalda">Espalda</string>
+    <string name="lunes">Lunes</string>
+    <string name="martes">Martes</string>
+    <string name="viernes">Viernes</string>
+    <string name="actualizar_rutina">Actualizar Rutina</string>
+    <string name="modificar_rutina">Modificar Rutina</string>
+    <string name="back"><![CDATA[<]]></string>
 </resources>

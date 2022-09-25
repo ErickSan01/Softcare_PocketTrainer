@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo"
     tools:context=".PrimerPantallaActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +22,7 @@
             android:text="@string/comenzar"
             android:textAlignment="center"
             android:textSize="24sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewLema" />
@@ -32,6 +34,7 @@
             android:layout_marginTop="128dp"
             android:text="@string/bienvenida"
             android:textSize="20sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,6 +46,7 @@
             android:layout_marginTop="36dp"
             android:onClick="iniciarCuestionario"
             android:text="@string/iniciar_cuestionario"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewComenzar" />
@@ -54,6 +58,7 @@
             android:layout_marginTop="42dp"
             android:text="@string/lema"
             android:textSize="20sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewBienvenida" />
