@@ -39,7 +39,6 @@
     <string name="siguiente">Siguiente</string>
     <string name="title_activity_seleccion_tiempo">SeleccionTiempoActivity</string>
 
-<<<<<<< HEAD
     <string name="cuerpo">Selecciona la complexión de cuerpo con el que tengas más parecido:</string>
     <string name="delgado">Delgado/a</string>
     <string name="robusto">Robusto/a</string>
@@ -65,7 +64,6 @@
 
     <string name="empty"> </string>
 
-=======
     <string name="menu">menu</string>
     <string name="mi_rutina">Mi Rutina</string>
     <string name="parte_a_trabajar">Parte a Trabajar</string>
@@ -79,5 +77,5 @@
     <string name="actualizar_rutina">Actualizar Rutina</string>
     <string name="modificar_rutina">Modificar Rutina</string>
     <string name="back"><![CDATA[<]]></string>
->>>>>>> 2bb68968d8fd37333fd09c7eafe44c822c9df46f
+    <string name="title_activity_ejercicios_rutina">EjerciciosRutina</string>
 </resources>
