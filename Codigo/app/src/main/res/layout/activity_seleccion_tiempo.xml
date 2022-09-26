@@ -160,17 +160,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTime6" />
 
     <Button
-        android:id="@+id/buttonHechoHorario"
-        android:layout_width="94dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/hecho"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTime7" />
-
-    <Button
         android:id="@+id/buttonSabado"
         android:layout_width="100dp"
         android:layout_height="48dp"
@@ -270,5 +259,17 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+    <Button
+        android:id="@+id/buttonSiguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:onClick="Siguiente"
+        android:text="@string/siguiente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTime7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,10 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.Button;;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
@@ -16,15 +17,18 @@ import java.util.Locale;
 
 public class SeleccionTiempoActivity extends AppCompatActivity {
 
-    Button lunes;
-    Button martes;
-    Button miercoles;
-    Button jueves;
-    Button viernes;
-    Button sabado;
-    Button domingo;
+    //Los campos edit text correspondientes a los dias de la semana
+    EditText lunes;
+    EditText martes;
+    EditText miercoles;
+    EditText jueves;
+    EditText viernes;
+    EditText sabado;
+    EditText domingo;
+    //minuto y hora necesarios para el time picker
     int minuto;
     int hora;
+    //Booleanos que no ayudan a deshabilitar visualmente los botones
     boolean dis_lunes;
     boolean dis_martes;
     boolean dis_miercoles;
@@ -38,35 +42,41 @@ public class SeleccionTiempoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccion_tiempo);
         Intent i = getIntent();
+
         deshabilitarCajas();
 
+        //Extraemos las selecciones del usuario en la pantalla anterior, y en con base a eso
+        //decidimos que botones son los que se usan y cuales se deshabilitan
         dis_lunes = i.getBooleanExtra("Lunes", false);
-        Log.d("CheckL", ""+lunes);
         dis_martes = i.getBooleanExtra("Martes", false);
-        Log.d("CheckMa", ""+martes);
         dis_miercoles = i.getBooleanExtra("Miercoles", false);
-        Log.d("CheckMi", ""+miercoles);
         dis_jueves = i.getBooleanExtra("Jueves", false);
-        Log.d("CheckJ", ""+jueves);
         dis_viernes = i.getBooleanExtra("Viernes", false);
-        Log.d("CheckV", ""+viernes);
         dis_sabado = i.getBooleanExtra("Sabado", false);
-        Log.d("CheckS", ""+sabado);
         dis_domingo = i.getBooleanExtra("Domingo", false);
-        Log.d("CheckD", ""+domingo);
 
+        //Extraemos los edit text para poder usarlos más adelante con el SharedPreferences
+        View view = findViewById(R.id.editTextTime);
+        lunes = (EditText) view;
+        view = findViewById(R.id.editTextTime2);
+        martes = (EditText) view;
+        view = findViewById(R.id.editTextTime3);
+        miercoles = (EditText) view;
+        view = findViewById(R.id.editTextTime4);
+        jueves = (EditText) view;
+        view = findViewById(R.id.editTextTime5);
+        viernes = (EditText) view;
+        view = findViewById(R.id.editTextTime6);
+        sabado = (EditText) view;
+        view = findViewById(R.id.editTextTime7);
+        domingo = (EditText) view;
+
+        //llamamos hasta el final el deshabilite de botones porque necesitamos los edit text para
+        //mostrar las preferencias guardadas de shared preferences
         deshabilitarBotones();
-
-        lunes = findViewById(R.id.buttonLunes);
-        martes = findViewById(R.id.buttonMartes);
-        miercoles = findViewById(R.id.buttonMiercoles);
-        jueves = findViewById(R.id.buttonJueves);
-        viernes = findViewById(R.id.buttonViernes);
-        sabado = findViewById(R.id.buttonSabado);
-        domingo = findViewById(R.id.buttonDomingo);
-
     }
 
+    //Deshabilitamos todas las cajas por default, para que no puedan ser editadas manualmente
     private void deshabilitarCajas(){
 
         View box = findViewById(R.id.editTextTime);
@@ -99,45 +109,75 @@ public class SeleccionTiempoActivity extends AppCompatActivity {
 
     }
 
+    /*
+    Tiene dos funciones principales: 1-Deshabilita los botones que no son necesarios usar
+    de acuerdo con las decisiones del usuario en la pantalla anterior y 2-Muestra las preferencias guardadas
+    previamente, en caso de que el usuario no eligió un día en específico pero ya se encontraba previamente,
+    este no se mostrará, es por eso que se usó este método para hacerlo.
+    */
     private void deshabilitarBotones(){
+        SharedPreferences preferencias = getSharedPreferences("tiempo", MODE_PRIVATE);
+
         if(!dis_lunes){
             View view = findViewById(R.id.buttonLunes);
             Button but = (Button) view;
+            lunes.setText("");
             but.setEnabled(false);
+        }else{
+            lunes.setText(preferencias.getString("lunes", ""));
         }
         if(!dis_martes){
             View view = findViewById(R.id.buttonMartes);
             Button but = (Button) view;
+            martes.setText("");
             but.setEnabled(false);
+        }else{
+            martes.setText(preferencias.getString("martes", ""));
         }
         if(!dis_miercoles){
             View view = findViewById(R.id.buttonMiercoles);
             Button but = (Button) view;
+            miercoles.setText("");
             but.setEnabled(false);
+        }else{
+            miercoles.setText(preferencias.getString("miercoles", ""));
         }
         if(!dis_jueves){
             View view = findViewById(R.id.buttonJueves);
             Button but = (Button) view;
+            jueves.setText("");
             but.setEnabled(false);
+        }else{
+            jueves.setText(preferencias.getString("jueves", ""));
         }
         if(!dis_viernes){
             View view = findViewById(R.id.buttonViernes);
             Button but = (Button) view;
+            viernes.setText("");
             but.setEnabled(false);
+        }else{
+            viernes.setText(preferencias.getString("viernes", ""));
         }
         if(!dis_sabado){
             View view = findViewById(R.id.buttonSabado);
             Button but = (Button) view;
+            sabado.setText("");
             but.setEnabled(false);
+        }else{
+            sabado.setText(preferencias.getString("sabado", ""));
         }
         if(!dis_domingo){
             View view = findViewById(R.id.buttonDomingo);
             Button but = (Button) view;
+            domingo.setText("");
             but.setEnabled(false);
+        }else{
+            domingo.setText(preferencias.getString("domingo", ""));
         }
 
     }
 
+    //Controla el TimePicker y muestra a la vez los elegido en el edit text correspondiente
     public void mostrarTimePicker(View v){
         TimePickerDialog.OnTimeSetListener time_listener = new TimePickerDialog.OnTimeSetListener() {
 
@@ -146,39 +186,25 @@ public class SeleccionTiempoActivity extends AppCompatActivity {
                 hora = hora_seleccionada;
                 minuto = min_seleccionado;
                 if(v.getId() == R.id.buttonLunes){
-                    View box = findViewById(R.id.editTextTime);
-                    EditText e = (EditText) box;
-                    e.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
+                    lunes.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
                 }
                 if(v.getId() == R.id.buttonMartes){
-                    View box = findViewById(R.id.editTextTime2);
-                    EditText e = (EditText) box;
-                    e.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
+                    martes.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
                 }
                 if(v.getId() == R.id.buttonMiercoles){
-                    View box = findViewById(R.id.editTextTime3);
-                    EditText e = (EditText) box;
-                    e.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
+                    miercoles.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
                 }
                 if(v.getId() == R.id.buttonJueves){
-                    View box = findViewById(R.id.editTextTime4);
-                    EditText e = (EditText) box;
-                    e.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
+                    jueves.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
                 }
                 if(v.getId() == R.id.buttonViernes){
-                    View box = findViewById(R.id.editTextTime5);
-                    EditText e = (EditText) box;
-                    e.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
+                    viernes.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
                 }
                 if(v.getId() == R.id.buttonSabado){
-                    View box = findViewById(R.id.editTextTime6);
-                    EditText e = (EditText) box;
-                    e.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
+                    sabado.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
                 }
                 if(v.getId() == R.id.buttonDomingo){
-                    View box = findViewById(R.id.editTextTime7);
-                    EditText e = (EditText) box;
-                    e.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
+                    domingo.setText(String.format(Locale.getDefault(),"%02d:%02d", hora, minuto));
                 }
             }
         };
@@ -187,5 +213,28 @@ public class SeleccionTiempoActivity extends AppCompatActivity {
         TimePickerDialog time_picker = new TimePickerDialog(this, style, time_listener, hora, minuto, false);
         time_picker.setTitle("Selecciona la hora:");
         time_picker.show();
+    }
+
+    //Guarda las preferencias según su campo y valor
+    public void guardar(String campo, String valor){
+        SharedPreferences preferencias = getSharedPreferences("tiempo", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putString(campo, valor);
+        editor.apply();
+        finish();
+    }
+
+    //Al presionar el botón siguiente, este guarda las preferencias de la hora en formato String
+    public void Siguiente(View v){
+        guardar("lunes", lunes.getText().toString());
+        guardar("martes", martes.getText().toString());
+        guardar("miercoles", miercoles.getText().toString());
+        guardar("jueves", jueves.getText().toString());
+        guardar("viernes", viernes.getText().toString());
+        guardar("sabado", sabado.getText().toString());
+        guardar("domingo", domingo.getText().toString());
+
+        Intent i = new Intent(this, CuerpoActivity.class);
+        startActivity(i);
     }
 }

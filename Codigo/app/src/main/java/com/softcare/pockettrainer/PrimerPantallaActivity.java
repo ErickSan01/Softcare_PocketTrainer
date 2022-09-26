@@ -49,17 +49,6 @@ public class PrimerPantallaActivity extends AppCompatActivity {
     }
 
     public void iniciarCuestionario(View v){
-        /*
-        View v2 = findViewById(R.id.textView);
-        TextView text = (TextView) v2;
-        text.setText("sisisi");
-        */
-
-        /*
-        v.setEnabled(false);
-        Button b = (Button)v;
-        b.setText("Botón deshabilitado!");
-        */
 
         //Alertas
         //Toast.makeText(this, "Alerta!", Toast.LENGTH_LONG).show();
@@ -67,5 +56,9 @@ public class PrimerPantallaActivity extends AppCompatActivity {
         Intent i = new Intent(this, SeleccionHorarioActivity.class);
         startActivity(i);
         Log.d("iniciar cuesitonario", "Llendo a selección de horario");
+    }
+    public void ajustes(View v){
+        Intent i = new Intent(this, AjustesActivity.class);
+        startActivity(i);
     }
 }
