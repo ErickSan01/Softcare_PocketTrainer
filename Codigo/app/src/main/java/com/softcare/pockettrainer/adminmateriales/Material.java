@@ -2,24 +2,24 @@ package com.softcare.pockettrainer.adminmateriales;
 
 public class Material {
 
-    private int id_material;
+    private int idMaterial;
     private String nombre;
     private String descripcion;
-    private String set_imagenes;
+    private String setImagenes;
 
-    public Material(int id_material, String nombre, String descripcion, String set_imagenes) {
-        this.id_material = id_material;
+    public Material(int idMaterial, String nombre, String descripcion, String setImagenes) {
+        this.idMaterial = idMaterial;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.set_imagenes = set_imagenes;
+        this.setImagenes = setImagenes;
     }
 
-    public int getId_material() {
-        return id_material;
+    public int getIdMaterial() {
+        return idMaterial;
     }
 
-    public void setId_material(int id_material) {
-        this.id_material = id_material;
+    public void setIdMaterial(int idMaterial) {
+        this.idMaterial = idMaterial;
     }
 
     public String getNombre() {
@@ -38,9 +38,17 @@ public class Material {
         this.descripcion = descripcion;
     }
 
+    public String getSetImagenes() {
+        return setImagenes;
+    }
+
+    public void setSetImagenes(String setImagenes) {
+        this.setImagenes = setImagenes;
+    }
+
     @Override
     public String toString(){
-        return "id: "+id_material+" nombre: "+nombre;
+        return "id: "+idMaterial+" nombre: "+nombre;
     }
 
 }

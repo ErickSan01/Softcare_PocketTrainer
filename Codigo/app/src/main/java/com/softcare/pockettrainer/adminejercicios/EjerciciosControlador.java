@@ -21,8 +21,8 @@ public class EjerciciosControlador {
         ContentValues valoresParaInsertar = new ContentValues();
         valoresParaInsertar.put("nombre", ejercicio.getNombre());
         valoresParaInsertar.put("descripcion", ejercicio.getDescripcion());
-        valoresParaInsertar.put("set_imagenes", ejercicio.getId_material());
-        valoresParaInsertar.put("id_material",ejercicio.getId_material());
+        valoresParaInsertar.put("set_imagenes", ejercicio.getIdMaterial());
+        valoresParaInsertar.put("id_material",ejercicio.getIdMaterial());
         return baseDeDatos.insert(NOMBRE_TABLA, null, valoresParaInsertar);
     }
 
@@ -44,13 +44,13 @@ public class EjerciciosControlador {
         }
         if(!cursor.moveToFirst()) return ejercicios;
         do{
-            int id_ejercicio = cursor.getInt(0);
+            int idEjercicio = cursor.getInt(0);
             String nombre = cursor.getString(1);
             String descripcion = cursor.getString(2);
-            String set_imagenes = cursor.getString(3);
+            String setImagenes = cursor.getString(3);
 
             int id_material = cursor.getInt(4);
-            Ejercicio ejericio = new Ejercicio(id_ejercicio, nombre,descripcion,set_imagenes,id_material);
+            Ejercicio ejericio = new Ejercicio(idEjercicio, nombre,descripcion,setImagenes,id_material);
             ejercicios.add(ejericio);
         }while (cursor.moveToNext());
             cursor.close();
@@ -61,16 +61,16 @@ public class EjerciciosControlador {
         ContentValues valoresParaActualizar = new ContentValues();
         valoresParaActualizar.put("nombre", ejercicio.getNombre());
         valoresParaActualizar.put("descripcion", ejercicio.getDescripcion());
-        valoresParaActualizar.put("set_imagenes", ejercicio.getId_material());
-        valoresParaActualizar.put("id_material",ejercicio.getId_material());
+        valoresParaActualizar.put("set_imagenes", ejercicio.getIdMaterial());
+        valoresParaActualizar.put("id_material",ejercicio.getIdMaterial());
         String campoParaActualizar = "id = ?";
-        String[] argumentosParaActualizar = {String.valueOf(ejercicio.getId_ejercicio())};
+        String[] argumentosParaActualizar = {String.valueOf(ejercicio.getIdEjercicio())};
         return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
     }
 
     public int eliminarEjercicio(Ejercicio ejercicio) {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
-        String[] argumentos = {String.valueOf(ejercicio.getId_ejercicio())};
+        String[] argumentos = {String.valueOf(ejercicio.getIdEjercicio())};
         return baseDeDatos.delete(NOMBRE_TABLA, "id = ?", argumentos);
     }
 }
