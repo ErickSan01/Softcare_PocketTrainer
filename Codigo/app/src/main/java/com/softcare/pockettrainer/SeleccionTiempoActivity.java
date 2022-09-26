@@ -13,6 +13,8 @@ import android.widget.Button;;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
+import com.softcare.pockettrainer.rutinas.Rutinas;
+
 import java.util.Locale;
 
 public class SeleccionTiempoActivity extends AppCompatActivity {
@@ -213,6 +215,16 @@ public class SeleccionTiempoActivity extends AppCompatActivity {
         TimePickerDialog time_picker = new TimePickerDialog(this, style, time_listener, hora, minuto, false);
         time_picker.setTitle("Selecciona la hora:");
         time_picker.show();
+
+        Button hecho = (Button) findViewById(R.id.buttonHechoHorario);
+
+        hecho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent rutinas = new Intent(SeleccionTiempoActivity.this, Rutinas.class);
+                startActivity(rutinas);
+            }
+        });
     }
 
     //Guarda las preferencias según su campo y valor
