@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.softcare.pockettrainer.rutinas.Rutinas;
 
@@ -216,15 +217,15 @@ public class SeleccionTiempoActivity extends AppCompatActivity {
         time_picker.setTitle("Selecciona la hora:");
         time_picker.show();
 
-        Button hecho = (Button) findViewById(R.id.buttonHechoHorario);
+        /*Button hecho = (Button) findViewById(R.id.buttonHechoHorario);
 
         hecho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent rutinas = new Intent(SeleccionTiempoActivity.this, Rutinas.class);
-                startActivity(rutinas);
+                Intent i = new Intent(this, Rutinas.class);
+                startActivity(i);
             }
-        });
+        });*/
     }
 
     //Guarda las preferencias según su campo y valor
@@ -238,15 +239,48 @@ public class SeleccionTiempoActivity extends AppCompatActivity {
 
     //Al presionar el botón siguiente, este guarda las preferencias de la hora en formato String
     public void Siguiente(View v){
-        guardar("lunes", lunes.getText().toString());
-        guardar("martes", martes.getText().toString());
-        guardar("miercoles", miercoles.getText().toString());
-        guardar("jueves", jueves.getText().toString());
-        guardar("viernes", viernes.getText().toString());
-        guardar("sabado", sabado.getText().toString());
-        guardar("domingo", domingo.getText().toString());
 
-        Intent i = new Intent(this, CuerpoActivity.class);
-        startActivity(i);
+        if(verificarCampos()) {
+            guardar("lunes", lunes.getText().toString());
+            guardar("martes", martes.getText().toString());
+            guardar("miercoles", miercoles.getText().toString());
+            guardar("jueves", jueves.getText().toString());
+            guardar("viernes", viernes.getText().toString());
+            guardar("sabado", sabado.getText().toString());
+            guardar("domingo", domingo.getText().toString());
+
+            Intent i = new Intent(this, CuerpoActivity.class);
+            startActivity(i);
+        }else{
+            Toast.makeText(this, "Selecciona al menos una hora libre por día para ejercitarte", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    //Verifica si los campos de los tiempos están completos o no, si es asi regresa true
+    private boolean verificarCampos(){
+        boolean resultado = true;
+        if(dis_lunes){
+            resultado = !lunes.getText().toString().equals("");
+        }
+        if(dis_martes){
+            resultado = resultado && !martes.getText().toString().equals("");
+        }
+        if(dis_miercoles){
+            resultado = resultado && !miercoles.getText().toString().equals("");
+        }
+        if(dis_jueves){
+            resultado = resultado && !jueves.getText().toString().equals("");
+        }
+        if(dis_viernes){
+            resultado = resultado && !viernes.getText().toString().equals("");
+        }
+        if(dis_sabado){
+            resultado = resultado && !sabado.getText().toString().equals("");
+        }
+        if(dis_domingo){
+            resultado = resultado && !domingo.getText().toString().equals("");
+        }
+
+        return resultado;
     }
 }

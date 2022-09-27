@@ -70,6 +70,11 @@ public class MetaActivity extends AppCompatActivity {
         }
 
         editor.apply();
+
+        SharedPreferences datos = getSharedPreferences("primer_pantalla", MODE_PRIVATE);
+        SharedPreferences.Editor editor_datos = datos.edit();
+        editor_datos.putBoolean("tiene_datos",true);
+        editor_datos.apply();
         finish();
     }
 }
