@@ -79,4 +79,6 @@
     <string name="modificar_rutina">Modificar Rutina</string>
     <string name="back"><![CDATA[<]]></string>
 
+    <string name="title_activity_ejercicios_rutina">EjerciciosRutina</string>
+
 </resources>
