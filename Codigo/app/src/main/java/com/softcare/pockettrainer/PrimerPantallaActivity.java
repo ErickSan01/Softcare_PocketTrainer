@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-//import android.util.Log;
+
 
 
 public class PrimerPantallaActivity extends AppCompatActivity {
@@ -35,15 +35,15 @@ public class PrimerPantallaActivity extends AppCompatActivity {
 
     public void iniciarCuestionario(View v){
 
-        //Alertas
-        //Toast.makeText(this, "Alerta!", Toast.LENGTH_LONG).show();
 
-        Intent i = new Intent(this, SeleccionHorarioActivity.class);
+        Intent i = new Intent(this, SeleccionTiempoActivity.class);
         startActivity(i);
         Log.d("iniciar cuesitonario", "Llendo a selección de horario");
     }
+
     public void ajustes(View v){
         Intent i = new Intent(this, AjustesActivity.class);
         startActivity(i);
     }
+
 }

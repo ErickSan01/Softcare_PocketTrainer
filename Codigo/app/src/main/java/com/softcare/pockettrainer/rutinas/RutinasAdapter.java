@@ -8,31 +8,34 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.softcare.pockettrainer.R;
 
+import java.util.ArrayList;
+
 public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.ViewHolder>{
-    private String[] dias;
-    private Context context;
+    private final ArrayList<String> dias;
+    private final Context context;
 
     // RecyclerView recyclerView;
-    public RutinasAdapter(String[] listdata, Context context) {
+    public RutinasAdapter(ArrayList<String> listdata, Context context) {
         this.dias = listdata;
         this.context = context;
     }
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.rutinas_list_item, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
-        return viewHolder;
+        return new ViewHolder(listItem);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-        String diasSeleccionados = dias[position];
-        holder.textView.setText(dias[position]);
+        String diasSeleccionados = dias.get(position);
+        holder.textView.setText(dias.get(position));
         holder.relativeLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -45,7 +48,7 @@ public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.ViewHold
 
     @Override
     public int getItemCount(){
-        return dias.length;
+        return dias.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

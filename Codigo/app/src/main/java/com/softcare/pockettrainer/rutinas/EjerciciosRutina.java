@@ -26,6 +26,7 @@ public class EjerciciosRutina extends AppCompatActivity {
 
         Button btnEx = (Button) findViewById(R.id.backBtnEx);
 
+        /* ArrayList agregado para propositos de prueba, eliminar */
         ArrayList<String> ejerciciosPrueba  = new ArrayList<String>();
         ejerciciosPrueba.add("Sentadillas");
         ejerciciosPrueba.add("Zancadas Alternas");
@@ -39,6 +40,7 @@ public class EjerciciosRutina extends AppCompatActivity {
         listaEjercicios.setLayoutManager(new LinearLayoutManager(this));
         listaEjercicios.setAdapter(adapterEj);
 
+        /* Boton para regresar a la página de rutinas */
         btnEx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

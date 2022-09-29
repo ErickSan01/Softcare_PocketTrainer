@@ -1,5 +1,6 @@
 package com.softcare.pockettrainer.rutinas;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,23 +13,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.softcare.pockettrainer.R;
+import com.softcare.pockettrainer.SeleccionTiempoActivity;
+import com.softcare.pockettrainer.TutorialActivity;
 
 import java.util.ArrayList;
 
 public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.ViewHolder>{
-    private ArrayList<String> listaEjercicios;
+    private final ArrayList<String> listaEjercicios;
 
-    // RecyclerView recyclerView;
     public EjerciciosAdapter(ArrayList<String> ejercicios) {
         this.listaEjercicios = ejercicios;
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.rutina_ejercicios_list, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
-        return viewHolder;
+        return new ViewHolder(listItem);
     }
 
     @Override
@@ -41,8 +43,11 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
 
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
                 Toast.makeText(view.getContext(),"click on item: "+ ejercicios,Toast.LENGTH_LONG).show();
+                Intent i = new Intent(view.getContext(), TutorialActivity.class);
+                view.getContext().startActivity(i);
             }
         });
     }
