@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +15,9 @@ import com.softcare.pockettrainer.AyudanteBaseDeDatos;
 import com.softcare.pockettrainer.PrimerPantallaActivity;
 import com.softcare.pockettrainer.R;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
@@ -28,9 +32,10 @@ public class Rutinas extends AppCompatActivity {
         setContentView(R.layout.rutinas_activity);
         preferences = getSharedPreferences("dias", Rutinas.MODE_PRIVATE);
         Button backButton = (Button) findViewById(R.id.backBtn);
+        //Button modifBtn = (Button) findViewById(R.id.modifRutBtn);
         RecyclerView lista = (RecyclerView) findViewById(R.id.listaRutinas);
 
-        String[] dias = getDias();
+        ArrayList<String> dias = getDias();
 
         ayudante = new AyudanteBaseDeDatos(Rutinas.this);
         //SQLiteDatabase db = ayudante.getWritableDatabase();
@@ -40,6 +45,7 @@ public class Rutinas extends AppCompatActivity {
         lista.setLayoutManager(new LinearLayoutManager(this));
         lista.setAdapter(rutinasAdapter);
 
+        /* Boton para regresar a la página principal */
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -47,9 +53,24 @@ public class Rutinas extends AppCompatActivity {
                 startActivity(mainPage);
             }
         });
+
+        /*
+        modifBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                String value = leerArchivo();
+                Toast.makeText(Rutinas.this,"Archivo TXT: "+ value,Toast.LENGTH_LONG).show();
+            }
+        });
+         */
     }
 
-    public String[] getDias(){
+    /**
+     * Método para obtener los días libres según las preferencias que el usuario
+     * ingresó en el cuestionario inicial.
+     * @return Regresa un arreglo de Strings que contienen los días libres.
+     */
+    public ArrayList<String> getDias(){
         Map<String, ?> dias = preferences.getAll();
 
         ArrayList<String> diasArr = new ArrayList<String>();
@@ -62,18 +83,35 @@ public class Rutinas extends AppCompatActivity {
             valsArr.add((Boolean) val);
         }
 
-        String[] diasS = new String[7];
-        int posString = 0;
+        ArrayList<String> diasS = new ArrayList<String>();
 
         for(int pos = 0; pos < diasArr.size(); pos++){
             if(valsArr.get(pos)){
                 String dia = diasArr.get(pos);
                 dia = dia.substring(0,1).toUpperCase() + dia.substring(1);
-                diasS[posString] = dia;
-                posString++;
+                diasS.add(dia);
             }
         }
 
         return diasS;
+    }
+
+    public String leerArchivo(){
+        BufferedReader reader = null;
+        String result = "";
+
+        try {
+            reader = new BufferedReader(
+                    new InputStreamReader(getAssets().open("pruebaTxt.txt")));
+            String line = "";
+
+            while((line = reader.readLine()) != null){
+                result += line;
+            }
+        }catch (IOException ioe){
+            ioe.printStackTrace();
+        }
+
+        return result;
     }
 }

@@ -47,11 +47,11 @@
         android:id="@+id/checkBoxMiercoles"
         android:layout_width="112dp"
         android:layout_height="48dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="80dp"
         android:text="@string/seleccion_miercoles"
-        android:textSize="18sp"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
 
@@ -72,15 +72,13 @@
         android:id="@+id/checkBoxJueves"
         android:layout_width="90dp"
         android:layout_height="48dp"
-        android:layout_marginStart="156dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="6dp"
         android:text="@string/seleccion_jueves"
-        android:textSize="18sp"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/checkBoxViernes"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxMiercoles"
         app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
 
     <CheckBox
@@ -88,10 +86,10 @@
         android:layout_width="99dp"
         android:layout_height="48dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/seleccion_viernes"
-        android:textSize="18sp"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
 
