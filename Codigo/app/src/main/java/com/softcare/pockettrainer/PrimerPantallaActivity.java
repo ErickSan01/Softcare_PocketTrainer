@@ -11,7 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-//import android.util.Log;
+
 
 
 public class PrimerPantallaActivity extends AppCompatActivity {
@@ -49,23 +49,10 @@ public class PrimerPantallaActivity extends AppCompatActivity {
     }
 
     public void iniciarCuestionario(View v){
-        /*
-        View v2 = findViewById(R.id.textView);
-        TextView text = (TextView) v2;
-        text.setText("sisisi");
-        */
 
-        /*
-        v.setEnabled(false);
-        Button b = (Button)v;
-        b.setText("Botón deshabilitado!");
-        */
-
-        //Alertas
-        //Toast.makeText(this, "Alerta!", Toast.LENGTH_LONG).show();
-
-        Intent i = new Intent(this, SeleccionHorarioActivity.class);
+        Intent i = new Intent(this, SeleccionTiempoActivity.class);
         startActivity(i);
         Log.d("iniciar cuesitonario", "Llendo a selección de horario");
     }
+
 }
