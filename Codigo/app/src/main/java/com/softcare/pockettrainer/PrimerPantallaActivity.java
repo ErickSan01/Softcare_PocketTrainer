@@ -1,6 +1,7 @@
 package com.softcare.pockettrainer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,14 +17,19 @@ import android.view.MenuItem;
 
 public class PrimerPantallaActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    //private ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_primer_pantalla);
         setTitle("Home");
+
+        SharedPreferences datos = getSharedPreferences("primer_pantalla", MODE_PRIVATE);
+        boolean tieneTodosLosDatos = datos.getBoolean("tiene_datos",false);
+
+        if(tieneTodosLosDatos) {
+            Intent i = new Intent(this, AjustesActivity.class);
+            startActivity(i);
+        }
     }
 
     @Override

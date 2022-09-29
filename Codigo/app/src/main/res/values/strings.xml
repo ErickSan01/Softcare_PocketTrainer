@@ -61,6 +61,7 @@
     <string name="editar">Editar</string>
     <string name="cuerpo_elegido">Cuerpo base: </string>
     <string name="meta_elegido">Cuerpo objetivo: </string>
+    <string name="reset">Reiniciar ajustes</string>
 
     <string name="empty"> </string>
 
@@ -77,5 +78,7 @@
     <string name="actualizar_rutina">Actualizar Rutina</string>
     <string name="modificar_rutina">Modificar Rutina</string>
     <string name="back"><![CDATA[<]]></string>
+
     <string name="title_activity_ejercicios_rutina">EjerciciosRutina</string>
+
 </resources>

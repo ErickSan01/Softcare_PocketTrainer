@@ -132,4 +132,51 @@ public class AjustesActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void reset(View v){
+        SharedPreferences prefD = getSharedPreferences("dias", MODE_PRIVATE);
+        SharedPreferences prefT = getSharedPreferences("tiempo", MODE_PRIVATE);
+        SharedPreferences prefC = getSharedPreferences("cuerpo", MODE_PRIVATE);
+        SharedPreferences prefM = getSharedPreferences("meta", MODE_PRIVATE);
+        SharedPreferences datos = getSharedPreferences("primer_pantalla", MODE_PRIVATE);
+
+
+        SharedPreferences.Editor editorD = prefD.edit();
+        editorD.putBoolean("lunes",false);
+        editorD.putBoolean("martes",false);
+        editorD.putBoolean("miercoles",false);
+        editorD.putBoolean("jueves",false);
+        editorD.putBoolean("viernes",false);
+        editorD.putBoolean("sabado",false);
+        editorD.putBoolean("domingo",false);
+        editorD.apply();
+
+        SharedPreferences.Editor editorT = prefT.edit();
+        editorT.putString("lunes","");
+        editorT.putString("martes","");
+        editorT.putString("miercoles","");
+        editorT.putString("jueves","");
+        editorT.putString("viernes","");
+        editorT.putString("sabado","");
+        editorT.putString("domingo","");
+        editorT.apply();
+
+        SharedPreferences.Editor editorC = prefC.edit();
+        editorC.putBoolean("delgado",false);
+        editorC.putBoolean("robusto",false);
+        editorC.putBoolean("fornido",false);
+        editorC.apply();
+
+        SharedPreferences.Editor editorM = prefM.edit();
+        editorM.putBoolean("peso",false);
+        editorM.putBoolean("musculo",false);
+        editorM.putBoolean("ambos",false);
+        editorM.apply();
+
+        SharedPreferences.Editor D = datos.edit();
+        D.putBoolean("tiene_datos",false);
+        D.apply();
+
+        finish();
+    }
+
 }
