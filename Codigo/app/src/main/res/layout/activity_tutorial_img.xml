@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1F2124"
+    tools:context=".Tutorial_img">
+
+    <Button
+        android:id="@+id/btnlast"
+        android:layout_width="137dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="249dp"
+        android:backgroundTint="#A3DCEF"
+        android:onClick="lastImagen"
+        android:text="Step 3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="#A2B9ED"
+        android:text="Step By Step"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UnknownIdInLayout" />
+
+    <ImageView
+        android:id="@+id/tutoimg"
+        android:layout_width="343dp"
+        android:layout_height="292dp"
+        android:layout_marginTop="76dp"
+        android:background="#A3DCEF"
+        android:src="@drawable/logo_softcare"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnsteps"
+        tools:srcCompat="@drawable/logo_softcare" />
+
+    <Button
+        android:id="@+id/btnsteps"
+        android:layout_width="137dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="49dp"
+        android:backgroundTint="#A3DCEF"
+        android:onClick="previousImagen"
+        android:text="Step 1"
+        app:layout_constraintEnd_toStartOf="@+id/btnprev"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/btnprev"
+        android:layout_width="147dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#A3DCEF"
+        android:onClick="switchImagen"
+        android:text="Step 2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnsteps"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

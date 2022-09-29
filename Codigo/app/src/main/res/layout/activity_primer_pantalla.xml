@@ -44,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
+            android:ellipsize="none"
             android:onClick="iniciarCuestionario"
             android:text="@string/iniciar_cuestionario"
             android:textColor="@color/white"
@@ -64,6 +65,26 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewBienvenida" />
 
         <Button
+<<<<<<< HEAD
+            android:id="@+id/tutorialbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:onClick="iniciartutorial"
+            android:text="Tutorial"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar2"
+            android:layout_width="415dp"
+            android:layout_height="55dp"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            tools:layout_editor_absoluteX="1dp" />
+=======
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,6 +94,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewLema" />
+>>>>>>> 2923060fa226f7cfe1937e43f082ff42804e2c7b
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
