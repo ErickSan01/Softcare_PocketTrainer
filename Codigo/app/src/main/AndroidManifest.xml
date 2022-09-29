@@ -16,24 +16,21 @@
         android:theme="@style/Theme.PocketTrainer"
         tools:targetApi="31" >
         <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".rutinas.EjerciciosRutina"
             android:exported="false"
             android:label="@string/title_activity_ejercicios_rutina"
             android:theme="@style/Theme.PocketTrainer.NoActionBar" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".adminejercicios.ActivityEditarEjercicio"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".adminejercicios.ActivityAgregarEjercicio"
-            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -81,26 +78,9 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".PantallaPrincipalActivity"
-            android:exported="false"
-            android:label="@string/title_activity_pantalla_principal"
-            android:theme="@style/Theme.PocketTrainer.NoActionBar" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".PrimerPantallaActivity"
             android:exported="true"
-            android:theme="@style/Theme.PocketTrainer.NoActionBar">
-            android:label="@string/app_name"
-            android:theme="@style/Theme.PocketTrainer.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.PocketTrainer.NoActionBar" />
         <activity
             android:name=".rutinas.Rutinas"
             android:exported="false"
