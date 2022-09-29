@@ -19,19 +19,18 @@ import com.softcare.pockettrainer.TutorialActivity;
 import java.util.ArrayList;
 
 public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.ViewHolder>{
-    private ArrayList<String> listaEjercicios;
+    private final ArrayList<String> listaEjercicios;
 
-    // RecyclerView recyclerView;
     public EjerciciosAdapter(ArrayList<String> ejercicios) {
         this.listaEjercicios = ejercicios;
     }
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.rutina_ejercicios_list, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
-        return viewHolder;
+        return new ViewHolder(listItem);
     }
 
     @Override
