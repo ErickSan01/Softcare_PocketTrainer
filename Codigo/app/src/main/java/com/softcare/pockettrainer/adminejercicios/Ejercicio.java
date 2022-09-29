@@ -6,26 +6,26 @@ import android.os.strictmode.SqliteObjectLeakedViolation;
 import java.sql.Blob;
 public class Ejercicio {
 
-    private int id_ejercicio;
+    private int idEjercicio;
     private String nombre;
     private String descripcion;
-    private String set_imagenes;
-    private int id_material;
+    private String setImagenes;
+    private int idMaterial;
 
-    public Ejercicio(int id_ejercicio, String nombre, String descripcion, String set_imagenes, int id_material) {
-        this.id_ejercicio = id_ejercicio;
+    public Ejercicio(int idEjercicio, String nombre, String descripcion, String setImagenes, int idMaterial) {
+        this.idEjercicio = idEjercicio;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.set_imagenes = set_imagenes;
-        this.id_material = id_material;
+        this.setImagenes = setImagenes;
+        this.idMaterial = idMaterial;
     }
 
-    public int getId_ejercicio() {
-        return id_ejercicio;
+    public int getIdEjercicio() {
+        return idEjercicio;
     }
 
-    public void setId_ejercicio(int id_ejercicio) {
-        this.id_ejercicio = id_ejercicio;
+    public void setIdEjercicio(int idEjercicio) {
+        this.idEjercicio = idEjercicio;
     }
 
     public String getNombre() {
@@ -44,16 +44,24 @@ public class Ejercicio {
         this.descripcion = descripcion;
     }
 
-    public int getId_material() {
-        return id_material;
+    public String getSetImagenes() {
+        return setImagenes;
     }
 
-    public void setId_material(int id_material) {
-        this.id_material = id_material;
+    public void setSetImagenes(String setImagenes) {
+        this.setImagenes = setImagenes;
     }
-    @Override
+
+    public int getIdMaterial() {
+        return idMaterial;
+    }
+
+    public void setIdMaterial(int idMaterial) {
+        this.idMaterial = idMaterial;
+    }
+
     public String toString(){
-        return "id: "+id_ejercicio+" nombre: "+nombre;
+        return "id: "+idEjercicio+" nombre: "+nombre;
     }
 
 }

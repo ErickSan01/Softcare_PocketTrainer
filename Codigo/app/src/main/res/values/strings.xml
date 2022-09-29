@@ -39,4 +39,46 @@
     <string name="siguiente">Siguiente</string>
     <string name="title_activity_seleccion_tiempo">SeleccionTiempoActivity</string>
 
+    <string name="cuerpo">Selecciona la complexión de cuerpo con el que tengas más parecido:</string>
+    <string name="delgado">Delgado/a</string>
+    <string name="robusto">Robusto/a</string>
+    <string name="fuerte">Fornido</string>
+
+    <string name="meta">Selecciona tu meta objetivo:</string>
+    <string name="bajar">Bajar de peso</string>
+    <string name="masa_muscular">Masa muscular</string>
+    <string name="ambos">Ambos!</string>
+
+    <string name="terminado">Perfecto! Hemos terminado tu configuración inicial, ya estás listo para tu primer rutina.</string>
+    <string name="recuerda">Recuerda que siempre puedes cambiar estas preferencias en la pantalla de ajustes en cualquier momento.</string>
+    <string name="comenzar_button">Comenzar!</string>
+
+    <string name="ajustes">Preferencias</string>
+    <string name="cambiar">Cambiar</string>
+    <string name="ver">Ver</string>
+    <string name="horario">Mi horario: </string>
+
+    <string name="editar">Editar</string>
+    <string name="cuerpo_elegido">Cuerpo base: </string>
+    <string name="meta_elegido">Cuerpo objetivo: </string>
+    <string name="reset">Reiniciar ajustes</string>
+
+    <string name="empty"> </string>
+
+    <string name="menu">menu</string>
+    <string name="mi_rutina">Mi Rutina</string>
+    <string name="parte_a_trabajar">Parte a Trabajar</string>
+    <string name="pierna">Pierna</string>
+    <string name="brazo">Brazo</string>
+    <string name="abdomen">Abdomen</string>
+    <string name="espalda">Espalda</string>
+    <string name="lunes">Lunes</string>
+    <string name="martes">Martes</string>
+    <string name="viernes">Viernes</string>
+    <string name="actualizar_rutina">Actualizar Rutina</string>
+    <string name="modificar_rutina">Modificar Rutina</string>
+    <string name="back"><![CDATA[<]]></string>
+
+    <string name="title_activity_ejercicios_rutina">EjerciciosRutina</string>
+
 </resources>

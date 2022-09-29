@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.softcare.pockettrainer">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:background="#9A9CE9"
@@ -51,6 +53,15 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".rutinas.EjerciciosRutina"
+            android:exported="false"
+            android:label="@string/title_activity_ejercicios_rutina"
+            android:theme="@style/Theme.PocketTrainer.NoActionBar" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".adminejercicios.ActivityEditarEjercicio"
             android:exported="false">
             <meta-data
@@ -65,15 +76,43 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".AjustesActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ListoActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MetaActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".CuerpoActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SeleccionTiempoActivity"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".SeleccionHorarioActivity"
-            android:exported="false">
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -82,7 +121,7 @@
             android:name=".PantallaPrincipalActivity"
             android:exported="false"
             android:label="@string/title_activity_pantalla_principal"
-            android:theme="@style/Theme.PocketTrainer.NoActionBar">
+            android:theme="@style/Theme.PocketTrainer.NoActionBar" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -90,6 +129,7 @@
         <activity
             android:name=".PrimerPantallaActivity"
             android:exported="true"
+            android:theme="@style/Theme.PocketTrainer.NoActionBar">
             android:label="@string/app_name"
             android:theme="@style/Theme.PocketTrainer.NoActionBar">
             <intent-filter>
@@ -97,6 +137,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".rutinas.Rutinas"
+            android:exported="false"
+            android:theme="@style/Theme.PocketTrainer.NoActionBar" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
     </application>
 

@@ -1,6 +1,7 @@
 package com.softcare.pockettrainer;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,14 +17,19 @@ import android.view.MenuItem;
 
 public class PrimerPantallaActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    //private ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_primer_pantalla);
         setTitle("Home");
+
+        SharedPreferences datos = getSharedPreferences("primer_pantalla", MODE_PRIVATE);
+        boolean tieneTodosLosDatos = datos.getBoolean("tiene_datos",false);
+
+        if(tieneTodosLosDatos) {
+            Intent i = new Intent(this, AjustesActivity.class);
+            startActivity(i);
+        }
     }
 
     @Override
@@ -50,9 +56,23 @@ public class PrimerPantallaActivity extends AppCompatActivity {
 
     public void iniciarCuestionario(View v){
 
+<<<<<<< HEAD
         Intent i = new Intent(this, SeleccionTiempoActivity.class);
         startActivity(i);
         Log.d("iniciar cuesitonario", "Llendo a selección de horario");
     }
 
+=======
+        //Alertas
+        //Toast.makeText(this, "Alerta!", Toast.LENGTH_LONG).show();
+
+        Intent i = new Intent(this, SeleccionHorarioActivity.class);
+        startActivity(i);
+        Log.d("iniciar cuesitonario", "Llendo a selección de horario");
+    }
+    public void ajustes(View v){
+        Intent i = new Intent(this, AjustesActivity.class);
+        startActivity(i);
+    }
+>>>>>>> 2923060fa226f7cfe1937e43f082ff42804e2c7b
 }

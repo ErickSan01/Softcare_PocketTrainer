@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo"
     tools:context=".PrimerPantallaActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +22,7 @@
             android:text="@string/comenzar"
             android:textAlignment="center"
             android:textSize="24sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewLema" />
@@ -32,6 +34,7 @@
             android:layout_marginTop="128dp"
             android:text="@string/bienvenida"
             android:textSize="20sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -44,6 +47,7 @@
             android:ellipsize="none"
             android:onClick="iniciarCuestionario"
             android:text="@string/iniciar_cuestionario"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewComenzar" />
@@ -55,11 +59,13 @@
             android:layout_marginTop="42dp"
             android:text="@string/lema"
             android:textSize="20sp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewBienvenida" />
 
         <Button
+<<<<<<< HEAD
             android:id="@+id/tutorialbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,6 +84,17 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
             tools:layout_editor_absoluteX="1dp" />
+=======
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ajustes"
+            android:text="Ajustes"
+            app:layout_constraintBottom_toTopOf="@+id/textViewComenzar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLema" />
+>>>>>>> 2923060fa226f7cfe1937e43f082ff42804e2c7b
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
