@@ -12,7 +12,7 @@
         android:layout_width="299dp"
         android:layout_height="55dp"
         android:text="@string/seleccion_horas"
-        android:textColor="@color/white"
+        android:textColor="#A2B9ED"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="44dp" />

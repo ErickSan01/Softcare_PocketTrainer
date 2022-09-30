@@ -18,7 +18,7 @@ public class MaterialActivity extends AppCompatActivity {
     public void switchImagen(View v){
         Log.i("Info", "Button pressed");
         ImageView image = (ImageView) findViewById(R.id.ivstr);
-        image.setImageResource(R.drawable.pockettrainer);
+        image.setImageResource(R.drawable.logo_pt);
     }
 
     public void previousImagen(View v){
@@ -30,6 +30,6 @@ public class MaterialActivity extends AppCompatActivity {
     public void lastImagen(View v){
         Log.i("Info", "Button pressed");
         ImageView image = (ImageView) findViewById(R.id.ivstr);
-        image.setImageResource(R.drawable.pockettrainer);
+        image.setImageResource(R.drawable.logo_pt);
     }
 }

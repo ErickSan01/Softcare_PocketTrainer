@@ -13,7 +13,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="36dp"
         android:text="@string/seleccion_horario"
-        android:textColor="@color/white"
+        android:textColor="#A2B9ED"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
