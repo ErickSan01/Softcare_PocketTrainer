@@ -1,0 +1,4 @@
+26,Estocada,estocada1,estocada2,estocada3,pierna,bajarPeso,3
+29,Sentadilla de Oso,sentadillaAbrazoDeOso1,sentadillaAbrazoDeOso2,pierna,bajarPeso,3
+30,Zancada,zancada1,zancada2,pierna,bajarPeso,1
+31,Sentadilla,sentadilla1,sentadilla2,pierna,bajarPeso,3

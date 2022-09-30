@@ -6,10 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_main" />
+
     <Button
         android:id="@+id/btnRutinas"
-        android:layout_width="212dp"
-        android:layout_height="66dp"
+        android:layout_width="202dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="5dp"
         android:layout_weight="1"
         android:text="Mi Rutina"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,8 +28,9 @@
 
     <Button
         android:id="@+id/btnAjustes"
-        android:layout_width="205dp"
-        android:layout_height="66dp"
+        android:layout_width="193dp"
+        android:layout_height="61dp"
+        android:layout_marginEnd="5dp"
         android:layout_weight="1"
         android:text="Ajustes"
         app:layout_constraintBottom_toBottomOf="parent"

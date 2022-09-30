@@ -5,13 +5,22 @@ public class Material {
     private int idMaterial;
     private String nombre;
     private String descripcion;
-    private String setImagenes;
+    private String imagen1;
+    private String imagen2;
 
-    public Material(int idMaterial, String nombre, String descripcion, String setImagenes) {
+    public Material(int idMaterial, String nombre, String descripcion, String imagen) {
         this.idMaterial = idMaterial;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.setImagenes = setImagenes;
+        imagen1 = imagen;
+    }
+
+    public Material(int idMaterial, String nombre, String descripcion, String imagen1, String imagen2) {
+        this.idMaterial = idMaterial;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.imagen1 = imagen1;
+        this.imagen2 = imagen2;
     }
 
     public int getIdMaterial() {
@@ -38,12 +47,20 @@ public class Material {
         this.descripcion = descripcion;
     }
 
-    public String getSetImagenes() {
-        return setImagenes;
+    public String getImagen1() {
+        return imagen1;
     }
 
-    public void setSetImagenes(String setImagenes) {
-        this.setImagenes = setImagenes;
+    public void setImagen1(String imagen1) {
+        this.imagen1 = imagen1;
+    }
+
+    public String getImagen2() {
+        return imagen2;
+    }
+
+    public void setImagen2(String imagen2) {
+        this.imagen2 = imagen2;
     }
 
     @Override

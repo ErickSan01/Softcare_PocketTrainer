@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.softcare.pockettrainer.AyudanteBaseDeDatos;
+import com.softcare.pockettrainer.MainActivity;
 import com.softcare.pockettrainer.PrimerPantallaActivity;
 import com.softcare.pockettrainer.R;
 
@@ -32,13 +33,11 @@ public class Rutinas extends AppCompatActivity {
         setContentView(R.layout.rutinas_activity);
         preferences = getSharedPreferences("dias", Rutinas.MODE_PRIVATE);
         Button backButton = (Button) findViewById(R.id.backBtn);
-        //Button modifBtn = (Button) findViewById(R.id.modifRutBtn);
         RecyclerView lista = (RecyclerView) findViewById(R.id.listaRutinas);
 
         ArrayList<String> dias = getDias();
 
-        ayudante = new AyudanteBaseDeDatos(Rutinas.this);
-        //SQLiteDatabase db = ayudante.getWritableDatabase();
+        ayudante = new AyudanteBaseDeDatos(this);
 
         RutinasAdapter rutinasAdapter = new RutinasAdapter(dias, this);
         lista.setHasFixedSize(false);
@@ -49,20 +48,10 @@ public class Rutinas extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent mainPage = new Intent(Rutinas.this, PrimerPantallaActivity.class);
+                Intent mainPage = new Intent(Rutinas.this, MainActivity.class);
                 startActivity(mainPage);
             }
         });
-
-        /*
-        modifBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                String value = leerArchivo();
-                Toast.makeText(Rutinas.this,"Archivo TXT: "+ value,Toast.LENGTH_LONG).show();
-            }
-        });
-         */
     }
 
     /**

@@ -17,19 +17,21 @@ public class MaterialesControlador {
         ayudanteBaseDeDatos = new AyudanteBaseDeDatos(contexto);
     }
 
-    public long nuevoEjercicio(Material material){
+    public long nuevoMaterial(Material material){
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         ContentValues valoresParaInsertar = new ContentValues();
+        valoresParaInsertar.put("id_material", material.getIdMaterial());
         valoresParaInsertar.put("nombre", material.getNombre());
         valoresParaInsertar.put("descripcion", material.getDescripcion());
-        valoresParaInsertar.put("set_imagenes", material.getIdMaterial());
+        valoresParaInsertar.put("imagen1", material.getImagen1());
+        valoresParaInsertar.put("imagen2", material.getImagen2());
         return baseDeDatos.insert(NOMBRE_TABLA, null, valoresParaInsertar);
     }
 
     public ArrayList<Material> obtenermaterial(){
         ArrayList<Material> Materiales = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
-        String[] columnas = {"nombre","descripcion","set_imagenes"};
+        String[] columnas = {"id_material","nombre","descripcion","imagen1", "imagen2"};
         Cursor cursor = sqLiteDatabase.query(
                 NOMBRE_TABLA,
                 columnas,
@@ -47,8 +49,14 @@ public class MaterialesControlador {
             int id_material = cursor.getInt(0);
             String nombre = cursor.getString(1);
             String descripcion = cursor.getString(2);
-            String setImagenes = cursor.getString(3);
-            Material material = new Material(id_material, nombre,descripcion,setImagenes);
+            String imagen1 = cursor.getString(3);
+            String imagen2 = cursor.getString(4);
+            Material material = null;
+            if (imagen2 != null){
+                material = new Material(id_material, nombre,descripcion,imagen1, imagen2);
+            } else {
+                material = new Material(id_material, nombre,descripcion,imagen1);
+            }
             Materiales.add(material);
         }while (cursor.moveToNext());
         cursor.close();
