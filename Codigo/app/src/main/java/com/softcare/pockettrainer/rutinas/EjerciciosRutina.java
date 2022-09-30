@@ -34,7 +34,7 @@ public class EjerciciosRutina extends AppCompatActivity {
         Rutinas rutinas = new Rutinas();
         ArrayList<Ejercicio> rutina = rutinas.createRutina(meta, this);
 
-        EjerciciosAdapter adapterEj = new EjerciciosAdapter(rutina);
+        EjerciciosAdapter adapterEj = new EjerciciosAdapter(rutina, rutinas);
 
         listaEjercicios.setHasFixedSize(false);
         listaEjercicios.setLayoutManager(new LinearLayoutManager(this));

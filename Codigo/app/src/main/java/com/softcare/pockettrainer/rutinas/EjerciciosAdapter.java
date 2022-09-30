@@ -2,13 +2,18 @@ package com.softcare.pockettrainer.rutinas;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.res.AssetManager;
+import android.graphics.BitmapFactory;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,13 +21,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.softcare.pockettrainer.R;
 import com.softcare.pockettrainer.TutorialActivity;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.ViewHolder>{
     private final ArrayList<Ejercicio> listaEjercicios;
+    Context context;
 
-    public EjerciciosAdapter(ArrayList<Ejercicio> ejercicios) {
+    public EjerciciosAdapter(ArrayList<Ejercicio> ejercicios, Context context) {
         this.listaEjercicios = ejercicios;
+        this.context = context;
     }
 
     @NonNull
@@ -47,6 +56,26 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
             public void onClick(View view) {
                 Toast.makeText(view.getContext(),"click on item: "+ ejercicios,Toast.LENGTH_LONG).show();
                 Intent i = new Intent(view.getContext(), TutorialActivity.class);
+                ImageView imageTutorial = view.findViewById(R.id.imageView2);
+
+                System.out.println(imageTutorial);
+
+                String imagen = "imagenes/"+ ejercicios.getImagen1()+".jpeg";
+
+                //AssetManager assetManager = context.getAssets();
+
+                InputStream istr = null;
+                try {
+                    istr = view.getContext().getAssets().open(imagen);
+                    Bitmap bitmap = BitmapFactory.decodeStream(istr);
+                    System.out.println(bitmap);
+                    istr.close();
+
+                    imageTutorial.setImageBitmap(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 view.getContext().startActivity(i);
             }
         });
