@@ -22,7 +22,7 @@ public class ListoActivity extends AppCompatActivity {
         buttonComenzar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent rutina = new Intent(ListoActivity.this, Rutinas.class);
+                Intent rutina = new Intent(ListoActivity.this, MainActivity.class);
                 startActivity(rutina);
             }
         });
