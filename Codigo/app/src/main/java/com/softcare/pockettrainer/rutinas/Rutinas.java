@@ -133,12 +133,12 @@ public class Rutinas extends AppCompatActivity {
                 partesCuerpoM.add("Hombros");
                 partesCuerpoM.add("Pierna");
 
-                int randomM = (int) ((Math.random() * (4)) + 0);
+                int randomM = (int) ((Math.random() * (2)) + 0);
 
                 String parteCuerpoM = partesCuerpoM.get(randomM);
 
                 for (Ejercicio ejA : ejercicios){
-                    if(ejA.getCategoria().toLowerCase().equals(meta.toLowerCase())){
+                    if(ejA.getCategoria().toLowerCase().equals("aumentarmasa")){
                         if(ejA.getParteCuerpo().toLowerCase().equals(parteCuerpoM.toLowerCase())){
                             ejerciciosRutina.add(ejA);
                         }
@@ -150,12 +150,12 @@ public class Rutinas extends AppCompatActivity {
                 partesCuerpoP.add("Pecho");
                 partesCuerpoP.add("Pierna");
 
-                int randomP = (int) ((Math.random() * (3)) + 0);
+                int randomP = (int) ((Math.random() * (1)) + 0);
 
                 String parteCuerpoP = partesCuerpoP.get(randomP);
 
                 for (Ejercicio ejA : ejercicios){
-                    if(ejA.getCategoria().toLowerCase().equals(meta.toLowerCase())){
+                    if(ejA.getCategoria().toLowerCase().equals("bajarpeso")){
                         if(ejA.getParteCuerpo().toLowerCase().equals(parteCuerpoP.toLowerCase())){
                             ejerciciosRutina.add(ejA);
                         }
@@ -170,7 +170,7 @@ public class Rutinas extends AppCompatActivity {
                 partesCuerpoA.add("Pecho");
                 partesCuerpoA.add("Pierna");
 
-                int randomA = (int) ((Math.random() * (5)) + 0);
+                int randomA = (int) ((Math.random() * (4)) + 0);
 
                 String parteCuerpo = partesCuerpoA.get(randomA);
 
