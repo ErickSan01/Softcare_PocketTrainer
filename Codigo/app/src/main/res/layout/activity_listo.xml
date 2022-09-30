@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1F2124"
     tools:context=".ListoActivity">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_marginTop="84dp"
         android:text="@string/terminado"
         android:textAlignment="center"
+        android:textColor="#A2B9ED"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -26,6 +28,7 @@
         android:layout_marginTop="40dp"
         android:text="@string/recuerda"
         android:textAlignment="center"
+        android:textColor="#A2B9ED"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
