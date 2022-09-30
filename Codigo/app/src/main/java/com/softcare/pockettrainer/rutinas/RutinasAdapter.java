@@ -17,12 +17,14 @@ import java.util.ArrayList;
 
 public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.ViewHolder>{
     private final ArrayList<String> dias;
+    private final ArrayList<Ejercicio> rutina;
     private final Context context;
 
     // RecyclerView recyclerView;
-    public RutinasAdapter(ArrayList<String> listdata, Context context) {
+    public RutinasAdapter(ArrayList<String> listdata, Context context, ArrayList<Ejercicio> ejercicios) {
         this.dias = listdata;
         this.context = context;
+        rutina = ejercicios;
     }
     @NonNull
     @Override

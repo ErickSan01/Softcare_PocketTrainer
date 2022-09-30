@@ -1,4 +1,4 @@
-26,Estocada,estocada1,estocada2,estocada3,pierna,bajarPeso,3
-29,Sentadilla de Oso,sentadillaAbrazoDeOso1,sentadillaAbrazoDeOso2,pierna,bajarPeso,3
-30,Zancada,zancada1,zancada2,pierna,bajarPeso,1
-31,Sentadilla,sentadilla1,sentadilla2,pierna,bajarPeso,3
+26,Estocada,estocada1,estocada2,estocada3,pierna,bajarPeso,Tumbados boca arriba y con las piernas abiertas en mariposa y las plantas de los pies juntas. Con los codos apoyados eleva el glúteo hacia el techo y contrae al máximo aguantando un segundo y baja,3
+29,Sentadilla de Oso,sentadillaAbrazoDeOso1,sentadillaAbrazoDeOso2,pierna,bajarPeso,Parado con los pies un poco más separados que el ancho de los hombros con tu mochila sentada en el suelo verticalmente entre tus pies. Ponte en posición de sentadilla y tira de la mochila hacia tu pecho abrazando la mochila con ambos brazos y volviendo a la posición de pie,3
+30,Zancada,zancada1,zancada2,pierna,bajarPeso,De pie manos a ambos lados del cuerpo con mancuernas y damos un paso hacia adelante con la espalda recta y el torso perpendicular al suelo luego repetimos pero ahora con el otro pie,1
+31,Sentadilla,sentadilla1,sentadilla2,pierna,bajarPeso,Sitúate de pie con las piernas un poco separadas intentando mantener un buen equilibrio. Comienza el movimiento agachándote llevando los glúteos hacia atrás,3

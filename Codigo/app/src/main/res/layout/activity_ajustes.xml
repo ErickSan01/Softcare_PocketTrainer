@@ -14,7 +14,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
         android:text="@string/ajustes"
-        android:textColor="#A2B9ED"
         android:textSize="24sp"
         android:textColor="@color/texto"
         app:layout_constraintStart_toStartOf="parent"

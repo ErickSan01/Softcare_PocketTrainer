@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Rutina {
-    private ArrayList<Integer> listaEjercicios;
+    private ArrayList<Ejercicio> listaEjercicios;
 
 
-    public Rutina(ArrayList<Integer> listaEjercicios){
+    public Rutina(ArrayList<Ejercicio> listaEjercicios){
         this.listaEjercicios = listaEjercicios;
     }
 
@@ -17,15 +17,15 @@ public class Rutina {
 
     }
 
-    public void setListaEjercicios(ArrayList<Integer> listaEjercicios){
+    public void setListaEjercicios(ArrayList<Ejercicio> listaEjercicios){
         this.listaEjercicios = listaEjercicios;
     }
 
-    public void agregarEjercicio(Integer id_ejercicio){
-        listaEjercicios.add(id_ejercicio);
+    public void agregarEjercicio(Ejercicio ejercicio){
+        listaEjercicios.add(ejercicio);
     }
 
-    public ArrayList<Integer> getListaEjercicios() {
+    public ArrayList<Ejercicio> getListaEjercicios() {
         return listaEjercicios;
     }
 

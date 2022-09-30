@@ -1,5 +1,6 @@
 package com.softcare.pockettrainer.rutinas;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.softcare.pockettrainer.R;
-import com.softcare.pockettrainer.SeleccionTiempoActivity;
 import com.softcare.pockettrainer.TutorialActivity;
 
 import java.util.ArrayList;
 
 public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.ViewHolder>{
-    private final ArrayList<String> listaEjercicios;
+    private final ArrayList<Ejercicio> listaEjercicios;
 
-    public EjerciciosAdapter(ArrayList<String> ejercicios) {
+    public EjerciciosAdapter(ArrayList<Ejercicio> ejercicios) {
         this.listaEjercicios = ejercicios;
     }
 
@@ -36,8 +36,8 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
         System.out.println(position);
-        String ejercicios = listaEjercicios.get(position);
-        holder.textView.setText(listaEjercicios.get(position));
+        Ejercicio ejercicios = listaEjercicios.get(position);
+        holder.textView.setText(ejercicios.getNombre());
         holder.cbSelect.setChecked(false);
         holder.cbSelect.setOnCheckedChangeListener(null);
 

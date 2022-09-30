@@ -1,6 +1,7 @@
 package com.softcare.pockettrainer.rutinas;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,10 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.softcare.pockettrainer.R;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class EjerciciosRutina extends AppCompatActivity {
     private RecyclerView listaEjercicios;
     private Button btnEx;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,18 +26,14 @@ public class EjerciciosRutina extends AppCompatActivity {
         setContentView(R.layout.activity_ejercicios_rutina);
 
         listaEjercicios = (RecyclerView) findViewById(R.id.listaEjercicios);
+        preferences = getSharedPreferences("meta", MODE_PRIVATE);
+        Map<String, ?> meta = preferences.getAll();
 
         Button btnEx = (Button) findViewById(R.id.backBtnEx);
 
-        /* ArrayList agregado para propositos de prueba, eliminar */
-        ArrayList<String> ejerciciosPrueba  = new ArrayList<String>();
-        ejerciciosPrueba.add("Sentadillas");
-        ejerciciosPrueba.add("Zancadas Alternas");
-        ejerciciosPrueba.add("Burpees");
-        ejerciciosPrueba.add("Puente");
-        ejerciciosPrueba.add("Gemelos");
+        Rutinas rutinas = new Rutinas();
 
-        EjerciciosAdapter adapterEj = new EjerciciosAdapter(ejerciciosPrueba);
+        EjerciciosAdapter adapterEj = new EjerciciosAdapter(rutinas.createRutina(meta, this));
 
         listaEjercicios.setHasFixedSize(false);
         listaEjercicios.setLayoutManager(new LinearLayoutManager(this));

@@ -1,2 +1,2 @@
-9, Press Militar, pressMilitar1, pressMilitar2, brazo, ambos, En el suelo sentado se debe cargar la mochila a una altura arriba del hombro para posteriormente levantar la mochila con los brazos.,3
-10, Remo, remo1, remo2, brazo, ambos, En una postura inclinada se debe agarrar la mochila con ambos brazos y contraer los brazos hacia atrás llevando hasta el abdomen la mochila.,3
+9, Press Militar,pressMilitar1,pressMilitar2,brazo,ambos,En el suelo sentado se debe cargar la mochila a una altura arriba del hombro para posteriormente levantar la mochila con los brazos.,3
+10,Remo,remo1,remo2,brazo,ambos,En una postura inclinada se debe agarrar la mochila con ambos brazos y contraer los brazos hacia atrás llevando hasta el abdomen la mochila.,3

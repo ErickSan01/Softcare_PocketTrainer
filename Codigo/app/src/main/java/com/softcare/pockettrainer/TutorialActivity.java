@@ -6,7 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.softcare.pockettrainer.rutinas.Ejercicio;
+
 public class TutorialActivity extends AppCompatActivity {
+    private Ejercicio ejercicio = null;
+
+    public TutorialActivity(){
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +23,7 @@ public class TutorialActivity extends AppCompatActivity {
     public void verImagen(View v){
         Intent img = new Intent(this, Tutorial_img.class);
         startActivity(img);
+        System.out.println(ejercicio);
     }
 
     public void verGif(View v){

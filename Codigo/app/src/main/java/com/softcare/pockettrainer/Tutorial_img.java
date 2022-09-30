@@ -9,7 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.softcare.pockettrainer.rutinas.Ejercicio;
+
 public class Tutorial_img extends AppCompatActivity {
+    private Ejercicio ejercicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

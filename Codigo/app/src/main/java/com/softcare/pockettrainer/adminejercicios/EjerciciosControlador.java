@@ -33,8 +33,9 @@ public class EjerciciosControlador {
         return baseDeDatos.insert(NOMBRE_TABLA, null, valoresParaInsertar);
     }
 
-    public ArrayList<Ejercicio> obtenerEjercicio(){
+    public ArrayList<Ejercicio> obtenerEjercicio(Context context){
         ArrayList<Ejercicio> ejercicios = new ArrayList<>();
+        AyudanteBaseDeDatos ayudanteBaseDeDatos = new AyudanteBaseDeDatos(context);
         SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
         String[] columnas = {"id_ejercicio","nombre","categoria","imagen1", "imagen2", "imagen3", "parteCuerpo", "descripcion", "id_material"};
         Cursor cursor = sqLiteDatabase.query(

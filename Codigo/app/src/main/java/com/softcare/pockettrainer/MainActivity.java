@@ -19,15 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences datos = getSharedPreferences("primer_pantalla", MODE_PRIVATE);
         boolean tieneTodosLosDatos = datos.getBoolean("tiene_datos",false);
-<<<<<<< HEAD
 
         if(!tieneTodosLosDatos) {
             Intent i = new Intent(this, PrimerPantallaActivity.class);
             startActivity(i);
         }
 
-=======
->>>>>>> 6885a2c2ced94cc94d1bfb25fbe153ce21537377
 
         if(!tieneTodosLosDatos) {
             Intent i = new Intent(this, PrimerPantallaActivity.class);
