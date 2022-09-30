@@ -133,7 +133,7 @@ public class Rutinas extends AppCompatActivity {
                 partesCuerpoM.add("Hombros");
                 partesCuerpoM.add("Pierna");
 
-                int randomM = (int) ((Math.random() * (5)) + 0);
+                int randomM = (int) ((Math.random() * (4)) + 0);
 
                 String parteCuerpoM = partesCuerpoM.get(randomM);
 
@@ -150,7 +150,7 @@ public class Rutinas extends AppCompatActivity {
                 partesCuerpoP.add("Pecho");
                 partesCuerpoP.add("Pierna");
 
-                int randomP = (int) ((Math.random() * (5)) + 0);
+                int randomP = (int) ((Math.random() * (3)) + 0);
 
                 String parteCuerpoP = partesCuerpoP.get(randomP);
 
