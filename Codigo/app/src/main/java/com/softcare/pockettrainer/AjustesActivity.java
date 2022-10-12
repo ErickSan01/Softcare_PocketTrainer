@@ -128,6 +128,7 @@ public class AjustesActivity extends AppCompatActivity {
     }
 
     public void editar(View view){
+        reset(view);
         Intent i = new Intent(this, PrimerPantallaActivity.class);
         startActivity(i);
     }

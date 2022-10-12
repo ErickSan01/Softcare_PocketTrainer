@@ -29,23 +29,28 @@ public class Rutinas extends AppCompatActivity {
     private AyudanteBaseDeDatos ayudante;
     private SharedPreferences preferences;
     private SharedPreferences metaPref;
+    private SharedPreferences fecha;
+    private SharedPreferences rutina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rutinas_activity);
-        preferences = getSharedPreferences("dias", Rutinas.MODE_PRIVATE);
-        metaPref = getSharedPreferences("meta", Rutinas.MODE_PRIVATE);
+        preferences = getSharedPreferences("dias", MODE_PRIVATE);
+        metaPref = getSharedPreferences("meta", MODE_PRIVATE);
+        fecha = getSharedPreferences("dia_semana", MODE_PRIVATE);
+        rutina = getSharedPreferences("rutina", MODE_PRIVATE);
+
+
         Button backButton = (Button) findViewById(R.id.backBtn);
         RecyclerView lista = (RecyclerView) findViewById(R.id.listaRutinas);
-        Button mnBtn = (Button) findViewById(R.id.menuBtn);
 
-        ArrayList<String> dias = getDias();
+        ArrayList<String> dias = getDias(preferences);
 
         ayudante = new AyudanteBaseDeDatos(this);
         Map<String, ?> meta = metaPref.getAll();
 
-        RutinasAdapter rutinasAdapter = new RutinasAdapter(dias, this, createRutina(meta, this));
+        RutinasAdapter rutinasAdapter = new RutinasAdapter(dias, this);
         lista.setHasFixedSize(false);
         lista.setLayoutManager(new LinearLayoutManager(this));
         lista.setAdapter(rutinasAdapter);
@@ -54,15 +59,7 @@ public class Rutinas extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Intent mainPage = new Intent(Rutinas.this, MainActivity.class);
-                startActivity(mainPage);
-            }
-        });
-
-        mnBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createRutina(meta, Rutinas.this);
+                finish();
             }
         });
     }
@@ -72,8 +69,8 @@ public class Rutinas extends AppCompatActivity {
      * ingresó en el cuestionario inicial.
      * @return Regresa un arreglo de Strings que contienen los días libres.
      */
-    public ArrayList<String> getDias(){
-        Map<String, ?> dias = preferences.getAll();
+    public ArrayList<String> getDias(SharedPreferences diasP){
+        Map<String, ?> dias = diasP.getAll();
 
         ArrayList<String> diasArr = new ArrayList<String>();
         ArrayList<Boolean> valsArr = new ArrayList<Boolean>();
@@ -117,72 +114,79 @@ public class Rutinas extends AppCompatActivity {
         return result;
     }
 
-    public ArrayList<Ejercicio> createRutina(Map<String, ?> metaM, Context context){
+    public ArrayList<Ejercicio> createRutina(Map<String, ?> metaM, Context context, String dia, SharedPreferences diasP, SharedPreferences tieneRutinaP){
         String meta = obtenerMeta(metaM);
 
         EjerciciosControlador controller = new EjerciciosControlador(context);
 
         ArrayList<Ejercicio> ejercicios = controller.obtenerEjercicio(context);
         ArrayList<Ejercicio> ejerciciosRutina = new ArrayList<Ejercicio>();
+        ArrayList<String> dias = getDias(diasP);
+
+        Boolean tieneRutina = tieneRutinaP.getBoolean("tiene_rutina", false);
 
 
-        switch(meta){
-            case("musculo"):
-                ArrayList<String> partesCuerpoM = new ArrayList<>();
-                partesCuerpoM.add("Brazo");
-                partesCuerpoM.add("Hombros");
-                partesCuerpoM.add("Pierna");
 
-                int randomM = (int) ((Math.random() * (2)) + 0);
+        if(!tieneRutina){
+            switch(meta){
+                case("musculo"):
+                    ArrayList<String> partesCuerpoM = new ArrayList<>();
+                    partesCuerpoM.add("Brazo");
+                    partesCuerpoM.add("Hombros");
+                    partesCuerpoM.add("Pierna");
 
-                String parteCuerpoM = partesCuerpoM.get(randomM);
+                    int randomM = (int) ((Math.random() * (2)) + 0);
 
-                for (Ejercicio ejA : ejercicios){
-                    if(ejA.getCategoria().toLowerCase().equals("aumentarmasa")){
-                        if(ejA.getParteCuerpo().toLowerCase().equals(parteCuerpoM.toLowerCase())){
-                            ejerciciosRutina.add(ejA);
+                    String parteCuerpoM = partesCuerpoM.get(randomM);
+
+                    for (Ejercicio ejA : ejercicios){
+                        if(ejA.getCategoria().toLowerCase().equals("aumentarmasa")){
+                            if(ejA.getParteCuerpo().toLowerCase().equals(parteCuerpoM.toLowerCase())){
+                                ejerciciosRutina.add(ejA);
+                            }
                         }
                     }
-                }
-                return ejerciciosRutina;
-            case("peso"):
-                ArrayList<String> partesCuerpoP = new ArrayList<>();
-                partesCuerpoP.add("Pecho");
-                partesCuerpoP.add("Pierna");
+                    return ejerciciosRutina;
+                case("peso"):
+                    ArrayList<String> partesCuerpoP = new ArrayList<>();
+                    partesCuerpoP.add("Pecho");
+                    partesCuerpoP.add("Pierna");
 
-                int randomP = (int) ((Math.random() * (1)) + 0);
+                    int randomP = (int) ((Math.random() * (1)) + 0);
 
-                String parteCuerpoP = partesCuerpoP.get(randomP);
+                    String parteCuerpoP = partesCuerpoP.get(randomP);
 
-                for (Ejercicio ejA : ejercicios){
-                    if(ejA.getCategoria().toLowerCase().equals("bajarpeso")){
-                        if(ejA.getParteCuerpo().toLowerCase().equals(parteCuerpoP.toLowerCase())){
-                            ejerciciosRutina.add(ejA);
+                    for (Ejercicio ejA : ejercicios){
+                        if(ejA.getCategoria().toLowerCase().equals("bajarpeso")){
+                            if(ejA.getParteCuerpo().toLowerCase().equals(parteCuerpoP.toLowerCase())){
+                                ejerciciosRutina.add(ejA);
+                            }
                         }
                     }
-                }
-                return ejerciciosRutina;
-            case("ambos"):
-                ArrayList<String> partesCuerpoA = new ArrayList<>();
-                partesCuerpoA.add("Abdomen");
-                partesCuerpoA.add("Brazo");
-                partesCuerpoA.add("Hombros");
-                partesCuerpoA.add("Pecho");
-                partesCuerpoA.add("Pierna");
+                    return ejerciciosRutina;
+                case("ambos"):
+                    ArrayList<String> partesCuerpoA = new ArrayList<>();
+                    partesCuerpoA.add("Abdomen");
+                    partesCuerpoA.add("Brazo");
+                    partesCuerpoA.add("Hombros");
+                    partesCuerpoA.add("Pecho");
+                    partesCuerpoA.add("Pierna");
 
-                int randomA = (int) ((Math.random() * (4)) + 0);
+                    int randomA = (int) ((Math.random() * (4)) + 0);
 
-                String parteCuerpo = partesCuerpoA.get(randomA);
+                    String parteCuerpo = partesCuerpoA.get(randomA);
 
-                for (Ejercicio ejA : ejercicios){
-                    if(ejA.getCategoria().toLowerCase().equals(meta.toLowerCase())){
-                        if(ejA.getParteCuerpo().toLowerCase().equals(parteCuerpo.toLowerCase())){
-                            ejerciciosRutina.add(ejA);
+                    for (Ejercicio ejA : ejercicios){
+                        if(ejA.getCategoria().toLowerCase().equals(meta.toLowerCase())){
+                            if(ejA.getParteCuerpo().toLowerCase().equals(parteCuerpo.toLowerCase())){
+                                ejerciciosRutina.add(ejA);
+                            }
                         }
                     }
-                }
-                return ejerciciosRutina;
+                    return ejerciciosRutina;
+            }
         }
+
         return null;
     }
 

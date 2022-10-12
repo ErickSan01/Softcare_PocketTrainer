@@ -17,14 +17,12 @@ import java.util.ArrayList;
 
 public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.ViewHolder>{
     private final ArrayList<String> dias;
-    private final ArrayList<Ejercicio> rutina;
     private final Context context;
 
     // RecyclerView recyclerView;
-    public RutinasAdapter(ArrayList<String> listdata, Context context, ArrayList<Ejercicio> ejercicios) {
+    public RutinasAdapter(ArrayList<String> listdata, Context context) {
         this.dias = listdata;
         this.context = context;
-        rutina = ejercicios;
     }
     @NonNull
     @Override
@@ -42,6 +40,7 @@ public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.ViewHold
             @Override
             public void onClick(View view){
                 Intent ejerciciosRutina = new Intent(context, EjerciciosRutina.class);
+                ejerciciosRutina.putExtra("dia", diasSeleccionados);
                 context.startActivity(ejerciciosRutina);
             }
         });

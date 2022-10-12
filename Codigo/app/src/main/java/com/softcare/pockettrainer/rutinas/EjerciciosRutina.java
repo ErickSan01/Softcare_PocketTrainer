@@ -24,15 +24,20 @@ public class EjerciciosRutina extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ejercicios_rutina);
+        Intent intent = getIntent();
+
+        String dia = (String) intent.getSerializableExtra("dia");
 
         listaEjercicios = (RecyclerView) findViewById(R.id.listaEjercicios);
         preferences = getSharedPreferences("meta", MODE_PRIVATE);
+        SharedPreferences dias = getSharedPreferences("dias", MODE_PRIVATE);
+        SharedPreferences tieneRutina = getSharedPreferences("tiene_rutina", MODE_PRIVATE);
         Map<String, ?> meta = preferences.getAll();
 
         Button btnEx = (Button) findViewById(R.id.backBtnEx);
 
         Rutinas rutinas = new Rutinas();
-        ArrayList<Ejercicio> rutina = rutinas.createRutina(meta, this);
+        ArrayList<Ejercicio> rutina = rutinas.createRutina(meta, this, dia, dias, tieneRutina);
 
         EjerciciosAdapter adapterEj = new EjerciciosAdapter(rutina, rutinas);
 
@@ -44,8 +49,7 @@ public class EjerciciosRutina extends AppCompatActivity {
         btnEx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent rutinas = new Intent(EjerciciosRutina.this, Rutinas.class);
-                startActivity(rutinas);
+                finish();
             }
         });
 

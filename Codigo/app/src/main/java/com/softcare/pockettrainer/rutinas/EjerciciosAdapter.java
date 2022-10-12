@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,28 +56,8 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
             @Override
 
             public void onClick(View view) {
-                Toast.makeText(view.getContext(),"click on item: "+ ejercicios,Toast.LENGTH_LONG).show();
                 Intent i = new Intent(view.getContext(), TutorialActivity.class);
-                ImageView imageTutorial = view.findViewById(R.id.imageView2);
-
-                System.out.println(imageTutorial);
-
-                String imagen = "imagenes/"+ ejercicios.getImagen1()+".jpeg";
-
-                //AssetManager assetManager = context.getAssets();
-
-                InputStream istr = null;
-                try {
-                    istr = view.getContext().getAssets().open(imagen);
-                    Bitmap bitmap = BitmapFactory.decodeStream(istr);
-                    System.out.println(bitmap);
-                    istr.close();
-
-                    imageTutorial.setImageBitmap(bitmap);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+                i.putExtra("ejercicio", ejercicios);
                 view.getContext().startActivity(i);
             }
         });

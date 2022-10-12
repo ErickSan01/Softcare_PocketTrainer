@@ -1,6 +1,8 @@
 package com.softcare.pockettrainer.rutinas;
 
-public class Ejercicio {
+import java.io.Serializable;
+
+public class Ejercicio implements Serializable {
     private int id_ejercicio;
     private String nombre;
     private String categoria;

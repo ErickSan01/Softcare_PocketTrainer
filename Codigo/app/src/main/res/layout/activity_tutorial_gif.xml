@@ -7,18 +7,17 @@
     android:background="#1F2124"
     tools:context=".Tutorial_gif">
 
-    <pl.droidsonroids.gif.GifImageView
+    <ImageView
+        android:id="@+id/gifs"
         android:layout_width="307dp"
         android:layout_height="372dp"
         android:layout_marginTop="208dp"
         android:background="#A3DCEF"
-        android:src="@drawable/soft"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:src="@drawable/soft" />
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView5"

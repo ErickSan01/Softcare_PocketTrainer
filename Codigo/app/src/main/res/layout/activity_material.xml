@@ -11,7 +11,7 @@
         android:id="@+id/button7"
         android:layout_width="110dp"
         android:layout_height="54dp"
-        android:layout_marginTop="468dp"
+        android:layout_marginTop="532dp"
         android:backgroundTint="#A3DCEF"
         android:onClick="lastImagen"
         android:text="Step 3"
@@ -48,8 +48,8 @@
 
     <ImageView
         android:id="@+id/ivstr"
-        android:layout_width="293dp"
-        android:layout_height="150dp"
+        android:layout_width="286dp"
+        android:layout_height="210dp"
         android:layout_marginTop="178dp"
         android:background="#A3DCEF"
         android:src="@drawable/logo_softcare"

@@ -23,13 +23,13 @@ public class PrimerPantallaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_primer_pantalla);
         setTitle("Home");
 
-        /*SharedPreferences datos = getSharedPreferences("primer_pantalla", MODE_PRIVATE);
+        SharedPreferences datos = getSharedPreferences("primer_pantalla", MODE_PRIVATE);
         boolean tieneTodosLosDatos = datos.getBoolean("tiene_datos",false);
 
-        if(tieneTodosLosDatos) {
-            Intent i = new Intent(this, AjustesActivity.class);
+        if(tieneTodosLosDatos){
+            Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
-        }*/
+        }
     }
 
 
