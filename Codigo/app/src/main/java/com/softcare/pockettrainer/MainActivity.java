@@ -41,31 +41,8 @@ public class MainActivity extends AppCompatActivity {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
         Date currentDate = new Date();
-
-        SharedPreferences fecha = getSharedPreferences("dia_semana", MODE_PRIVATE);
-        SharedPreferences rutina = getSharedPreferences("tiene_rutina", MODE_PRIVATE);
-        SharedPreferences rutinaD = getSharedPreferences("rutina", MODE_PRIVATE);
         SharedPreferences dias = getSharedPreferences("dias", MODE_PRIVATE);
 
-        SharedPreferences.Editor editorRutina = rutina.edit();
-        SharedPreferences.Editor editor = fecha.edit();
-        SharedPreferences.Editor editorRutinaDia = rutinaD.edit();
-
-        Rutinas rutinas = new Rutinas();
-        ArrayList<String> diasAL = rutinas.getDias(dias);
-
-        for (String dia : diasAL) {
-            editorRutinaDia.putString(dia, "null");
-        }
-
-        System.out.println(dateFormat.format(currentDate));
-
-        editor.putString("fecha", dateFormat.format(currentDate));
-        editorRutina.putBoolean("tiene_rutina", false);
-
-        editor.apply();
-        editorRutina.apply();
-        editorRutinaDia.apply();
 
         // convert date to calendar
         Calendar c = Calendar.getInstance();
@@ -104,5 +81,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AjustesActivity.class));
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
