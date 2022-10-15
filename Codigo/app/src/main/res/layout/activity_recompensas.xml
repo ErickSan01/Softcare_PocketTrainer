@@ -4,8 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1F2124"
+    android:background="@drawable/backgrnd"
     tools:context=".RecompensasActivity">
+
+  <Button
+      android:id="@+id/backBtnNivel2"
+      android:layout_width="54dp"
+      android:layout_height="49dp"
+      android:layout_alignParentBottom="true"
+      android:layout_marginStart="10dp"
+      android:layout_marginBottom="10dp"
+      android:background="@drawable/custombutton"
+      android:text="@string/back"
+      android:textColor="@android:color/black"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
 
   <TextView
       android:id="@+id/textViewMeta7"
@@ -58,7 +71,7 @@
       android:id="@+id/textViewMeta6"
       android:layout_width="268dp"
       android:layout_height="37dp"
-      android:layout_marginTop="108dp"
+      android:layout_marginTop="52dp"
       android:text="Recompensas de niveles Pocket Trainer"
       android:textColor="#A2B9ED"
       app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +83,7 @@
       android:id="@+id/imageView16"
       android:layout_width="136dp"
       android:layout_height="107dp"
-      android:layout_marginTop="20dp"
+      android:layout_marginTop="12dp"
       app:layout_constraintEnd_toStartOf="@+id/imageView17"
       app:layout_constraintHorizontal_bias="0.5"
       app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +94,7 @@
       android:id="@+id/imageView17"
       android:layout_width="136dp"
       android:layout_height="107dp"
-      android:layout_marginTop="20dp"
+      android:layout_marginTop="12dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.5"
       app:layout_constraintStart_toEndOf="@+id/imageView16"

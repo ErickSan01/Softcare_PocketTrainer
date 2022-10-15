@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
+    android:background="@drawable/backgrnd"
     tools:context=".SeleccionHorarioActivity">
 
     <TextView
@@ -26,8 +26,8 @@
         android:layout_marginStart="72dp"
         android:layout_marginTop="160dp"
         android:text="@string/seleccion_sabado"
-        android:textSize="18sp"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
 
@@ -38,8 +38,8 @@
         android:layout_marginTop="160dp"
         android:layout_marginEnd="84dp"
         android:text="@string/seleccion_domingo"
-        android:textSize="18sp"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
 
@@ -60,10 +60,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:background="@drawable/custombutton"
         android:onClick="Siguiente"
         android:text="@string/siguiente"
         android:textColor="@color/white"
-        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,8 +101,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="60dp"
         android:text="@string/seleccion_martes"
-        android:textSize="18sp"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
 
@@ -113,8 +113,8 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:text="@string/seleccion_lunes"
-        android:textSize="18sp"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
 

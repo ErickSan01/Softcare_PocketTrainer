@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
+    android:background="@drawable/borde_rutinas"
     tools:context=".PrimerPantallaActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/backgrnd"
         android:visibility="visible"
         tools:visibility="visible">
 
@@ -18,12 +19,13 @@
             android:id="@+id/textViewComenzar"
             android:layout_width="314dp"
             android:layout_height="133dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="112dp"
             android:text="@string/comenzar"
             android:textAlignment="center"
-            android:textSize="24sp"
             android:textColor="@color/white"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewLema" />
 
@@ -31,10 +33,10 @@
             android:id="@+id/textViewBienvenida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
+            android:layout_marginTop="100dp"
             android:text="@string/bienvenida"
-            android:textSize="20sp"
             android:textColor="@color/white"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,12 +45,12 @@
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/custombutton"
             android:ellipsize="none"
             android:onClick="iniciarCuestionario"
             android:text="@string/iniciar_cuestionario"
             android:textColor="@color/white"
-            android:background="@drawable/custombutton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewComenzar" />
@@ -57,11 +59,12 @@
             android:id="@+id/textViewLema"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="76dp"
             android:text="@string/lema"
-            android:textSize="20sp"
             android:textColor="@color/white"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewBienvenida" />
 
@@ -72,8 +75,8 @@
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme"
-            tools:layout_editor_absoluteX="1dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
