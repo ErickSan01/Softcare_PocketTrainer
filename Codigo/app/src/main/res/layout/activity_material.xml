@@ -15,6 +15,7 @@
         android:backgroundTint="#A3DCEF"
         android:onClick="lastImagen"
         android:text="Step 3"
+        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +30,7 @@
         android:backgroundTint="#A3DCEF"
         android:onClick="switchImagen"
         android:text="Step 2"
+        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivstr" />
 
@@ -51,8 +53,9 @@
         android:layout_width="286dp"
         android:layout_height="210dp"
         android:layout_marginTop="178dp"
-        android:background="#A3DCEF"
+
         android:src="@drawable/logo_softcare"
+        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +71,7 @@
         android:backgroundTint="#A3DCEF"
         android:onClick="previousImagen"
         android:text="Step 1"
+        android:background="@drawable/custombutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivstr" />
 </androidx.constraintlayout.widget.ConstraintLayout>

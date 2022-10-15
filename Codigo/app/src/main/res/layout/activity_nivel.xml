@@ -72,9 +72,23 @@
         android:layout_marginTop="144dp"
         android:onClick="verNivel"
         android:text="Próximas Recompensas"
+        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMeta3" />
+
+    <Button
+        android:id="@+id/backBtnNivel"
+        android:layout_width="54dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/back"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custombutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

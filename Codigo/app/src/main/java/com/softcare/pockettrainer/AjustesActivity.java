@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +24,15 @@ public class AjustesActivity extends AppCompatActivity {
         cargarPreferenciasHorario();
         cargarPreferenciasCuerpo();
         cargarPreferenciasMeta();
+
+        Button backBtn = (Button) findViewById(R.id.backBtnAjustes);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     @SuppressLint("SetTextI18n")

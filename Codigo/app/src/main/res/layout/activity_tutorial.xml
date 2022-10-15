@@ -30,6 +30,7 @@
         android:backgroundTint="#A3DCEF"
         android:onClick="verImagen"
         android:text="Ver imágenes"
+        android:background="@drawable/custombutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -42,6 +43,7 @@
         android:backgroundTint="#A3DCEF"
         android:onClick="verGif"
         android:text="Ver Gif"
+        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -68,9 +70,23 @@
         android:backgroundTint="#A3DCEF"
         android:onClick="verMaterial"
         android:text="Material Requerido"
+        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/backBtnEj"
+        android:layout_width="54dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/back"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custombutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

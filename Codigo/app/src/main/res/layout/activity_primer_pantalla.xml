@@ -48,6 +48,7 @@
             android:onClick="iniciarCuestionario"
             android:text="@string/iniciar_cuestionario"
             android:textColor="@color/white"
+            android:background="@drawable/custombutton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewComenzar" />

@@ -35,7 +35,7 @@
         android:layout_width="349dp"
         android:layout_height="208dp"
         android:layout_marginTop="116dp"
-        android:textColor="@color/texto"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +50,7 @@
         android:onClick="editar"
         android:text="@string/editar"
         android:textColor="@color/white"
+        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,5 +97,18 @@
         android:textColor="@color/texto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCuerpoUsuario" />
+
+    <Button
+        android:id="@+id/backBtnAjustes"
+        android:layout_width="54dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/back"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custombutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

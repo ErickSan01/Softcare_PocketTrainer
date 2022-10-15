@@ -63,6 +63,7 @@
         android:onClick="Siguiente"
         android:text="@string/siguiente"
         android:textColor="@color/white"
+        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
