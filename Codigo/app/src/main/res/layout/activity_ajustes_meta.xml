@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1F2124"
+    tools:context=".AjustesMetaActivity">
+
+    <Button
+        android:id="@+id/backBtnAjustesMeta"
+        android:layout_width="54dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custombutton"
+        android:text="@string/back"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewMeta"
+        android:layout_width="191dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="96dp"
+        android:text="@string/meta"
+        android:textColor="#A2B9ED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="150dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/meta1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMeta"
+        tools:srcCompat="@drawable/meta1" />
+
+    <Button
+        android:id="@+id/buttonMusculo"
+        android:layout_width="158dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:onClick="musculo"
+        android:text="@string/masa_muscular"
+        android:background="@drawable/custombutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:ignore="OnClick" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="151dp"
+        android:layout_height="126dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/meta2"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMeta"
+        tools:srcCompat="@drawable/meta2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="239dp"
+        android:layout_height="161dp"
+        android:layout_marginTop="260dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/meta3"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMeta"
+        tools:srcCompat="@drawable/meta3" />
+
+    <Button
+        android:id="@+id/buttonAmbos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:onClick="ambos"
+        android:text="@string/ambos"
+        android:background="@drawable/custombutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/buttonPeso"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:onClick="peso"
+        android:text="@string/bajar"
+        android:background="@drawable/custombutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="OnClick" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

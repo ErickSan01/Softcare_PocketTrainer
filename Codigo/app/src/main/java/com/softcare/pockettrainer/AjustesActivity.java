@@ -33,6 +33,15 @@ public class AjustesActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button salir = (Button) findViewById(R.id.buttonSalir);
+
+        salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AjustesActivity.this, MainActivity.class));
+            }
+        });
     }
 
     @SuppressLint("SetTextI18n")
@@ -140,6 +149,17 @@ public class AjustesActivity extends AppCompatActivity {
     public void editar(View view){
         reset(view);
         Intent i = new Intent(this, PrimerPantallaActivity.class);
+        startActivity(i);
+    }
+
+    public void editarCuerpo(View view){
+        reset(view);
+        Intent i = new Intent(this, PrimerPantallaActivity.class);
+        startActivity(i);
+    }
+
+    public void editarMeta(View view){
+        Intent i = new Intent(this, AjustesMetaActivity.class);
         startActivity(i);
     }
 
