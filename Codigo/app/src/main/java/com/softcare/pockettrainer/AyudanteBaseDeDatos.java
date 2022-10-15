@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.softcare.pockettrainer.adminejercicios.Ejercicio;
 import com.softcare.pockettrainer.adminejercicios.EjerciciosControlador;
 import com.softcare.pockettrainer.adminmateriales.Material;
 import com.softcare.pockettrainer.adminmateriales.MaterialesControlador;
@@ -17,8 +18,17 @@ import java.util.ArrayList;
 
 public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
     private static final String NOMBRE_BASE_DE_DATOS = "pocket_trainer_db",
-            NOMBRE_TABLA_EJERCICIOS = "Ejercicios",
-            NOMBRE_TABLA_MATERIALES = "Materiales";
+            NOMBRE_TABLA_EJERCICIO = "Ejercicios",
+            NOMBRE_TABLA_MATERIAL = "Materiales",
+            NOMBRE_TABLA_EJERCICIO_IMAGENES = "EjercicioImagenes",
+            NOMBRE_TABLA_MATERIAL_IMAGENES = "MaterialImagenes",
+            NOMBRE_TABLA_RUTINA = "Rutina",
+            NOMBRE_TABLA_USUARIO = "Usuario",
+            NOMBRE_TABLA_HORARIO = "Horario",
+            NOMBRE_TABLA_RUTINAS_PROGRAMADAS = "RutinasProgramadas";
+
+
+
     public static final int VERSISON_BASE_DE_DATOS =  1;
 
     public Context context;
@@ -32,10 +42,72 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         System.out.println("Database");
 
-        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(id_material int primary key, nombre text, descripcion text, imagen1 text, imagen2 text)", NOMBRE_TABLA_MATERIALES));
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                "id_material int primary key,"+
+                "nombre text, "+
+                "descripcion text, "+
+                "id_ejercicio, "+
+                "FOREIGN KEY (id_ejercicio) REFERENCES Ejercicio(id_ejercicio))", NOMBRE_TABLA_MATERIAL));
 
-        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s(id_ejercicio int primary key, nombre text, categoria text, descripcion text, imagen1 text, imagen2 text, imagen3 , parteCuerpo text, id_material int," +
-                "FOREIGN KEY (id_material) REFERENCES Materiales(id_material))", NOMBRE_TABLA_EJERCICIOS));
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                "id_ejercicio int primary key, "+
+                "nombre text, "+
+                "terminado boolean, "+
+                "precio intm, "+
+                "mivel text,"+
+                "descripcion text, "+
+                "parteCuerpo text, "+
+                "meta text, "+
+                "puntosEXP int, " +
+                "id_rutina int, " +
+                "FOREIGN KEY (id_rutina) REFERENCES Rutina(id_rutina))", NOMBRE_TABLA_EJERCICIO));
+
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                "id_imagen int, "+
+                "id_ejercicio int, "+
+                "nombre_imagen text, "+
+                "FOREIGN KEY (id_ejercicio) REFERENCES Ejercicio(id_ejercicio))", NOMBRE_TABLA_EJERCICIO_IMAGENES));
+
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                "id_imagen int, +"+
+                "id_material int, "+
+                "nombre_imagen text, "+
+                "FOREIGN KEY (id_material) REFERENCES Material(id_material))", NOMBRE_TABLA_MATERIAL_IMAGENES));
+
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                "id_rutina int, "+
+                "tipo_cuerpo text, "+
+                "completada boolean, "+
+                "puntosEXP int ", NOMBRE_TABLA_RUTINA));
+
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                        "meta text, "+
+                        "tipo_cuerpo text, "+
+                        "id_rutinas_programadas int, "+
+                        "id_horario int, "+
+                        "experience int, "+
+                "FOREIGN KEY (id_rutinas_programadas) REFERENCES Rutinas_Programadas(id_rutinas_programadas))" +
+                "FOREIGN KEY (id_horario) REFERENCES Horario(id_horario))", NOMBRE_TABLA_USUARIO));
+
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                "id_horario int, "+
+                "lunes Date, "+
+                "martes Date, "+
+                "miercoles Date, "+
+                "jueves Date, "+
+                "viernes Date, "+
+                "sabado Date, "+
+                "domingo Date", NOMBRE_TABLA_HORARIO));
+
+        db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                "id_rutina_programada int, "+
+                "id_rutina_lunes int, "+
+                "id_rutina_martes int, "+
+                "id_rutina_miercoles int, "+
+                "id_jueves int, "+
+                "id_viernes int, "+
+                "id_rutina_sabado int"+
+                "id_rutina_domingo int", NOMBRE_TABLA_RUTINAS_PROGRAMADAS));
     }
 
     @Override
