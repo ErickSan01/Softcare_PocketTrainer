@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1F2124"
+    android:background="@drawable/backgrnd"
     tools:context=".ListoActivity">
 
     <TextView
@@ -39,9 +39,9 @@
         android:layout_width="165dp"
         android:layout_height="77dp"
         android:layout_marginTop="52dp"
+        android:background="@drawable/custombutton"
         android:text="@string/comenzar_button"
         android:textSize="20sp"
-        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewRecuerda" />

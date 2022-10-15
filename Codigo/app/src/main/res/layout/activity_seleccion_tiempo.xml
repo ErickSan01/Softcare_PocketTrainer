@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
+    android:background="@drawable/backgrnd"
     tools:context=".SeleccionHorarioActivity">
 
     <TextView
@@ -26,8 +26,8 @@
         android:ems="10"
         android:inputType="time"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
         app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
@@ -38,8 +38,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:text="@string/seleccion_jueves"
-        android:textSize="24sp"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMiercolesHora" />
 
@@ -50,8 +50,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:text="@string/seleccion_sabado"
-        android:textSize="24sp"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewViernesHora" />
 
@@ -61,10 +61,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
+        android:background="@drawable/custombutton"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
-        android:background="@drawable/custombutton"
         app:layout_constraintStart_toEndOf="@+id/editTextTime"
         app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
 
@@ -77,8 +77,8 @@
         android:ems="10"
         android:inputType="time"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewSabadoHora"
         app:layout_constraintTop_toBottomOf="@+id/editTextTime5" />
 
@@ -88,10 +88,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/custombutton"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
-        android:background="@drawable/custombutton"
         app:layout_constraintStart_toEndOf="@+id/editTextTime3"
         app:layout_constraintTop_toBottomOf="@+id/buttonMartes" />
 
@@ -101,10 +101,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/custombutton"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
-        android:background="@drawable/custombutton"
         app:layout_constraintStart_toEndOf="@+id/editTextTime4"
         app:layout_constraintTop_toBottomOf="@+id/buttonMiercoles" />
 
@@ -115,8 +115,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:text="@string/seleccion_miercoles"
-        android:textSize="24sp"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMartesHora" />
 
@@ -129,8 +129,8 @@
         android:ems="10"
         android:inputType="time"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewMiercolesHora"
         app:layout_constraintTop_toBottomOf="@+id/editTextTime2" />
 
@@ -143,8 +143,8 @@
         android:ems="10"
         android:inputType="time"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewJuevesHora"
         app:layout_constraintTop_toBottomOf="@+id/editTextTime3" />
 
@@ -157,8 +157,8 @@
         android:ems="10"
         android:inputType="time"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewViernesHora"
         app:layout_constraintTop_toBottomOf="@+id/editTextTime4" />
 
@@ -171,8 +171,8 @@
         android:ems="10"
         android:inputType="time"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewDomingoHora"
         app:layout_constraintTop_toBottomOf="@+id/editTextTime6" />
 
@@ -182,10 +182,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/custombutton"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
-        android:background="@drawable/custombutton"
         app:layout_constraintStart_toEndOf="@+id/editTextTime6"
         app:layout_constraintTop_toBottomOf="@+id/buttonViernes" />
 
@@ -196,8 +196,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:text="@string/seleccion_domingo"
-        android:textSize="24sp"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSabadoHora" />
 
@@ -207,10 +207,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/custombutton"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
-        android:background="@drawable/custombutton"
         app:layout_constraintStart_toEndOf="@+id/editTextTime5"
         app:layout_constraintTop_toBottomOf="@+id/buttonJueves" />
 
@@ -221,8 +221,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:text="@string/seleccion_martes"
-        android:textSize="24sp"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLunesHora" />
 
@@ -232,10 +232,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/custombutton"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
-        android:background="@drawable/custombutton"
         app:layout_constraintStart_toEndOf="@+id/editTextTime2"
         app:layout_constraintTop_toBottomOf="@+id/buttonLunes" />
 
@@ -245,10 +245,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/custombutton"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
-        android:background="@drawable/custombutton"
         app:layout_constraintStart_toEndOf="@+id/editTextTime7"
         app:layout_constraintTop_toBottomOf="@+id/buttonSabado" />
 
@@ -261,8 +261,8 @@
         android:ems="10"
         android:inputType="time"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewLunesHora"
         app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
 
@@ -273,8 +273,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:text="@string/seleccion_viernes"
-        android:textSize="24sp"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewJuevesHora" />
 
@@ -285,8 +285,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:text="@string/seleccion_lunes"
-        android:textSize="24sp"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
 
@@ -295,11 +295,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:background="@drawable/custombutton"
         android:linksClickable="false"
         android:onClick="Siguiente"
         android:text="@string/siguiente"
         android:textColor="@color/white"
-        android:background="@drawable/custombutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

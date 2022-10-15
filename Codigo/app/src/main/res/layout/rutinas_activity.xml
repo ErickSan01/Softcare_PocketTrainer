@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1f2124"
+    android:background="@drawable/backgrnd"
     tools:context=".rutinas.Rutinas">
 
     <com.google.android.material.button.MaterialButton
@@ -91,12 +91,12 @@
         android:id="@+id/backBtn"
         android:layout_width="54dp"
         android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/custombutton"
         android:text="@string/back"
         android:textColor="@android:color/black"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/custombutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
