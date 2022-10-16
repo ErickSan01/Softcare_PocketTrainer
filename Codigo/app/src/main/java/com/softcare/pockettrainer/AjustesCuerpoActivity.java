@@ -7,38 +7,48 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
-public class CuerpoActivity extends AppCompatActivity {
+public class AjustesCuerpoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cuerpo);
+        setContentView(R.layout.activity_ajustes_cuerpo);
 
         //Parte solo para debug de logcat
         SharedPreferences preferencias = getSharedPreferences("cuerpo", MODE_PRIVATE);
         Log.d("Cuerpo elegido, delgado",""+preferencias.getBoolean("delgado",false));
         Log.d("Cuerpo elegido, robusto",""+preferencias.getBoolean("robusto",false));
         Log.d("Cuerpo elegido, fornido",""+preferencias.getBoolean("fornido",false));
+
+        Button backBtn = (Button) findViewById(R.id.backBtnAjustesCuerpo);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
     /*
     En estos métodos se llama a la siguiente actividad dependiendo de cuál fue el botón que
     se usó para llamarlo
     */
     public void delgado(View v){
-        Intent i = new Intent(this, MetaActivity.class);
+        Intent i = new Intent(this, AjustesActivity.class);
         i.putExtra("cuerpo", "delgado");
         guardar("delgado");
         startActivity(i);
     }
     public void robusto(View v){
-        Intent i = new Intent(this, MetaActivity.class);
+        Intent i = new Intent(this, AjustesActivity.class);
         i.putExtra("cuerpo", "robusto");
         guardar("robusto");
         startActivity(i);
     }
     public void fornido(View v){
-        Intent i = new Intent(this, MetaActivity.class);
+        Intent i = new Intent(this, AjustesActivity.class);
         i.putExtra("cuerpo", "fornido");
         guardar("fornido");
         startActivity(i);

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrnd"
+    tools:context=".AjustesHorarioActivity">
+
+    <Button
+        android:id="@+id/backBtnAjustesHorario"
+        android:layout_width="54dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custombutton"
+        android:text="@string/back"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSeleccionaHorario"
+        android:layout_width="314dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/seleccion_horario"
+        android:textColor="#A2B9ED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBoxSabado"
+        android:layout_width="109dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="160dp"
+        android:text="@string/seleccion_sabado"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
+
+    <CheckBox
+        android:id="@+id/checkBoxDomingo"
+        android:layout_width="109dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="84dp"
+        android:text="@string/seleccion_domingo"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
+
+    <CheckBox
+        android:id="@+id/checkBoxMiercoles"
+        android:layout_width="112dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/seleccion_miercoles"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/custombutton"
+        android:onClick="Siguiente"
+        android:text="@string/siguiente"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSabado" />
+
+    <CheckBox
+        android:id="@+id/checkBoxJueves"
+        android:layout_width="90dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/seleccion_jueves"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/checkBoxViernes"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxMiercoles"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
+
+    <CheckBox
+        android:id="@+id/checkBoxViernes"
+        android:layout_width="99dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/seleccion_viernes"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
+
+    <CheckBox
+        android:id="@+id/checkBoxMartes"
+        android:layout_width="104dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="60dp"
+        android:text="@string/seleccion_martes"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
+
+    <CheckBox
+        android:id="@+id/checkBoxLunes"
+        android:layout_width="108dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/seleccion_lunes"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

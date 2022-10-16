@@ -18,6 +18,27 @@
         android:theme="@style/Theme.PocketTrainer"
         tools:targetApi="31">
         <activity
+            android:name=".AjustesTiempoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AjustesHorarioActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AjustesCuerpoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AjustesMetaActivity"
             android:exported="false">
             <meta-data
