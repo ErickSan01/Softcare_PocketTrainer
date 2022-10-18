@@ -1,28 +1,23 @@
 package com.softcare.pockettrainer.rutinas;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.softcare.pockettrainer.AyudanteBaseDeDatos;
-import com.softcare.pockettrainer.MainActivity;
-import com.softcare.pockettrainer.PrimerPantallaActivity;
 import com.softcare.pockettrainer.R;
-import com.softcare.pockettrainer.adminejercicios.EjerciciosControlador;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Map;
 
 public class Rutinas extends AppCompatActivity {
@@ -117,7 +112,7 @@ public class Rutinas extends AppCompatActivity {
     public ArrayList<Ejercicio> createRutina(Map<String, ?> metaM, Context context, String dia, SharedPreferences diasP, SharedPreferences tieneRutinaP){
         String meta = obtenerMeta(metaM);
 
-        EjerciciosControlador controller = new EjerciciosControlador(context);
+        EjercicioPresentador controller = new EjercicioPresentador(context);
 
         ArrayList<Ejercicio> ejercicios = controller.obtenerEjercicio(context);
         ArrayList<Ejercicio> ejerciciosRutina = new ArrayList<Ejercicio>();

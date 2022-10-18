@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.softcare.pockettrainer.adminmateriales.Material;
-import com.softcare.pockettrainer.adminmateriales.MaterialesControlador;
+import com.softcare.pockettrainer.adminbasededatos.Material;
+import com.softcare.pockettrainer.adminbasededatos.MaterialePresentador;
 import com.softcare.pockettrainer.rutinas.Ejercicio;
 
 import java.io.IOException;
@@ -31,7 +31,7 @@ public class MaterialActivity extends AppCompatActivity {
 
         ejercicio = (Ejercicio) intent.getSerializableExtra("ejercicio");
 
-        MaterialesControlador materialesC = new MaterialesControlador(this);
+        MaterialePresentador materialesC = new MaterialePresentador(this);
 
         ArrayList<Material> materiales = materialesC.obtenermaterial();
 

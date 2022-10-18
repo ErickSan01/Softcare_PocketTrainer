@@ -4,11 +4,10 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.softcare.pockettrainer.adminejercicios.Ejercicio;
-import com.softcare.pockettrainer.adminejercicios.EjerciciosControlador;
-import com.softcare.pockettrainer.adminmateriales.Material;
-import com.softcare.pockettrainer.adminmateriales.MaterialesControlador;
-import com.softcare.pockettrainer.rutinas.Ejercicio;
+import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Material;
+import com.softcare.pockettrainer.adminbasededatos.MaterialePresentador;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,8 +17,8 @@ import java.util.ArrayList;
 
 public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
     private static final String NOMBRE_BASE_DE_DATOS = "pocket_trainer_db",
-            NOMBRE_TABLA_EJERCICIO = "Ejercicios",
-            NOMBRE_TABLA_MATERIAL = "Materiales",
+            NOMBRE_TABLA_EJERCICIO = "Ejercicio",
+            NOMBRE_TABLA_MATERIAL = "Material",
             NOMBRE_TABLA_EJERCICIO_IMAGENES = "EjercicioImagenes",
             NOMBRE_TABLA_MATERIAL_IMAGENES = "MaterialImagenes",
             NOMBRE_TABLA_RUTINA = "Rutina",
@@ -45,9 +44,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
                 "id_material int primary key,"+
                 "nombre text, "+
-                "descripcion text, "+
-                "id_ejercicio, "+
-                "FOREIGN KEY (id_ejercicio) REFERENCES Ejercicio(id_ejercicio))", NOMBRE_TABLA_MATERIAL));
+                "descripcion text, )", NOMBRE_TABLA_MATERIAL));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
                 "id_ejercicio int primary key, "+
@@ -60,6 +57,8 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
                 "meta text, "+
                 "puntosEXP int, " +
                 "id_rutina int, " +
+                "id_material, "+
+                "FOREIGN KEY (id_material) REFERENCES Material(id_material), "+
                 "FOREIGN KEY (id_rutina) REFERENCES Rutina(id_rutina))", NOMBRE_TABLA_EJERCICIO));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
@@ -76,7 +75,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
                 "id_rutina int, "+
-                "tipo_cuerpo text, "+
+                "parte_cuerpo text, "+
                 "completada boolean, "+
                 "puntosEXP int ", NOMBRE_TABLA_RUTINA));
 
@@ -85,8 +84,9 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
                         "tipo_cuerpo text, "+
                         "id_rutinas_programadas int, "+
                         "id_horario int, "+
-                        "experience int, "+
-                "FOREIGN KEY (id_rutinas_programadas) REFERENCES Rutinas_Programadas(id_rutinas_programadas))" +
+                        "exp int, "+
+                        "nivel int, "+
+                "FOREIGN KEY (id_rutinas_programadas) REFERENCES Rutinas_Programadas(id_rutinas_programadas), " +
                 "FOREIGN KEY (id_horario) REFERENCES Horario(id_horario))", NOMBRE_TABLA_USUARIO));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
@@ -104,10 +104,18 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
                 "id_rutina_lunes int, "+
                 "id_rutina_martes int, "+
                 "id_rutina_miercoles int, "+
-                "id_jueves int, "+
-                "id_viernes int, "+
-                "id_rutina_sabado int"+
-                "id_rutina_domingo int", NOMBRE_TABLA_RUTINAS_PROGRAMADAS));
+                "id_rutina_jueves int, "+
+                "id_rutina_viernes int, "+
+                "id_rutina_sabado int, "+
+                "id_rutina_domingo int, "+
+                "FOREIGN KEY (id_rutina_lunes) REFERENCES Rutina(id_rutina), "+
+                "FOREIGN KEY (rutina_martes) REFERENCES Rutina(id_rutina), "+
+                "FOREIGN KEY (rutina_miercoles) REFERENCES Rutina(id_rutina), "+
+                "FOREIGN KEY (rutina_jueves) REFERENCES Rutina(id_rutina), "+
+                "FOREIGN KEY (rutina_viernes) REFERENCES Rutina(id_rutina), "+
+                "FOREIGN KEY (rutina_sabado) REFERENCES Rutina(id_rutina), "+
+                "FOREIGN KEY (rutina_domingo) REFERENCES Rutina(id_rutina)), "
+                , NOMBRE_TABLA_RUTINAS_PROGRAMADAS));
     }
 
     @Override
@@ -118,7 +126,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
     public void agregarMateriales(){
         ArrayList<String> materiales = leerMateriales();
 
-        MaterialesControlador materialesControlador = new MaterialesControlador(context);
+        MaterialePresentador materialesControlador = new MaterialePresentador(context);
 
         for(String material : materiales){
             String[] campos = material.split("-");
@@ -164,7 +172,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper{
         ArrayList<String> ejerciciosAumentar = leerEjerciciosAumento();
         ArrayList<String> ejerciciosBajar = leerEjerciciosBajar();
 
-        EjerciciosControlador ejerciciosControlador = new EjerciciosControlador(context);
+        EjercicioPresentador ejerciciosControlador = new EjercicioPresentador(context);
 
         for (String ejercicio : ejerciciosAmbos){
             String[] campos = ejercicio.split(",");
