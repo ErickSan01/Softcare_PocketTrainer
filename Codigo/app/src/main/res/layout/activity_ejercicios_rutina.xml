@@ -43,7 +43,7 @@
         android:text="@string/back"
         android:textColor="@android:color/black"
         android:backgroundTint="@color/boton"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/buttonselector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

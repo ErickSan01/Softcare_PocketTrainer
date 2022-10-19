@@ -32,22 +32,22 @@ public class AjustesMetaActivity extends AppCompatActivity {
     se usó para llamarlo
     */
     public void peso(View v){
-        Intent i = new Intent(this, AjustesActivity.class);
-        i.putExtra("meta", "peso");
+        Intent intent = new Intent(this, AjustesActivity.class);
+        intent.putExtra("meta", "peso");
         guardar("peso");
-        startActivity(i);
+        startActivity(intent);
     }
     public void musculo(View v){
-        Intent i = new Intent(this, AjustesActivity.class);
-        i.putExtra("meta", "musculo");
+        Intent intent = new Intent(this, AjustesActivity.class);
+        intent.putExtra("meta", "musculo");
         guardar("musculo");
-        startActivity(i);
+        startActivity(intent);
     }
     public void ambos(View v){
-        Intent i = new Intent(this, AjustesActivity.class);
-        i.putExtra("meta", "ambos");
+        Intent intent = new Intent(this, AjustesActivity.class);
+        intent.putExtra("meta", "ambos");
         guardar("ambos");
-        startActivity(i);
+        startActivity(intent);
     }
 
     /*
