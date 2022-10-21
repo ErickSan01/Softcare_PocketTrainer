@@ -37,7 +37,9 @@ public class EjerciciosRutina extends AppCompatActivity {
         Button btnEx = (Button) findViewById(R.id.backBtnEx);
 
         Rutinas rutinas = new Rutinas();
-        ArrayList<Ejercicio> rutina = rutinas.createRutina(meta, this, dia, dias, tieneRutina);
+        ArrayList<Ejercicio> rutina = null;
+        // rutinas.createRutina(meta, this, dia, dias, tieneRutina)
+
 
         EjerciciosAdapter adapterEj = new EjerciciosAdapter(rutina, rutinas);
 

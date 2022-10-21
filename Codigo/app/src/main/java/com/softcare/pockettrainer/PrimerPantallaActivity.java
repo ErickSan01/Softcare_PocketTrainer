@@ -37,8 +37,8 @@ public class PrimerPantallaActivity extends AppCompatActivity {
 
         AyudanteBaseDeDatos ayudante = new AyudanteBaseDeDatos(this);
 
-        ayudante.agregarMateriales();
-        ayudante.agregarEjercicios();
+        //ayudante.agregarMateriales();
+        //ayudante.agregarEjercicios();
         Intent i = new Intent(this, SeleccionHorarioActivity.class);
         startActivity(i);
         Log.d("iniciar cuesitonario", "Llendo a selección de horario");

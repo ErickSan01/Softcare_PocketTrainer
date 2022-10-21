@@ -14,6 +14,7 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import com.softcare.pockettrainer.nivel.ExperienciaActual;
 import com.softcare.pockettrainer.rutinas.Rutinas;
 
 public class MainActivity extends AppCompatActivity {

@@ -17,7 +17,7 @@ public class UsuarioPresentador {
         ayudanteBaseDeDatos = new AyudanteBaseDeDatos(contexto);
     }
 
-    public long nuevoMaterial(Usuario usuario){
+    public long nuevoUsuario(Usuario usuario){
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         ContentValues valoresParaInsertar = new ContentValues();
         valoresParaInsertar.put("id_usuario", usuario.getIdUsuario());

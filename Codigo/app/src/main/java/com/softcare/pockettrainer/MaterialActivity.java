@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.softcare.pockettrainer.adminbasededatos.Material;
-import com.softcare.pockettrainer.adminbasededatos.MaterialePresentador;
+import com.softcare.pockettrainer.adminbasededatos.MaterialesPresentador;
 import com.softcare.pockettrainer.rutinas.Ejercicio;
 
 import java.io.IOException;
@@ -31,9 +31,9 @@ public class MaterialActivity extends AppCompatActivity {
 
         ejercicio = (Ejercicio) intent.getSerializableExtra("ejercicio");
 
-        MaterialePresentador materialesC = new MaterialePresentador(this);
+        MaterialesPresentador materialesC = new MaterialesPresentador(this);
 
-        ArrayList<Material> materiales = materialesC.obtenermaterial();
+        ArrayList<Material> materiales = materialesC.obtenerMaterial();
 
         materialEjercicio = null;
 
@@ -46,13 +46,16 @@ public class MaterialActivity extends AppCompatActivity {
         Button btn1 = (Button) findViewById(R.id.button6);
         Button btn2 = (Button) findViewById(R.id.button7);
 
+        /*
         if(materialEjercicio.getImagen2() == null){
             btn1.setEnabled(false);
         }
+         */
 
         btn2.setEnabled(false);
     }
 
+    /*
     public void previousImagen(View v){
         Log.i("Info", "Button pressed");
 
@@ -72,7 +75,9 @@ public class MaterialActivity extends AppCompatActivity {
 
         System.out.println(ejercicio.getNombre());
     }
+     */
 
+    /*
     public void switchImagen(View v){
         Log.i("Info", "Button pressed");
 
@@ -92,6 +97,7 @@ public class MaterialActivity extends AppCompatActivity {
 
         System.out.println(ejercicio.getNombre());
     }
+     */
 
 
     public void lastImagen(View v){

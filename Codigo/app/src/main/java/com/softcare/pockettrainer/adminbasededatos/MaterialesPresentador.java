@@ -9,11 +9,11 @@ import com.softcare.pockettrainer.AyudanteBaseDeDatos;
 
 import java.util.ArrayList;
 
-public class MaterialePresentador {
+public class MaterialesPresentador {
     private  AyudanteBaseDeDatos ayudanteBaseDeDatos;
     private final String NOMBRE_TABLA = "Material";
 
-    public MaterialePresentador(Context contexto){
+    public MaterialesPresentador(Context contexto){
         ayudanteBaseDeDatos = new AyudanteBaseDeDatos(contexto);
     }
 

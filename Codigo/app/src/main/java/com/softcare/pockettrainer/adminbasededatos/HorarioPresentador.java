@@ -19,7 +19,7 @@ public class HorarioPresentador {
         ayudanteBaseDeDatos = new AyudanteBaseDeDatos(contexto);
     }
 
-    public long nuevoMaterial(Horario horario){
+    public long nuevoHorario(Horario horario){
 
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         ContentValues valoresParaInsertar = new ContentValues();

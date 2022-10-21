@@ -109,6 +109,7 @@ public class Rutinas extends AppCompatActivity {
         return result;
     }
 
+    /*
     public ArrayList<Ejercicio> createRutina(Map<String, ?> metaM, Context context, String dia, SharedPreferences diasP, SharedPreferences tieneRutinaP){
         String meta = obtenerMeta(metaM);
 
@@ -184,6 +185,7 @@ public class Rutinas extends AppCompatActivity {
 
         return null;
     }
+     */
 
     public String obtenerMeta(Map<String, ?> meta){
         ArrayList<String> metaArr = new ArrayList<String>();
