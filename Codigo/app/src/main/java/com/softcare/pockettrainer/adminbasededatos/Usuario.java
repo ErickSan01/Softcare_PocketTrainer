@@ -74,6 +74,7 @@ public class Usuario {
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
+
 }
 
 

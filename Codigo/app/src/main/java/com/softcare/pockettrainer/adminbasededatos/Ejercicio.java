@@ -3,8 +3,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.strictmode.SqliteObjectLeakedViolation;
 
+import java.io.Serializable;
 import java.sql.Blob;
-public class Ejercicio {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Ejercicio implements Serializable {
 
     private int idEjercicio;
     private String nombre;
@@ -118,5 +122,17 @@ public class Ejercicio {
 
     public void setIdMaterial(int idMaterial) {
         this.idMaterial = idMaterial;
+    }
+
+    public List<EjercicioImagenes> obtenerImagenes(ArrayList<EjercicioImagenes> imagenes){
+        List<EjercicioImagenes> imagenesPropias = new ArrayList<EjercicioImagenes>();
+        for(int i = 0; i < imagenes.size(); i++){
+            EjercicioImagenes imagen = imagenes.get(i);
+            int idEjercicioImagen = imagen.getIdEjercicio();
+            if(idEjercicioImagen == idEjercicio){
+                imagenesPropias.add(imagen);
+            }
+        }
+        return imagenesPropias;
     }
 }
