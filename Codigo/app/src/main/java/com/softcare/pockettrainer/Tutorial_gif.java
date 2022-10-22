@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.MediaController;
 
@@ -25,6 +27,7 @@ public class Tutorial_gif extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial_gif);
         ImageView gif = findViewById(R.id.gifs);
+        Button backBtn = (Button) findViewById(R.id.backBtnGif);
 
         Intent intent = getIntent();
 
@@ -49,5 +52,13 @@ public class Tutorial_gif extends AppCompatActivity {
 
 
         System.out.println(gifSource);
+
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

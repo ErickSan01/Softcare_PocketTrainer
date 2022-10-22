@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.softcare.pockettrainer.rutinas.Ejercicio;
@@ -27,6 +28,8 @@ public class TutorialActivity extends AppCompatActivity{
         setContentView(R.layout.activity_tutorial);
         Intent intent = getIntent();
 
+        Button backBtn = (Button) findViewById(R.id.backBtnEj);
+
         ejercicio = (Ejercicio) intent.getSerializableExtra("ejercicio");
 
         ImageView imagenEj = (ImageView) findViewById(R.id.imageView2);
@@ -44,6 +47,13 @@ public class TutorialActivity extends AppCompatActivity{
         }
 
         System.out.println(ejercicio.getNombre());
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     public void verImagen(View v){

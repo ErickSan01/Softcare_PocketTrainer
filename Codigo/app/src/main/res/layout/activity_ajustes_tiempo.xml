@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgrnd"
-    tools:context=".SeleccionHorarioActivity">
+    tools:context=".AjustesTiempoActivity">
 
     <TextView
         android:id="@+id/textViewHoras"
@@ -30,6 +30,19 @@
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
         app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
+
+    <Button
+        android:id="@+id/backBtnAjustesTiempo"
+        android:layout_width="54dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/buttonselector"
+        android:text="@string/back"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewJuevesHora"
@@ -61,7 +74,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/buttonselector"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
@@ -88,7 +101,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/buttonselector"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
@@ -101,7 +114,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/buttonselector"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
@@ -182,7 +195,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/buttonselector"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
@@ -207,7 +220,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/buttonselector"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
@@ -232,7 +245,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/buttonselector"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
@@ -245,7 +258,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/buttonselector"
         android:onClick="mostrarTimePicker"
         android:text="@string/elegir"
         android:textColor="@color/white"
@@ -295,7 +308,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:background="@drawable/custombutton"
+        android:background="@drawable/buttonselector"
         android:linksClickable="false"
         android:onClick="Siguiente"
         android:text="@string/siguiente"
