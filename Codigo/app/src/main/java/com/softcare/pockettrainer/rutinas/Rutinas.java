@@ -90,25 +90,6 @@ public class Rutinas extends AppCompatActivity {
         return diasS;
     }
 
-    public String leerArchivo(){
-        BufferedReader reader = null;
-        String result = "";
-
-        try {
-            reader = new BufferedReader(
-                    new InputStreamReader(getAssets().open("pruebaTxt.txt")));
-            String line = "";
-
-            while((line = reader.readLine()) != null){
-                result += line;
-            }
-        }catch (IOException ioe){
-            ioe.printStackTrace();
-        }
-
-        return result;
-    }
-
     /*
     public ArrayList<Ejercicio> createRutina(Map<String, ?> metaM, Context context, String dia, SharedPreferences diasP, SharedPreferences tieneRutinaP){
         String meta = obtenerMeta(metaM);
