@@ -14,6 +14,11 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramada;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramadaPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Usuario;
+import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
 import com.softcare.pockettrainer.nivel.ExperienciaActual;
 import com.softcare.pockettrainer.rutinas.Rutinas;
 
@@ -37,33 +42,6 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, PrimerPantallaActivity.class);
             startActivity(i);
         }
-
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-
-        Date currentDate = new Date();
-        SharedPreferences dias = getSharedPreferences("dias", MODE_PRIVATE);
-
-
-        // convert date to calendar
-        Calendar c = Calendar.getInstance();
-        c.setTime(currentDate);
-
-        // manipulate date
-        c.add(Calendar.YEAR, 1);
-        c.add(Calendar.MONTH, 1);
-        c.add(Calendar.DATE, 1); //same with c.add(Calendar.DAY_OF_MONTH, 1);
-        c.add(Calendar.HOUR, 1);
-        c.add(Calendar.MINUTE, 1);
-        c.add(Calendar.SECOND, 1);
-
-        // convert calendar to date
-        Date currentDatePlusOne = c.getTime();
-
-        System.out.println(dateFormat.format(currentDatePlusOne));
-
-
-
 
         Button btn2 = (Button)findViewById(R.id.btnRutinas);
         Button btn3 = (Button)findViewById(R.id.btnAjustes);
@@ -95,5 +73,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+    }
+
+    public void crearRutina(){
+        EjercicioPresentador ejercicioPresentador = new EjercicioPresentador()
+
     }
 }
