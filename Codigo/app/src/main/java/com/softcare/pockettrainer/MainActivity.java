@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void crearRutina(){
-        EjercicioPresentador ejercicioPresentador = new EjercicioPresentador()
+        EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(this);
 
     }
 }

@@ -73,6 +73,7 @@ public class TutorialActivity extends AppCompatActivity{
                 finish();
             }
         });
+
         btnCompletar.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
