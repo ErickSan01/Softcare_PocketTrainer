@@ -35,7 +35,7 @@
         android:layout_width="349dp"
         android:layout_height="208dp"
         android:layout_marginTop="116dp"
-        android:textColor="@color/texto"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,15 +50,42 @@
         android:onClick="editar"
         android:text="@string/editar"
         android:textColor="@color/white"
+        android:background="@drawable/buttonselector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonHorario2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/buttonselector"
+        android:onClick="editarCuerpo"
+        android:text="@string/cambiar"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ListView1" />
+
+    <Button
+        android:id="@+id/buttonHorario3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/buttonselector"
+        android:onClick="editarMeta"
+        android:text="@string/cambiar"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHorario2" />
 
     <TextView
         android:id="@+id/textViewCuerpo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:text="@string/cuerpo_elegido"
         android:textColor="@color/texto"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,10 +93,10 @@
 
     <TextView
         android:id="@+id/textViewCuerpoUsuario"
-        android:layout_width="228dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="196dp"
         android:text="TextView"
         android:textColor="@color/texto"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:text="@string/meta_elegido"
         android:textColor="@color/texto"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,13 +115,37 @@
 
     <TextView
         android:id="@+id/textViewMetaUsuario"
-        android:layout_width="229dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="106dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="160dp"
         android:text="TextView"
         android:textColor="@color/texto"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCuerpoUsuario" />
+
+    <Button
+        android:id="@+id/backBtnAjustes"
+        android:layout_width="54dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/back"
+        android:textColor="@android:color/black"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/buttonselector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonSalir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="196dp"
+        android:text="@string/guardar_y_salir"
+        android:background="@drawable/buttonselector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ListView1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

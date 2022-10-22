@@ -4,14 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1F2124"
+    android:background="@drawable/backgrnd"
     tools:context=".MaterialActivity">
+
+    <Button
+        android:id="@+id/backBtnImg2"
+        android:layout_width="54dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custombutton"
+        android:text="@string/back"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button7"
         android:layout_width="110dp"
         android:layout_height="54dp"
         android:layout_marginTop="532dp"
+        android:background="@drawable/custombutton"
         android:backgroundTint="#A3DCEF"
         android:onClick="lastImagen"
         android:text="Step 3"
@@ -26,6 +40,7 @@
         android:layout_height="54dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="40dp"
+        android:background="@drawable/custombutton"
         android:backgroundTint="#A3DCEF"
         android:onClick="switchImagen"
         android:text="Step 2"
@@ -51,7 +66,8 @@
         android:layout_width="286dp"
         android:layout_height="210dp"
         android:layout_marginTop="178dp"
-        android:background="#A3DCEF"
+
+        android:background="@drawable/custombutton"
         android:src="@drawable/logo_softcare"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
@@ -65,6 +81,7 @@
         android:layout_height="54dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="60dp"
+        android:background="@drawable/custombutton"
         android:backgroundTint="#A3DCEF"
         android:onClick="previousImagen"
         android:text="Step 1"

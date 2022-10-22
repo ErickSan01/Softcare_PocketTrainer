@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1f2124"
+    android:background="@drawable/backgrnd"
     tools:context=".rutinas.Rutinas">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/menuBtn"
         android:layout_width="77dp"
         android:layout_height="48dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/boton"
-        android:text="@string/menu"
+        android:backgroundTint="@color/fondo"
         app:iconTint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,40 +22,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignTop="@id/menuBtn"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="83dp"
         android:text="@string/mi_rutina"
         android:textColor="@color/texto"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menuBtn" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="247dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="51dp"
-        android:text="@string/parte_a_trabajar"
-        android:textColor="@color/texto"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:layout_marginBottom="200dp"
-        android:background="?attr/colorPrimary"
-        android:backgroundTint="@color/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <!--
      <Button
@@ -82,22 +55,56 @@
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
      -->
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/menuBtn"
+        android:layout_alignLeft="@id/textView"
+        android:layout_marginStart="190dp"
+        android:layout_marginLeft="193dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="-274dp"
+        android:text="@string/parte_a_trabajar"
+        android:textColor="@color/texto"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_alignTop="@id/backBtn"
+        android:layout_marginTop="-30dp"
+        android:layout_marginBottom="200dp"
+        android:background="?attr/colorPrimary"
+        android:backgroundTint="@color/toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/backBtn"
         android:layout_width="54dp"
         android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
+        android:background="@drawable/custombutton"
         android:text="@string/back"
         android:textColor="@android:color/black"
-        android:backgroundTint="@color/boton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaRutinas"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:textColor="@color/texto"
         app:layout_constraintBottom_toTopOf="@+id/materialToolbar"
@@ -105,4 +112,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

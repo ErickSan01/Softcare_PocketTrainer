@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,6 +24,24 @@ public class AjustesActivity extends AppCompatActivity {
         cargarPreferenciasHorario();
         cargarPreferenciasCuerpo();
         cargarPreferenciasMeta();
+
+        Button backBtn = (Button) findViewById(R.id.backBtnAjustes);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        Button salir = (Button) findViewById(R.id.buttonSalir);
+
+        salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AjustesActivity.this, MainActivity.class));
+            }
+        });
     }
 
     @SuppressLint("SetTextI18n")
@@ -128,8 +147,17 @@ public class AjustesActivity extends AppCompatActivity {
     }
 
     public void editar(View view){
-        reset(view);
-        Intent i = new Intent(this, PrimerPantallaActivity.class);
+        Intent i = new Intent(this, AjustesHorarioActivity.class);
+        startActivity(i);
+    }
+
+    public void editarCuerpo(View view){
+        Intent i = new Intent(this, AjustesCuerpoActivity.class);
+        startActivity(i);
+    }
+
+    public void editarMeta(View view){
+        Intent i = new Intent(this, AjustesMetaActivity.class);
         startActivity(i);
     }
 

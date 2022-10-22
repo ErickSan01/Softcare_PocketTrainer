@@ -29,6 +29,7 @@ public class Tutorial_img extends AppCompatActivity {
 
         Button btn1 = (Button) findViewById(R.id.btnprev);
         Button btn2 = (Button) findViewById(R.id.btnlast);
+        Button backBtn = (Button) findViewById(R.id.backBtnImg);
 
         if(ejercicio.getImagen2() == null){
             btn1.setEnabled(false);
@@ -36,6 +37,13 @@ public class Tutorial_img extends AppCompatActivity {
         if(ejercicio.getImagen3() == null){
             btn2.setEnabled(false);
         }
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgrnd"
+    tools:context=".RecompensasActivity">
+
+  <Button
+      android:id="@+id/backBtnNivel2"
+      android:layout_width="54dp"
+      android:layout_height="49dp"
+      android:layout_alignParentBottom="true"
+      android:layout_marginStart="10dp"
+      android:layout_marginBottom="10dp"
+      android:background="@drawable/custombutton"
+      android:text="@string/back"
+      android:textColor="@android:color/black"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/textViewMeta7"
+      android:layout_width="268dp"
+      android:layout_height="37dp"
+      android:layout_marginTop="20dp"
+      android:text="Recompensas de insignias Pocket Trainer"
+      android:textColor="#A2B9ED"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.496"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+  <ImageView
+      android:id="@+id/imageView14"
+      android:layout_width="197dp"
+      android:layout_height="144dp"
+      android:layout_marginTop="156dp"
+      android:src="@drawable/meta3"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textViewMeta6"
+      tools:srcCompat="@drawable/meta3" />
+
+  <ImageView
+      android:id="@+id/imageView13"
+      android:layout_width="151dp"
+      android:layout_height="126dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:src="@drawable/meta2"
+      app:layout_constraintEnd_toStartOf="@+id/imageView3"
+      app:layout_constraintHorizontal_bias="0.112"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textViewMeta6"
+      tools:srcCompat="@drawable/meta2" />
+
+  <ImageView
+      android:id="@+id/imageView15"
+      android:layout_width="150dp"
+      android:layout_height="129dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:src="@drawable/meta1"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textViewMeta6"
+      tools:srcCompat="@drawable/meta1" />
+
+  <TextView
+      android:id="@+id/textViewMeta6"
+      android:layout_width="268dp"
+      android:layout_height="37dp"
+      android:layout_marginTop="52dp"
+      android:text="Recompensas de niveles Pocket Trainer"
+      android:textColor="#A2B9ED"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.496"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <ImageView
+      android:id="@+id/imageView16"
+      android:layout_width="136dp"
+      android:layout_height="107dp"
+      android:layout_marginTop="12dp"
+      app:layout_constraintEnd_toStartOf="@+id/imageView17"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/textViewMeta7"
+      app:srcCompat="@drawable/models" />
+
+  <ImageView
+      android:id="@+id/imageView17"
+      android:layout_width="136dp"
+      android:layout_height="107dp"
+      android:layout_marginTop="12dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/imageView16"
+      app:layout_constraintTop_toBottomOf="@+id/textViewMeta7"
+      app:srcCompat="@drawable/models" />
+</androidx.constraintlayout.widget.ConstraintLayout>

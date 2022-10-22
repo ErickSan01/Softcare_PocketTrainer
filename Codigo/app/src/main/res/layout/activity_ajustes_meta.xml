@@ -4,8 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgrnd"
-    tools:context=".CuerpoActivity">
+    android:background="#1F2124"
+    tools:context=".AjustesMetaActivity">
+
+    <Button
+        android:id="@+id/backBtnAjustesMeta"
+        android:layout_width="54dp"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/buttonselector"
+        android:text="@string/back"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewMeta"
@@ -31,13 +44,13 @@
 
     <Button
         android:id="@+id/buttonMusculo"
-        android:layout_width="145dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/custombutton"
+        android:layout_width="158dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
         android:onClick="musculo"
         android:text="@string/masa_muscular"
+        android:background="@drawable/buttonselector"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         tools:ignore="OnClick" />
@@ -57,12 +70,12 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="216dp"
-        android:layout_height="156dp"
-        android:layout_marginTop="276dp"
-        android:src="@drawable/meta3"
+        android:layout_width="239dp"
+        android:layout_height="161dp"
+        android:layout_marginTop="260dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/meta3"
         app:layout_constraintTop_toBottomOf="@+id/textViewMeta"
         tools:srcCompat="@drawable/meta3" />
 
@@ -71,24 +84,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:background="@drawable/custombutton"
         android:onClick="ambos"
         android:text="@string/ambos"
+        android:background="@drawable/buttonselector"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         tools:ignore="OnClick" />
 
     <Button
         android:id="@+id/buttonPeso"
-        android:layout_width="140dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/custombutton"
+        android:layout_width="150dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:onClick="peso"
         android:text="@string/bajar"
+        android:background="@drawable/buttonselector"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         tools:ignore="OnClick" />
