@@ -85,6 +85,7 @@ public class TutorialActivity extends AppCompatActivity{
                     ArrayList<Usuario> usuarios = usuarioPresentador.obtenerUsuario();
                     Usuario usuario = usuarios.get(0);
                     usuario.setExp(ejercicio.getPuntosEXP()+usuario.getExp());
+                    usuario.setEjerciciosCompletados(usuario.getEjerciciosCompletados()+1);
                     usuarioPresentador.guardarCambios(usuario);
                     btnCompletar.setEnabled(false);
                 }
