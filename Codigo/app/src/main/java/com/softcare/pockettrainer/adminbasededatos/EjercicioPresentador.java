@@ -73,6 +73,24 @@ public class EjercicioPresentador {
         return ejercicios;
     }
 
+    public int guardarCambios(Ejercicio ejercicio) {
+        SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
+        ContentValues valoresParaActualizar = new ContentValues();
+        valoresParaActualizar.put("nombre", ejercicio.getNombre());
+        valoresParaActualizar.put("terminado",ejercicio.isTerminado());
+        valoresParaActualizar.put("precio",ejercicio.getPrecio());
+        valoresParaActualizar.put("nivel",ejercicio.getNivel());
+        valoresParaActualizar.put("parteCuerpo", ejercicio.getParteCuerpo());
+        valoresParaActualizar.put("descripcion", ejercicio.getDescripcion());
+        valoresParaActualizar.put("meta", ejercicio.getMeta());
+        valoresParaActualizar.put("puntosEXP",ejercicio.getPuntosEXP());
+        valoresParaActualizar.put("id_rutina",ejercicio.getIdRutina());
+        valoresParaActualizar.put("id_material",ejercicio.getIdMaterial());
+        String campoParaActualizar = "id = ?";
+        String[] argumentosParaActualizar = {String.valueOf(ejercicio.getIdEjercicio())};
+        return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
+    }
+
 
     public int eliminarEjercicio(Ejercicio ejercicio) {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
