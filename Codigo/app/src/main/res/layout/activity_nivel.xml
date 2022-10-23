@@ -7,33 +7,56 @@
     android:background="@drawable/backgrnd"
     tools:context=".NivelActivity">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="97dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="24dp"
+    <TextView
+        android:id="@+id/textViewMeta3"
+        android:layout_width="277dp"
+        android:layout_height="35dp"
+        android:text="Insiginias pocket trainer"
+        android:textColor="#A2B9ED"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.77"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@drawable/logo_pt" />
+        tools:layout_editor_absoluteY="362dp" />
 
     <ImageView
         android:id="@+id/imageView9"
         android:layout_width="97dp"
         android:layout_height="105dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintHorizontal_bias="0.229"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:srcCompat="@drawable/logo_pt" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="97dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:srcCompat="@drawable/logo_pt" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="97dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMeta3"
         app:srcCompat="@drawable/logo_pt" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="97dp"
         android:layout_height="105dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView7"
@@ -41,23 +64,10 @@
         app:srcCompat="@drawable/logo_pt" />
 
     <TextView
-        android:id="@+id/textViewMeta3"
-        android:layout_width="277dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="24dp"
-        android:text="Insiginias pocket trainer"
-        android:textColor="#A2B9ED"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-
-    <TextView
         android:id="@+id/textViewMeta2"
         android:layout_width="344dp"
         android:layout_height="41dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="36dp"
         android:text="Nivel de entrenamiento pocket trainer"
         android:textColor="#A2B9ED"
         android:textSize="20sp"
@@ -70,30 +80,18 @@
         android:id="@+id/imageView6"
         android:layout_width="167dp"
         android:layout_height="188dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewMeta2"
         tools:ignore="MissingConstraints"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="97dp"
-        android:layout_height="105dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView8"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMeta3"
-        app:srcCompat="@drawable/logo_pt" />
-
     <Button
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/custombutton"
         android:onClick="verNivel"
         android:text="Próximas Recompensas"
@@ -114,5 +112,24 @@
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/exp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Experiencia actual:"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="315dp" />
+
+    <TextView
+        android:id="@+id/ex"
+        android:layout_width="85dp"
+        android:layout_height="26dp"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="254dp"
+        tools:layout_editor_absoluteY="315dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
