@@ -2,11 +2,13 @@ package com.softcare.pockettrainer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,7 +20,10 @@ import com.softcare.pockettrainer.nivel.ExperienciaActual;
 import com.softcare.pockettrainer.rutinas.Rutinas;
 
 public class MainActivity extends AppCompatActivity {
+
     private Button btn2, btn3, btn4, btn5;
+    private int day, month, year;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +37,36 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
 
+        final Calendar calendario = Calendar.getInstance();
 
-        if(!tieneTodosLosDatos) {
-            Intent i = new Intent(this, PrimerPantallaActivity.class);
-            startActivity(i);
+        day = calendario.get(Calendar.DAY_OF_MONTH);
+        month = calendario.get(Calendar.MONTH);
+        year = calendario.get(Calendar.YEAR);
+
+        DatePickerDialog picker = new DatePickerDialog(MainActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int daySeleccionado, int monthSeleccionado, int yearSeleccionado) {
+
+                String dayFormato, monthFormato;
+
+                if(daySeleccionado < 10){
+                    dayFormato = "0"+String.valueOf(daySeleccionado);
+                }else{
+                    dayFormato = String.valueOf(daySeleccionado);
+                }
+
+                int monthReal = monthSeleccionado + 1;
+                if(monthReal < 10){
+                    monthFormato = "0" + String.valueOf(monthReal);
+                }else{
+                    monthFormato = String.valueOf(monthReal);
+                }
+            }
         }
+        , year, month, day);
+        picker.show();
 
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        /*DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
         Date currentDate = new Date();
         SharedPreferences dias = getSharedPreferences("dias", MODE_PRIVATE);
@@ -60,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         // convert calendar to date
         Date currentDatePlusOne = c.getTime();
 
-        System.out.println(dateFormat.format(currentDatePlusOne));
+        System.out.println(dateFormat.format(currentDatePlusOne));*/
 
 
 
@@ -68,7 +95,14 @@ public class MainActivity extends AppCompatActivity {
         Button btn2 = (Button)findViewById(R.id.btnRutinas);
         Button btn3 = (Button)findViewById(R.id.btnAjustes);
         Button btn4 = (Button)findViewById(R.id.btnNivel);
+        Button btn5 = (Button)findViewById(R.id.buttonPrueba);
 
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HistorialActivity.class));
+            }
+        });
 
 
         btn2.setOnClickListener(new View.OnClickListener() {
