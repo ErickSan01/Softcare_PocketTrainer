@@ -95,6 +95,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
                 "puntosEXP int)", NOMBRE_TABLA_RUTINA));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                        "id_usuario int primary key, " +
                         "meta text, "+
                         "tipo_cuerpo text, "+
                         "id_rutinas_programadas int, "+

@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         , year, month, day);
         picker.show();
 
-<<<<<<< HEAD
         /*DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
         Date currentDate = new Date();
@@ -95,11 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println(dateFormat.format(currentDatePlusOne));*/
 
-
-
-
-=======
->>>>>>> 4823f1e1d9162f898b4315728d2ad253f957d23a
         Button btn2 = (Button)findViewById(R.id.btnRutinas);
         Button btn3 = (Button)findViewById(R.id.btnAjustes);
         Button btn4 = (Button)findViewById(R.id.btnNivel);

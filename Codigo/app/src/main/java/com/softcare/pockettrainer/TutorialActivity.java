@@ -3,6 +3,7 @@ package com.softcare.pockettrainer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -16,13 +17,17 @@ import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
 import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenes;
 import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenesPresentador;
 import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Rutina;
+import com.softcare.pockettrainer.adminbasededatos.RutinaPresentador;
 import com.softcare.pockettrainer.adminbasededatos.Usuario;
 import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TutorialActivity extends AppCompatActivity{
@@ -78,6 +83,16 @@ public class TutorialActivity extends AppCompatActivity{
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if(motionEvent.getAction() == MotionEvent.ACTION_UP){
+                    SharedPreferences prefEjercicio = getSharedPreferences("ejerciciosCompletado", MODE_PRIVATE);
+                    SharedPreferences prefFecha = getSharedPreferences("fechaEjercicio", MODE_PRIVATE);
+                    SharedPreferences.Editor editorEjercicio = prefEjercicio.edit();
+                    SharedPreferences.Editor editorFecha = prefFecha.edit();
+
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    Date date = new Date();
+
+                    RutinaPresentador rutina = new RutinaPresentador(TutorialActivity.this);
+
                     btnCompletar.setText("Completado");
                     btnCompletar.setBackgroundColor(Color.GREEN);
                     ejercicio.setTerminado(true);
@@ -88,6 +103,11 @@ public class TutorialActivity extends AppCompatActivity{
                     usuario.setEjerciciosCompletados(usuario.getEjerciciosCompletados()+1);
                     usuarioPresentador.guardarCambios(usuario);
                     btnCompletar.setEnabled(false);
+
+                    //Rutina rutinaTemporal = rutina.obtenerRutina(ejercicio.getIdRutina());
+                    editorFecha.putBoolean(formatter.format(date), true);
+                    editorEjercicio.putString(formatter.format(date),"temp");
+
                 }
                 return false;
             }

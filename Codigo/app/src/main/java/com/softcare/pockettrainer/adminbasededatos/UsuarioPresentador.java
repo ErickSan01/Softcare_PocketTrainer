@@ -34,7 +34,7 @@ public class UsuarioPresentador {
     public ArrayList<Usuario> obtenerUsuario(){
         ArrayList<Usuario> usuarios = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
-        String[] columnas = {"meta","tipo_cuerpo","id_rutinas_programadas","id_horario","exp","nivel","ejercicios_completados"};
+        String[] columnas = {"id_usuario", "meta","tipo_cuerpo","id_rutinas_programadas","id_horario","exp","nivel","ejercicios_completados"};
         Cursor cursor = sqLiteDatabase.query(
                 NOMBRE_TABLA,
                 columnas,
@@ -54,9 +54,9 @@ public class UsuarioPresentador {
             String tipo_cuerpo = cursor.getString(2);
             int id_rutins_programadas = cursor.getInt(3);
             int id_horario = cursor.getInt(4);
-            int exp = cursor.getInt(6);
-            int nivel = cursor.getInt(7);
-            int ejerciciosCompletados = cursor.getInt(8);
+            int exp = cursor.getInt(5);
+            int nivel = cursor.getInt(6);
+            int ejerciciosCompletados = cursor.getInt(7);
             Usuario usuario = new Usuario(id_usuario, meta, tipo_cuerpo,id_rutins_programadas,id_horario,exp,nivel,ejerciciosCompletados);
             usuarios.add(usuario);
         }while (cursor.moveToNext());
