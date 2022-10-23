@@ -8,8 +8,9 @@ public class Usuario {
     private int idHorario;
     private int exp;
     private int nivel;
+    private int ejerciciosCompletados;
 
-    public Usuario(int idUsuario, String meta, String tipoCuerpo, int idRutinasProgramadas, int idHorario, int exp, int nivel) {
+    public Usuario(int idUsuario, String meta, String tipoCuerpo, int idRutinasProgramadas, int idHorario, int exp, int nivel, int ejerciciosCompletados) {
         this.idUsuario = idUsuario;
         this.meta = meta;
         this.tipoCuerpo = tipoCuerpo;
@@ -17,6 +18,7 @@ public class Usuario {
         this.idHorario = idHorario;
         this.exp = exp;
         this.nivel = nivel;
+        this.ejerciciosCompletados = ejerciciosCompletados;
     }
 
     public int getIdUsuario() {
@@ -73,6 +75,14 @@ public class Usuario {
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
+    }
+
+    public int getEjerciciosCompletados() {
+        return ejerciciosCompletados;
+    }
+
+    public void setEjerciciosCompletados(int ejerciciosCompletados) {
+        this.ejerciciosCompletados = ejerciciosCompletados;
     }
 }
 

@@ -3,37 +3,56 @@ package com.softcare.pockettrainer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.softcare.pockettrainer.rutinas.Ejercicio;
+import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenes;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenesPresentador;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Usuario;
+import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TutorialActivity extends AppCompatActivity{
     private Ejercicio ejercicio;
+    private Button btnCompletar;
+    private Usuario usuario;
 
     public TutorialActivity(){
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
         Intent intent = getIntent();
+        btnCompletar = (Button) findViewById(R.id.btnCompletar);
 
         Button backBtn = (Button) findViewById(R.id.backBtnEj);
-
         ejercicio = (Ejercicio) intent.getSerializableExtra("ejercicio");
-
+        EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(this);
         ImageView imagenEj = (ImageView) findViewById(R.id.imageView2);
-        String archivo = "imagenes/" + ejercicio.getImagen1() + ".jpeg";
+        EjercicioImagenesPresentador eip = new EjercicioImagenesPresentador(this);
+        List<EjercicioImagenes> imagenes = ejercicio.obtenerImagenes(eip.obtenerImagen());
+        EjercicioImagenes imagen1 = imagenes.get(0);
+
+        String archivo = "imagenes/" + imagen1.getNombreImagen() + ".jpeg";
+        if(ejercicio.isTerminado()==true){
+            btnCompletar.setEnabled(false);
+        }
 
         try {
             InputStream is = getAssets().open(archivo);
@@ -52,6 +71,25 @@ public class TutorialActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        btnCompletar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if(motionEvent.getAction() == MotionEvent.ACTION_UP){
+                    btnCompletar.setText("Completado");
+                    btnCompletar.setBackgroundColor(Color.GREEN);
+                    ejercicio.setTerminado(true);
+                    ejercicioPresentador.guardarCambios(ejercicio);
+                    ArrayList<Usuario> usuarios = usuarioPresentador.obtenerUsuario();
+                    Usuario usuario = usuarios.get(0);
+                    usuario.setExp(ejercicio.getPuntosEXP()+usuario.getExp());
+                    usuario.setEjerciciosCompletados(usuario.getEjerciciosCompletados()+1);
+                    usuarioPresentador.guardarCambios(usuario);
+                    btnCompletar.setEnabled(false);
+                }
+                return false;
             }
         });
     }

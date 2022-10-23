@@ -16,6 +16,11 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramada;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramadaPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Usuario;
+import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
 import com.softcare.pockettrainer.nivel.ExperienciaActual;
 import com.softcare.pockettrainer.rutinas.Rutinas;
 
@@ -66,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         , year, month, day);
         picker.show();
 
+<<<<<<< HEAD
         /*DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
         Date currentDate = new Date();
@@ -92,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+=======
+>>>>>>> 4823f1e1d9162f898b4315728d2ad253f957d23a
         Button btn2 = (Button)findViewById(R.id.btnRutinas);
         Button btn3 = (Button)findViewById(R.id.btnAjustes);
         Button btn4 = (Button)findViewById(R.id.btnNivel);
@@ -129,5 +137,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+    }
+
+    public void crearRutina(){
+        EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(this);
+
     }
 }
