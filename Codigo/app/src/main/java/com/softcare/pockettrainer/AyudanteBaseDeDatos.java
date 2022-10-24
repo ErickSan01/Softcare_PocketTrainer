@@ -95,13 +95,14 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
                 "puntosEXP int)", NOMBRE_TABLA_RUTINA));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
-                        "id_usuario int" +
+                        "id_usuario int primary key, " +
                         "meta text, "+
                         "tipo_cuerpo text, "+
                         "id_rutinas_programadas int, "+
                         "id_horario int, "+
                         "exp int, "+
                         "nivel int, "+
+                        "ejercicios_completados int, "+
                 "FOREIGN KEY (id_rutinas_programadas) REFERENCES Rutinas_Programadas(id_rutinas_programadas), " +
                 "FOREIGN KEY (id_horario) REFERENCES Horario(id_horario))", NOMBRE_TABLA_USUARIO));
 
@@ -569,8 +570,9 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         int idHorario = 1;
         int exp = 0;
         int nivel = 0;
+        int ejerciciosCompletados = 0;
 
-        Usuario user = new Usuario(idUsuario, meta, tipoCuerpo, idRutinasProgramadas, idHorario, exp, nivel);
+        Usuario user = new Usuario(idUsuario, meta, tipoCuerpo, idRutinasProgramadas, idHorario, exp, nivel, ejerciciosCompletados);
 
         UsuarioPresentador presentador = new UsuarioPresentador(context);
         presentador.nuevoUsuario(user);

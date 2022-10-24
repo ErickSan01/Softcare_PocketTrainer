@@ -18,6 +18,20 @@
         android:theme="@style/Theme.PocketTrainer"
         tools:targetApi="31">
         <activity
+            android:name=".HistorialDiaActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".HistorialActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AjustesTiempoActivity"
             android:exported="false">
             <meta-data

@@ -27,13 +27,14 @@ public class UsuarioPresentador {
         valoresParaInsertar.put("id_horario", usuario.getIdHorario());
         valoresParaInsertar.put("exp", usuario.getExp());
         valoresParaInsertar.put("nivel", usuario.getNivel());
+        valoresParaInsertar.put("ejercicios_completados",usuario.getEjerciciosCompletados());
         return baseDeDatos.insert(NOMBRE_TABLA, null, valoresParaInsertar);
     }
 
     public ArrayList<Usuario> obtenerUsuario(){
         ArrayList<Usuario> usuarios = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
-        String[] columnas = {"meta","tipo_cuerpo","id_rutinas_programadas","id_horario","exp","nivel"};
+        String[] columnas = {"id_usuario", "meta","tipo_cuerpo","id_rutinas_programadas","id_horario","exp","nivel","ejercicios_completados"};
         Cursor cursor = sqLiteDatabase.query(
                 NOMBRE_TABLA,
                 columnas,
@@ -53,9 +54,10 @@ public class UsuarioPresentador {
             String tipo_cuerpo = cursor.getString(2);
             int id_rutins_programadas = cursor.getInt(3);
             int id_horario = cursor.getInt(4);
-            int exp = cursor.getInt(6);
-            int nivel = cursor.getInt(7);
-            Usuario usuario = new Usuario(id_usuario, meta, tipo_cuerpo,id_rutins_programadas,id_horario,exp,nivel);
+            int exp = cursor.getInt(5);
+            int nivel = cursor.getInt(6);
+            int ejerciciosCompletados = cursor.getInt(7);
+            Usuario usuario = new Usuario(id_usuario, meta, tipo_cuerpo,id_rutins_programadas,id_horario,exp,nivel,ejerciciosCompletados);
             usuarios.add(usuario);
         }while (cursor.moveToNext());
         cursor.close();
@@ -71,6 +73,7 @@ public class UsuarioPresentador {
         valoresParaActualizar.put("id_horario", usuario.getIdHorario());
         valoresParaActualizar.put("exp", usuario.getExp());
         valoresParaActualizar.put("nivel", usuario.getNivel());
+        valoresParaActualizar.put("ejercicios_completados", usuario.getEjerciciosCompletados());
         String campoParaActualizar = "id = ?";
         String[] argumentosParaActualizar = {String.valueOf(usuario.getIdUsuario())};
         return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
