@@ -95,6 +95,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
                 "puntosEXP int)", NOMBRE_TABLA_RUTINA));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
+                        "id_usuario int" +
                         "meta text, "+
                         "tipo_cuerpo text, "+
                         "id_rutinas_programadas int, "+
@@ -166,7 +167,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(context);
 
         for (String ejercicio : ejerciciosAmbos){
-            String[] campos = ejercicio.split(",");
+            String[] campos = ejercicio.split("-");
 
             int idEjercicio;
             String nombre;
@@ -205,7 +206,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         }
 
         for (String ejercicio : ejerciciosAumentar){
-            String[] campos = ejercicio.split(",");
+            String[] campos = ejercicio.split("-");
 
             int idEjercicio;
             String nombre;
@@ -243,7 +244,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         }
 
         for (String ejercicio : ejerciciosBajar){
-            String[] campos = ejercicio.split(",");
+            String[] campos = ejercicio.split("-");
 
             int idEjercicio;
             String nombre;
@@ -416,8 +417,6 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
     public void agregarHorario(){
         SharedPreferences horario = context.getSharedPreferences("tiempo", Context.MODE_PRIVATE);
 
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-
         String horarioLunes = horario.getString("lunes", "");
         String horarioMartes = horario.getString("martes", "");
         String horarioMiercoles = horario.getString("miercoles", "");
@@ -516,7 +515,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         return imagenesMaterial;
     }
 
-    public void agregarRutina(){
+    public void agregarRutinas(){
         ArrayList<String> partesCuerpo = new ArrayList<String>();
         partesCuerpo.add("Abdomen");
         partesCuerpo.add("Brazo");
@@ -566,7 +565,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         int idUsuario = 1;
         String meta = getMeta();
         String tipoCuerpo = getTipoCuerpo();
-        int idRutinasProgramadas = 0;
+        int idRutinasProgramadas = 1;
         int idHorario = 1;
         int exp = 0;
         int nivel = 0;
@@ -580,46 +579,43 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
     public String getMeta(){
         SharedPreferences meta = context.getSharedPreferences("meta", Context.MODE_PRIVATE);
 
-        Map<String, ?> metaUsuario = meta.getAll();
+        boolean musculos = meta.getBoolean("musculo", false);
+        boolean ambos = meta.getBoolean("ambos", false);
+        boolean peso = meta.getBoolean("peso", false);
 
-        ArrayList<Boolean> valsArr = new ArrayList<Boolean>();
-        ArrayList<String> metaArr = new ArrayList<String>(metaUsuario.keySet());
-
-        for (Object val: metaUsuario.values()) {
-            valsArr.add((Boolean) val);
+        String metaS = "";
+        if(musculos){
+            metaS = "musculos";
+        }
+        if(ambos){
+            metaS = "ambos";
+        }
+        if(peso){
+            metaS = "peso";
         }
 
-        String m = "";
-
-        for (int pos = 0; pos < 3; pos++) {
-            if(valsArr.get(pos)){
-                m = metaArr.get(pos);
-            }
-        }
-
-        return m;
+        return metaS;
     }
 
     public String getTipoCuerpo(){
         SharedPreferences tipoCuerpo = context.getSharedPreferences("cuerpo", Context.MODE_PRIVATE);
 
-        Map<String, ?> tipoCuerpoUsuario = tipoCuerpo.getAll();
+        boolean fornido = tipoCuerpo.getBoolean("fornido", false);
+        boolean robusto = tipoCuerpo.getBoolean("robusto", false);
+        boolean delgado = tipoCuerpo.getBoolean("delgado", false);
 
-        ArrayList<Boolean> valsArr = new ArrayList<Boolean>();
-        ArrayList<String> tipoArr = new ArrayList<String>(tipoCuerpoUsuario.keySet());
+        String tipoCuerpoS = "";
 
-        for (Object val: tipoCuerpoUsuario.values()) {
-            valsArr.add((Boolean) val);
+        if(fornido){
+            tipoCuerpoS = "fornido";
+        }
+        if(robusto){
+            tipoCuerpoS = "robusto";
+        }
+        if(delgado){
+            tipoCuerpoS = "delgado";
         }
 
-        String t = "";
-
-        for (int pos = 0; pos < 3; pos++) {
-            if(valsArr.get(pos)){
-                t = tipoArr.get(pos);
-            }
-        }
-
-        return t;
+        return tipoCuerpoS;
     }
 }

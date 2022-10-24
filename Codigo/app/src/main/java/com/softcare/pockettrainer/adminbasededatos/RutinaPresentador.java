@@ -4,9 +4,15 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 
 import com.softcare.pockettrainer.AyudanteBaseDeDatos;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class RutinaPresentador {
@@ -54,6 +60,37 @@ public class RutinaPresentador {
         }while (cursor.moveToNext());
         cursor.close();
         return rutinas;
+    }
+
+    public Rutina obtenerRutina(int idRutina){
+        String sql = "SELECT * FROM RUTINA WHERE id_rutina = " + idRutina + ";";
+
+        SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
+
+        try {
+            Connection connection = DriverManager.getConnection(sqLiteDatabase.getPath());
+
+            Statement statement = connection.createStatement();
+            ResultSet resultado = statement.executeQuery(sql);
+
+            int idRutina0 = 0;
+            String parteCuerpoO = "";
+            boolean completada = false;
+            int puntosExp = 0;
+
+            while(resultado.next()){
+                idRutina0 = resultado.getInt("id_rutina");
+                parteCuerpoO = resultado.getString("parte_cuerpo");
+                completada = resultado.getBoolean("completada");
+                puntosExp = resultado.getInt("puntosEXP");
+            }
+
+            return new Rutina(idRutina0, parteCuerpoO, completada, puntosExp);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     public int guardarCambios(Rutina rutina) {
