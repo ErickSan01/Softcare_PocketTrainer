@@ -10,16 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.softcare.pockettrainer.rutinas.Rutinas;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class HistorialActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
+public class HistorialCalendarioActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
 
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
@@ -29,7 +26,7 @@ public class HistorialActivity extends AppCompatActivity implements CalendarAdap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_historial);
+        setContentView(R.layout.activity_historial_calendario);
         initWidgets();
         selectedDate = LocalDate.now();
         setMonthView();
@@ -90,6 +87,12 @@ public class HistorialActivity extends AppCompatActivity implements CalendarAdap
         return date.format(formatter);
     }
 
+    @SuppressLint("NewApi")
+    private String mesConNumero(LocalDate date){
+        @SuppressLint({"NewApi", "LocalSuppress"}) DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yyyy");
+        return date.format(formatter);
+    }
+
     private void initWidgets() {
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTV);
@@ -97,12 +100,11 @@ public class HistorialActivity extends AppCompatActivity implements CalendarAdap
 
     @Override
     public void onItemClick(int position, String dayText) {
-
-        Intent i = new Intent(this, HistorialDiaActivity.class);
-
-        i.putExtra("fecha", dayText + " " + monthYearFromDate(selectedDate));
-
-        startActivity(i);
+        if(!dayText.equals("")) {
+            Intent i = new Intent(this, HistorialCalendarioSeleccionActivity.class);
+            i.putExtra("fecha", dayText + "/" + mesConNumero(selectedDate));
+            startActivity(i);
+        }
         /*if(dayText.equals("")){
             String message = "selected date " + dayText + " " + monthYearFromDate(selectedDate);
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
