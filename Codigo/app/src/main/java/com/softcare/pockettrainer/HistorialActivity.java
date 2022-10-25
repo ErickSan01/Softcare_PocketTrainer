@@ -58,7 +58,6 @@ public class HistorialActivity extends AppCompatActivity implements CalendarAdap
     private void setMonthView() {
         monthYearText.setText(monthYearFromDate(selectedDate));
         ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
-
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
@@ -68,9 +67,7 @@ public class HistorialActivity extends AppCompatActivity implements CalendarAdap
     private ArrayList<String> daysInMonthArray(LocalDate date) {
         ArrayList<String> daysInMonthArray = new ArrayList<>();
         @SuppressLint({"NewApi", "LocalSuppress"}) YearMonth yearMonth = YearMonth.from(date);
-
         @SuppressLint({"NewApi", "LocalSuppress"}) int daysInMonth = yearMonth.lengthOfMonth();
-
         @SuppressLint({"NewApi", "LocalSuppress"}) LocalDate firstOfMonth = selectedDate.withDayOfMonth(1);
         @SuppressLint({"NewApi", "LocalSuppress"}) int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
 
