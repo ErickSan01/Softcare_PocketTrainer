@@ -104,10 +104,15 @@ public class TutorialActivity extends AppCompatActivity{
                     usuarioPresentador.guardarCambios(usuario);
                     btnCompletar.setEnabled(false);
 
-                    //Rutina rutinaTemporal = rutina.obtenerRutina(ejercicio.getIdRutina());
+                    Rutina rutinaTemporal = rutina.obtenerRutina(ejercicio.getIdRutina());
                     editorFecha.putBoolean(formatter.format(date), true);
-                    editorEjercicio.putString(formatter.format(date),"temp");
+                    editorEjercicio.putString(formatter.format(date), rutinaTemporal.getParteCuerpo());
 
+                    editorEjercicio.apply();
+                    editorFecha.apply();
+
+                    editorEjercicio.commit();
+                    editorFecha.commit();
                 }
                 return false;
             }
