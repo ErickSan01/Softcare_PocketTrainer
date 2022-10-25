@@ -18,11 +18,13 @@ import com.softcare.pockettrainer.adminbasededatos.Rutina;
 import com.softcare.pockettrainer.rutinas.Rutinas;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btn2, btn3, btn4, btn5;
     private int day, month, year;
+    AyudanteBaseDeDatos ayudante;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,10 @@ public class MainActivity extends AppCompatActivity {
         }
         , year, month, day);
         picker.show();
+        AyudanteBaseDeDatos ayudante = new AyudanteBaseDeDatos(this);
+
+        //ayudante.agregarEjercicios();
+        crearRutina();
 
         /*DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
@@ -91,14 +97,14 @@ public class MainActivity extends AppCompatActivity {
         Button btn4 = (Button)findViewById(R.id.btnNivel);
         Button btn5 = (Button)findViewById(R.id.buttonPrueba);
 
-        btn5.setOnClickListener(new View.OnClickListener() {
+        btn5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, HistorialActivity.class));
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btn2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, Rutinas.class));

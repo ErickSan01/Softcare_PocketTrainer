@@ -242,7 +242,7 @@ public class SeleccionTiempoActivity extends AppCompatActivity {
             Intent i = new Intent(this, CuerpoActivity.class);
             startActivity(i);
         }else{
-            Toast.makeText(this, "Selecciona al menos una hora libre por día para ejercitarte", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Selecciona al menos una hora libre por día para ejercitarte", Toast.LENGTH_SHORT).show();
         }
     }
 

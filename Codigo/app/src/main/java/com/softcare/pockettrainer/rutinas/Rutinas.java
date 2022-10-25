@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.softcare.pockettrainer.AyudanteBaseDeDatos;
 import com.softcare.pockettrainer.R;
 import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.RutinaPresentador;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,8 +45,9 @@ public class Rutinas extends AppCompatActivity {
 
         ayudante = new AyudanteBaseDeDatos(this);
         Map<String, ?> meta = metaPref.getAll();
+        RutinaPresentador rutinaPresentador = new RutinaPresentador(this);
 
-        RutinasAdapter rutinasAdapter = new RutinasAdapter(dias, this);
+        RutinasAdapter rutinasAdapter = new RutinasAdapter(dias, rutinaPresentador.obtenerRutina(), this);
         lista.setHasFixedSize(false);
         lista.setLayoutManager(new LinearLayoutManager(this));
         lista.setAdapter(rutinasAdapter);
