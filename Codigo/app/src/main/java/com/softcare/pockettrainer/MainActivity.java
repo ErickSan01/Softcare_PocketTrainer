@@ -2,19 +2,14 @@ package com.softcare.pockettrainer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
 import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
-import com.softcare.pockettrainer.adminbasededatos.Rutina;
 import com.softcare.pockettrainer.rutinas.Rutinas;
 
 import java.util.ArrayList;
@@ -32,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences datos = getSharedPreferences("primer_pantalla", MODE_PRIVATE);
         boolean tieneTodosLosDatos = datos.getBoolean("tiene_datos",false);
 
-        ayudante = new AyudanteBaseDeDatos(this);
+        AyudanteBaseDeDatos ayudante = new AyudanteBaseDeDatos(this);
 
-        final Calendar calendario = Calendar.getInstance();
+        /*final Calendar calendario = Calendar.getInstance();
 
         day = calendario.get(Calendar.DAY_OF_MONTH);
         month = calendario.get(Calendar.MONTH);
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         , year, month, day);
-        picker.show();
+        picker.show();*/
 
         /*DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
@@ -90,11 +85,19 @@ public class MainActivity extends AppCompatActivity {
         Button btn3 = (Button)findViewById(R.id.btnAjustes);
         Button btn4 = (Button)findViewById(R.id.btnNivel);
         Button btn5 = (Button)findViewById(R.id.buttonPrueba);
+        Button btn6 = (Button)findViewById(R.id.buttonHistorial);
+
+        btn6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HistorialUsuarioActivity.class));
+            }
+        });
 
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HistorialActivity.class));
+                startActivity(new Intent(MainActivity.this, HistorialCalendarioActivity.class));
             }
         });
 

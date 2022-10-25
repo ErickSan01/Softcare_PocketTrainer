@@ -46,8 +46,8 @@ public class AjustesActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     private void cargarPreferenciasHorario(){
-        ListView lista = (ListView) findViewById(R.id.ListView1);
-        TextView texto = (TextView) findViewById(R.id.textViewHorario);
+        ListView lista = findViewById(R.id.ListView1);
+        TextView texto = findViewById(R.id.textViewHorario);
 
         ArrayList<String> dias = new ArrayList<>();
         int conteo = 0;
@@ -109,7 +109,7 @@ public class AjustesActivity extends AppCompatActivity {
     }
 
     private void cargarPreferenciasCuerpo(){
-        TextView textoBase = (TextView) findViewById(R.id.textViewCuerpoUsuario);
+        TextView textoBase = findViewById(R.id.textViewCuerpoUsuario);
         SharedPreferences preferenciasC = getSharedPreferences("cuerpo", MODE_PRIVATE);
 
         boolean delgado = preferenciasC.getBoolean("delgado",false);
@@ -128,7 +128,7 @@ public class AjustesActivity extends AppCompatActivity {
     }
 
     private void cargarPreferenciasMeta(){
-        TextView textoMeta = (TextView) findViewById(R.id.textViewMetaUsuario);
+        TextView textoMeta = findViewById(R.id.textViewMetaUsuario);
         SharedPreferences preferenciasM = getSharedPreferences("meta", MODE_PRIVATE);
 
         boolean delgado = preferenciasM.getBoolean("peso",false);
