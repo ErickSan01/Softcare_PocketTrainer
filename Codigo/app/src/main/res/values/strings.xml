@@ -88,5 +88,6 @@
     <string name="left">Ant</string>
     <string name="right">Sig</string>
 
-    <string name="historial">Tu historial:</string>
+    <string name="historial_texto">Tu historial:</string>
+    <string name="historial">Mi Historial</string>
 </resources>
