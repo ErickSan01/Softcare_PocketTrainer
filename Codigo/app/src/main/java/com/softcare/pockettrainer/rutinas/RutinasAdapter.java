@@ -12,17 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.softcare.pockettrainer.R;
+import com.softcare.pockettrainer.adminbasededatos.Rutina;
 
 import java.util.ArrayList;
 
 public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.ViewHolder>{
     private final ArrayList<String> dias;
     private final Context context;
+    private final ArrayList<Rutina> rutinas;
 
     // RecyclerView recyclerView;
-    public RutinasAdapter(ArrayList<String> listdata, Context context) {
+    public RutinasAdapter(ArrayList<String> listdata, ArrayList<Rutina> rutinas, Context context) {
         this.dias = listdata;
         this.context = context;
+        this.rutinas = rutinas;
     }
     @NonNull
     @Override
@@ -35,7 +38,7 @@ public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
         String diasSeleccionados = dias.get(position);
-        holder.textView.setText(dias.get(position));
+        holder.textView.setText(dias.get(position) + "\t" + rutinas.get(position));
         holder.relativeLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
