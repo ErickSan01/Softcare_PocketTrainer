@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 public class MetaActivity extends AppCompatActivity {
 
@@ -15,12 +16,19 @@ public class MetaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meta);
         Intent i = getIntent();
-
+        String eleccionDelgado = i.getStringExtra("cuerpo");
+        if(eleccionDelgado.equalsIgnoreCase("delgado")){
+            Button botonDelgado = findViewById(R.id.buttonPeso);
+            deshabilitarBoton(botonDelgado);
+        }
         //Parte solo para debug de logcat
         SharedPreferences preferencias = getSharedPreferences("meta", MODE_PRIVATE);
         Log.d("meta elegido, peso",""+preferencias.getBoolean("peso",false));
         Log.d("meta elegido, musculo",""+preferencias.getBoolean("musculo",false));
         Log.d("meta elegido, ambos",""+preferencias.getBoolean("ambos",false));
+    }
+    public void deshabilitarBoton(Button boton){
+        boton.setEnabled(false);
     }
     /*
     En estos métodos se llama a la siguiente actividad dependiendo de cuál fue el botón que
