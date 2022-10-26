@@ -55,13 +55,13 @@ public class HorarioPresentador {
         if(!cursor.moveToFirst()) return horarios;
         do{
             int idHorario = cursor.getInt(0);
-            Date lunes = DateToString.cadenaAFecha(cursor.getString(1));
-            Date martes = DateToString.cadenaAFecha(cursor.getString(2));
-            Date miercoles = DateToString.cadenaAFecha(cursor.getString(3));
-            Date jueves = DateToString.cadenaAFecha(cursor.getString(4));
-            Date viernes = DateToString.cadenaAFecha(cursor.getString(5));
-            Date sabado = DateToString.cadenaAFecha(cursor.getString(6));
-            Date domingo = DateToString.cadenaAFecha(cursor.getString(7));
+            Date lunes = DateToString.cadenaAFecha(cursor.getString(1), "hh:mm");
+            Date martes = DateToString.cadenaAFecha(cursor.getString(2), "hh:mm");
+            Date miercoles = DateToString.cadenaAFecha(cursor.getString(3), "hh:mm");
+            Date jueves = DateToString.cadenaAFecha(cursor.getString(4), "hh:mm");
+            Date viernes = DateToString.cadenaAFecha(cursor.getString(5), "hh:mm");
+            Date sabado = DateToString.cadenaAFecha(cursor.getString(6), "hh:mm");
+            Date domingo = DateToString.cadenaAFecha(cursor.getString(7), "hh:mm");
 
             Horario horario = new Horario(idHorario, lunes, martes, miercoles, jueves, viernes, sabado, domingo);
             horarios.add(horario);

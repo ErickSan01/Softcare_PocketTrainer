@@ -20,16 +20,14 @@ import com.softcare.pockettrainer.adminbasededatos.RutinaPresentador;
 import com.softcare.pockettrainer.adminbasededatos.Usuario;
 import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
 import com.softcare.pockettrainer.nivel.ExperienciaActual;
+import com.softcare.pockettrainer.utilerias.BoolToInt;
 import com.softcare.pockettrainer.utilerias.DateToString;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Map;
 
 
 public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
@@ -426,13 +424,21 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         String horarioSabado = horario.getString("sabado", "");
         String horarioDomingo = horario.getString("domingo", "");
 
-        Date fechaLunes = DateToString.cadenaAFecha(horarioLunes);
-        Date fechaMartes = DateToString.cadenaAFecha(horarioMartes);
-        Date fechaMiercoles = DateToString.cadenaAFecha(horarioMiercoles);
-        Date fechaJueves = DateToString.cadenaAFecha(horarioJueves);
-        Date fechaViernes = DateToString.cadenaAFecha(horarioViernes);
-        Date fechaSabado = DateToString.cadenaAFecha(horarioSabado);
-        Date fechaDomingo = DateToString.cadenaAFecha(horarioDomingo);
+        Date fechaLunes = DateToString.cadenaAFecha(horarioLunes, "hh:mm");
+        Date fechaMartes = DateToString.cadenaAFecha(horarioMartes, "hh:mm");
+        Date fechaMiercoles = DateToString.cadenaAFecha(horarioMiercoles, "hh:mm");
+        Date fechaJueves = DateToString.cadenaAFecha(horarioJueves, "hh:mm");
+        Date fechaViernes = DateToString.cadenaAFecha(horarioViernes, "hh:mm");
+        Date fechaSabado = DateToString.cadenaAFecha(horarioSabado, "hh:mm");
+        Date fechaDomingo = DateToString.cadenaAFecha(horarioDomingo, "hh:mm");
+
+        System.out.println(fechaLunes);
+        System.out.println(fechaMartes);
+        System.out.println(fechaMiercoles);
+        System.out.println(fechaJueves);
+        System.out.println(fechaViernes);
+        System.out.println(fechaSabado);
+        System.out.println(fechaDomingo);
 
         Horario horarioUsuario = new Horario(1, fechaLunes, fechaMartes, fechaMiercoles, fechaJueves, fechaViernes, fechaSabado, fechaDomingo);
 
@@ -542,25 +548,20 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         SharedPreferences diasLibres = context.getSharedPreferences("dias", Context.MODE_PRIVATE);
         int cantidadDias = 0;
 
-        cantidadDias += boolToInt(diasLibres.getBoolean("lunes", false));
-        cantidadDias += boolToInt(diasLibres.getBoolean("martes", false));
-        cantidadDias += boolToInt(diasLibres.getBoolean("miercoles", false));
-        cantidadDias += boolToInt(diasLibres.getBoolean("jueves", false));
-        cantidadDias += boolToInt(diasLibres.getBoolean("viernes", false));
-        cantidadDias += boolToInt(diasLibres.getBoolean("sabado", false));
-        cantidadDias += boolToInt(diasLibres.getBoolean("domingo", false));
+        cantidadDias += BoolToInt.boolToInt(diasLibres.getBoolean("lunes", false));
+        cantidadDias += BoolToInt.boolToInt(diasLibres.getBoolean("martes", false));
+        cantidadDias += BoolToInt.boolToInt(diasLibres.getBoolean("miercoles", false));
+        cantidadDias += BoolToInt.boolToInt(diasLibres.getBoolean("jueves", false));
+        cantidadDias += BoolToInt.boolToInt(diasLibres.getBoolean("viernes", false));
+        cantidadDias += BoolToInt.boolToInt(diasLibres.getBoolean("sabado", false));
+        cantidadDias += BoolToInt.boolToInt(diasLibres.getBoolean("domingo", false));
 
         System.out.println(cantidadDias);
 
         return cantidadDias;
     }
 
-    public int boolToInt(Boolean value){
-        if(value){
-            return 1;
-        }
-        return 0;
-    }
+
 
     public void agregarUsuario() {
         int idUsuario = 1;

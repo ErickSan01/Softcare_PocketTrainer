@@ -45,7 +45,7 @@ public class NivelActivity extends AppCompatActivity {
         experiencia = usuario.getExp();
         cantidadEjercicios = usuario.getEjerciciosCompletados();
 
-        exp.setText((int) experiencia);
+        exp.setText(String.valueOf((int) experiencia));
 
         String nv1 = "drawable/" + "principiante.jpeg";
         String nv2 = "drawable/" + "intermedio.jpeg";

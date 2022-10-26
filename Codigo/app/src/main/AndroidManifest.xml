@@ -68,14 +68,16 @@
         </activity>
         <activity
             android:name=".RecompensasActivity"
-            android:exported="false" >
+            android:exported="false"
+            android:theme="@style/Theme.PocketTrainer.NoActionBar" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".NivelActivity"
-            android:exported="false" >
+            android:exported="false"
+            android:theme="@style/Theme.PocketTrainer.NoActionBar" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

@@ -6,9 +6,9 @@ import java.util.Date;
 
 public class DateToString {
     //El formato de ser "dd-MM-yyyy hh:mm:ss"
-    public static Date cadenaAFecha(String fecha){
+    public static Date cadenaAFecha(String fecha, String pattern){
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat(pattern);
             return sdf.parse(fecha);
 
         }catch (ParseException e) {

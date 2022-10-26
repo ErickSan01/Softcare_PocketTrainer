@@ -34,7 +34,7 @@ public class RutinaProgramadaPresentador {
     public ArrayList<RutinaProgramada> obtenerRutinaProgramada(){
         ArrayList<RutinaProgramada> rutinaProgramadas = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
-        String[] columnas = {"id_rutina_lunes", "id_rutina_martes", "id_rutina_miercoles", "id_rutina_jueves", "id_rutina_viernes", "id_rutina_sabado", "id_rutina_domingo"};
+        String[] columnas = {"id_rutina_programado","id_rutina_lunes", "id_rutina_martes", "id_rutina_miercoles", "id_rutina_jueves", "id_rutina_viernes", "id_rutina_sabado", "id_rutina_domingo"};
         Cursor cursor = sqLiteDatabase.query(
                 NOMBRE_TABLA,
                 columnas,

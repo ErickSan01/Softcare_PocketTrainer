@@ -36,10 +36,8 @@ public class AjustesCuerpoActivity extends AppCompatActivity {
     se usó para llamarlo
     */
     public void delgado(View v){
-        Intent i = new Intent(this, AjustesActivity.class);
-        i.putExtra("cuerpo", "delgado");
         guardar("delgado");
-        startActivity(i);
+        finish();
     }
     public void robusto(View v){
         Intent i = new Intent(this, AjustesActivity.class);

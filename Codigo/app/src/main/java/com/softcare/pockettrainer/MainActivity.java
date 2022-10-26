@@ -2,11 +2,13 @@ package com.softcare.pockettrainer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 
 import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
 import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
@@ -31,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         AyudanteBaseDeDatos ayudante = new AyudanteBaseDeDatos(this);
 
-        /*final Calendar calendario = Calendar.getInstance();
+        /*
+        final Calendar calendario = Calendar.getInstance();
 
         day = calendario.get(Calendar.DAY_OF_MONTH);
         month = calendario.get(Calendar.MONTH);
@@ -59,33 +62,13 @@ public class MainActivity extends AppCompatActivity {
         }
         , year, month, day);
         picker.show();
-        AyudanteBaseDeDatos ayudante = new AyudanteBaseDeDatos(this);
+         */
+
+        //ayudante.agregarHorario();
+        //ayudante.agregarRutinas();
 
         //ayudante.agregarEjercicios();
         crearRutina();
-
-        /*DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-
-        Date currentDate = new Date();
-        SharedPreferences dias = getSharedPreferences("dias", MODE_PRIVATE);
-
-
-        // convert date to calendar
-        Calendar c = Calendar.getInstance();
-        c.setTime(currentDate);
-
-        // manipulate date
-        c.add(Calendar.YEAR, 1);
-        c.add(Calendar.MONTH, 1);
-        c.add(Calendar.DATE, 1); //same with c.add(Calendar.DAY_OF_MONTH, 1);
-        c.add(Calendar.HOUR, 1);
-        c.add(Calendar.MINUTE, 1);
-        c.add(Calendar.SECOND, 1);
-
-        // convert calendar to date
-        Date currentDatePlusOne = c.getTime();
-
-        System.out.println(dateFormat.format(currentDatePlusOne));*/
 
         Button btn2 = (Button)findViewById(R.id.btnRutinas);
         Button btn3 = (Button)findViewById(R.id.btnAjustes);
