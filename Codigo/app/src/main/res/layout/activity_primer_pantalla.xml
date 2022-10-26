@@ -11,62 +11,24 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/backgrnd"
+        android:background="@drawable/start"
         android:visibility="visible"
         tools:visibility="visible">
 
-        <TextView
-            android:id="@+id/textViewComenzar"
-            android:layout_width="314dp"
-            android:layout_height="133dp"
-            android:layout_marginTop="112dp"
-            android:text="@string/comenzar"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLema" />
-
-        <TextView
-            android:id="@+id/textViewBienvenida"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:text="@string/bienvenida"
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="225dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="436dp"
+            android:background="@drawable/custombutton"
+            android:ellipsize="none"
+            android:onClick="iniciarCuestionario"
+            android:text="¡Comenzar!"
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:background="@drawable/custombutton"
-            android:ellipsize="none"
-            android:onClick="iniciarCuestionario"
-            android:text="@string/iniciar_cuestionario"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewComenzar" />
-
-        <TextView
-            android:id="@+id/textViewLema"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
-            android:text="@string/lema"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewBienvenida" />
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
