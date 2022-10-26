@@ -1,6 +1,7 @@
 package com.softcare.pockettrainer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -41,91 +42,99 @@ public class NivelActivity extends AppCompatActivity {
         TextView exp = (TextView) findViewById(R.id.ex);
 
 
-        nivel = nvl.getLevel();
+        nivel = usuario.getNivel();
         experiencia = usuario.getExp();
         cantidadEjercicios = usuario.getEjerciciosCompletados();
 
         exp.setText(String.valueOf((int) experiencia));
 
-        String nv1 = "drawable/" + "principiante.jpeg";
-        String nv2 = "drawable/" + "intermedio.jpeg";
-        String nv3 = "drawable/" + "avanzado.jpeg";
-        String nv4 = "drawable/" + "experto.jpeg";
-        String nv5 = "drawable/" + "leyenda.jpeg";
+        String nvl0 = "@drawable/level0";
+        String nv1 = "@drawable/" + "principiante";
+        String nv2 = "@drawable/" + "intermedio";
+        String nv3 = "@drawable/" + "avanzado";
+        String nv4 = "@drawable/" + "experto";
+        String nv5 = "@drawable/" + "leyenda";
 
-        try {
-
+        System.out.println(nivel);
+            int idDra = getResources().getIdentifier(nvl0, null, getPackageName());
+            Drawable nv0 = getResources().getDrawable(idDra);
+            imagenNvl.setImageDrawable(nv0);
             if(nivel == 1){
-                InputStream prin = getAssets().open(nv1);
-                Drawable p = Drawable.createFromStream(prin, null);
-                imagenNvl.setImageDrawable(p);
+                int idLvl1 = getResources().getIdentifier(nv1, null, getPackageName());
+                Drawable nv1D = getResources().getDrawable(idLvl1);
+                imagenNvl.setImageDrawable(nv1D);
             }
 
             if(nivel == 2){
-                InputStream inter = getAssets().open(nv2);
-                Drawable i = Drawable.createFromStream(inter, null);
-                imagenNvl.setImageDrawable(i);
+                int idLvl2 = getResources().getIdentifier(nv2, null, getPackageName());
+                Drawable nv2D = getResources().getDrawable(idLvl2);
+                imagenNvl.setImageDrawable(nv2D);
             }
 
             if(nivel == 3){
-                InputStream avan = getAssets().open(nv3);
-                Drawable a = Drawable.createFromStream(avan, null);
-                imagenNvl.setImageDrawable(a);
+                int idLvl3 = getResources().getIdentifier(nv3, null, getPackageName());
+                Drawable nv3D = getResources().getDrawable(idLvl3);
+                imagenNvl.setImageDrawable(nv3D);
             }
 
             if(nivel == 4){
-                InputStream exper = getAssets().open(nv4);
-                Drawable e = Drawable.createFromStream(exper, null);
-                imagenNvl.setImageDrawable(e);
+                int idLvl4 = getResources().getIdentifier(nv4, null, getPackageName());
+                Drawable nv4D = getResources().getDrawable(idLvl4);
+                imagenNvl.setImageDrawable(nv4D);
             }
 
             if(nivel == 5){
-                InputStream leyen = getAssets().open(nv5);
-                Drawable l = Drawable.createFromStream(leyen, null);
-                imagenNvl.setImageDrawable(l);
+                int idLvl5 = getResources().getIdentifier(nv5, null, getPackageName());
+                Drawable nv5D = getResources().getDrawable(idLvl5);
+                imagenNvl.setImageDrawable(nv5D);
             }
 
 
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
-
-
-        String insg1 = "drawable/" + "bronce.jpg";
-        String insg2 = "drawable/" + "plata.jpg";
-        String insg3 = "drawable/" + "oro.jpg";
-        String insg4 = "drawable/" + "platinum.jpg";
-
-        try {
+        String insg1 = "drawable/" + "bronce";
+        String insg2 = "drawable/" + "plata";
+        String insg3 = "drawable/" + "oro";
+        String insg4 = "drawable/" + "platinum";
 
             if(cantidadEjercicios == 50){
-                InputStream bronce = getAssets().open(insg1);
-                Drawable br = Drawable.createFromStream(bronce, null);
+                int idBr = getResources().getIdentifier(insg1, null, getPackageName());
+                Drawable br = getResources().getDrawable(idBr);
                 imagenIns1.setImageDrawable(br);
             }
-
             if(cantidadEjercicios == 100){
-                InputStream plata = getAssets().open(insg2);
-                Drawable pla = Drawable.createFromStream(plata, null);
-                imagenIns2.setImageDrawable(pla);
+                int idBr = getResources().getIdentifier(insg1, null, getPackageName());
+                Drawable br = getResources().getDrawable(idBr);
+                imagenIns1.setImageDrawable(br);
+                int idPlata = getResources().getIdentifier(insg2, null, getPackageName());
+                Drawable plata = getResources().getDrawable(idPlata);
+                imagenIns2.setImageDrawable(plata);
             }
 
             if(cantidadEjercicios == 150){
-                InputStream oro = getAssets().open(insg3);
-                Drawable or = Drawable.createFromStream(oro, null);
-                imagenIns3.setImageDrawable(or);
+                int idBr = getResources().getIdentifier(insg1, null, getPackageName());
+                Drawable br = getResources().getDrawable(idBr);
+                imagenIns1.setImageDrawable(br);
+                int idPlata = getResources().getIdentifier(insg2, null, getPackageName());
+                Drawable plata = getResources().getDrawable(idPlata);
+                imagenIns2.setImageDrawable(plata);
+                int idOro = getResources().getIdentifier(insg3, null, getPackageName());
+                Drawable oro = getResources().getDrawable(idOro);
+                imagenIns3.setImageDrawable(oro);
             }
 
             if(cantidadEjercicios == 200){
-                InputStream platinum = getAssets().open(insg4);
-                Drawable plnm = Drawable.createFromStream(platinum, null);
-                imagenIns4.setImageDrawable(plnm);
+                int idBr = getResources().getIdentifier(insg1, null, getPackageName());
+                Drawable br = getResources().getDrawable(idBr);
+                imagenIns1.setImageDrawable(br);
+                int idPlata = getResources().getIdentifier(insg2, null, getPackageName());
+                Drawable plata = getResources().getDrawable(idPlata);
+                imagenIns2.setImageDrawable(plata);
+                int idOro = getResources().getIdentifier(insg3, null, getPackageName());
+                Drawable oro = getResources().getDrawable(idOro);
+                imagenIns3.setImageDrawable(oro);
+                int idPlat = getResources().getIdentifier(insg4, null, getPackageName());
+                Drawable platinum = getResources().getDrawable(idPlat);
+                imagenIns4.setImageDrawable(platinum);
             }
-
-
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
 
 
         backBtn.setOnClickListener(new View.OnClickListener() {
