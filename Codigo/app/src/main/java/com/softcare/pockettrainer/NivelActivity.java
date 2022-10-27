@@ -27,10 +27,15 @@ public class NivelActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
-        usuario = usuarioPresentador.obtenerUsuario().get(0);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nivel);
+
+        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
+        AyudanteBaseDeDatos ayuda = new AyudanteBaseDeDatos(this);
+        ayuda.agregarUsuario();
+        usuario = usuarioPresentador.obtenerUsuario().get(0);
+
+
         Button backBtn = (Button) findViewById(R.id.backBtnNivel);
         ExperienciaActual nvl = new ExperienciaActual(usuario);
 
