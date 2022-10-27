@@ -19,6 +19,15 @@ public class AjustesMetaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ajustes_meta);
 
         Button backBtn = (Button) findViewById(R.id.backBtnAjustesMeta);
+        SharedPreferences preferencias = getSharedPreferences("cuerpo", MODE_PRIVATE);
+        boolean esDelgado = preferencias.getBoolean("delgado", false);
+        Button botonPeso = findViewById(R.id.buttonPeso);
+        Button botonAmbos = findViewById(R.id.buttonAmbos);
+
+        if(esDelgado){
+            botonPeso.setEnabled(false);
+            botonAmbos.setEnabled(false);
+        }
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,22 +41,16 @@ public class AjustesMetaActivity extends AppCompatActivity {
     se usó para llamarlo
     */
     public void peso(View v){
-        Intent intent = new Intent(this, AjustesActivity.class);
-        intent.putExtra("meta", "peso");
         guardar("peso");
-        startActivity(intent);
+        finish();
     }
     public void musculo(View v){
-        Intent intent = new Intent(this, AjustesActivity.class);
-        intent.putExtra("meta", "musculo");
         guardar("musculo");
-        startActivity(intent);
+        finish();
     }
     public void ambos(View v){
-        Intent intent = new Intent(this, AjustesActivity.class);
-        intent.putExtra("meta", "ambos");
         guardar("ambos");
-        startActivity(intent);
+        finish();
     }
 
     /*

@@ -1,3 +1,4 @@
-5,Flexion Rodillas,flexionRodillas1,flexionRodillas2,pierna,ambos,Hacer flexiones con peso.,1
-11,Squad,squad1,squad2,pierna,ambos,Cargando la mochila en la espalda se realiza el movimiento hacia atrás como si se fuera a sentar subiendo las manos al pecho e inclinándose hacia atrás.,3
-13,Zancada,zancada1,zancada2,zancada3,pierna,ambos,Con la mochila en la espalda se realiza la flexión de una pierna para enfrente y otra para atrás luego se realiza la flexión pero con la otra pierna.,3
+5-Flexion Rodillas-false-1000-principiante-Hacer flexiones con peso.-pierna-ambos-100-1-1
+11-Squad-false-1000-principiante-Cargando la mochila en la espalda se realiza el movimiento hacia atrás como si se fuera a sentar subiendo las manos al pecho e inclinándose hacia atrás.-pierna-ambos-100-1-1
+13-Zancada-false-1000-
+principiante-Con la mochila en la espalda se realiza la flexión de una pierna para enfrente y otra para atrás luego se realiza la flexión pero con la otra pierna.-pierna-ambos-100-1-1
