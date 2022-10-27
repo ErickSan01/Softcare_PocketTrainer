@@ -1,1 +1,1 @@
-27,Flexion,flexion1,flexion2,pecho,bajarPeso,Mirando hacia el piso eleva el cuerpo hasta que los codos formen un ángulo de 90 grados. Luego empuja el piso aprieta los glúteos y los músculos del estómago y levanta el cuerpo hacia arriba.,3
+27-Flexión-false-1000-principiante-Mirando hacia el piso eleva el cuerpo hasta que los codos formen un ángulo de 90 grados. Luego empuja el piso aprieta los glúteos y los músculos del estómago y levanta el cuerpo hacia arriba.-pecho-bajarPeso-100-1-3

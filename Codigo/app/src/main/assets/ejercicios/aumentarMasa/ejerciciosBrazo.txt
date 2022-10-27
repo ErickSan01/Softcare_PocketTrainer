@@ -1,3 +1,3 @@
-14,Curl Bicep,curlBicep1,curlBicep2,brazo,aumentarMasa, Se colocan las mancuernas a una altura de las piernas y se realiza la flexión llevándolas hacia el pecho.,1
-15,Curl Martillo,curlMartillo1,curlMartillo2,brazo,aumentarMasa, Se agarran las dos mancuernas y se colocan a los lados de las piernas para luego realizar la flexión llevándolas hacia el pecho.,1
-18,Press Acostado,pressAcostado1,pressAcostado2,brazo,aumentarMasa, Acostado coge las mancuernas con los dos brazos y mantenlas arriba con el pecho hacia afuera. Empieza el movimiento empujando las mancuernas hacia arriba inclinándolas de manera que casi toquen los brazos al extenderlos.,1
+14-Curl Bicep-false-1000-principiante-Se colocan las mancuernas a una altura de las piernas y se realiza la flexión llevándolas hacia el pecho.-brazo-aumentarMasa-100-1-1
+15-Curl Martillo-false-1000-principiante-Se agarran las dos mancuernas y se colocan a los lados de las piernas para luego realizar la flexión llevándolas hacia el pecho.-brazo-aumentarMasa-100-1-1
+18-Press Acostado-false-1000-principiante-Acostado coge las mancuernas con los dos brazos y mantenlas arriba con el pecho hacia afuera. Empieza el movimiento empujando las mancuernas hacia arriba inclinándolas de manera que casi toquen los brazos al extenderlos.-brazo-aumentarMasa-100-1-1
