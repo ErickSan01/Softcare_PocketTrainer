@@ -40,16 +40,12 @@ public class AjustesCuerpoActivity extends AppCompatActivity {
         finish();
     }
     public void robusto(View v){
-        Intent i = new Intent(this, AjustesActivity.class);
-        i.putExtra("cuerpo", "robusto");
         guardar("robusto");
-        startActivity(i);
+        finish();
     }
     public void fornido(View v){
-        Intent i = new Intent(this, AjustesActivity.class);
-        i.putExtra("cuerpo", "fornido");
         guardar("fornido");
-        startActivity(i);
+        finish();
     }
 
     /*
