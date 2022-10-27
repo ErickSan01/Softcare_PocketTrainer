@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,15 +11,16 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/start"
+        android:background="@drawable/inicio"
         android:visibility="visible"
         tools:visibility="visible">
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="225dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="436dp"
+            android:layout_width="285dp"
+            android:layout_height="69dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="328dp"
             android:background="@drawable/custombutton"
             android:ellipsize="none"
             android:onClick="iniciarCuestionario"
@@ -43,4 +44,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
