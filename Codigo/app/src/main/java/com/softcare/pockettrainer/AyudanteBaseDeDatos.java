@@ -105,7 +105,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
                 "FOREIGN KEY (id_horario) REFERENCES Horario(id_horario))", NOMBRE_TABLA_USUARIO));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
-                "id_horario int, "+
+                "id_horario int primary key, "+
                 "lunes Date, "+
                 "martes Date, "+
                 "miercoles Date, "+
@@ -530,10 +530,14 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         partesCuerpo.add("Pecho");
         partesCuerpo.add("Pierna");
 
+        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(context);
+
+        ExperienciaActual exp = new ExperienciaActual(usuarioPresentador.obtenerUsuario().get(0));
+
         int idRutinaI = 0;
         int diasSeleccionados = contarDias();
-        double exp = ExperienciaActual.getLevel();
-        double expRutina = exp / diasSeleccionados;
+        double expD = exp.getLevel();
+        double expRutina = expD / diasSeleccionados;
 
         RutinaPresentador presentador = new RutinaPresentador(context);
 

@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class HorarioPresentador {
     private AyudanteBaseDeDatos ayudanteBaseDeDatos;
-    private final String NOMBRE_TABLA = "Material";
+    private final String NOMBRE_TABLA = "Horario";
 
     public HorarioPresentador(Context contexto){
         ayudanteBaseDeDatos = new AyudanteBaseDeDatos(contexto);
@@ -24,13 +24,13 @@ public class HorarioPresentador {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         ContentValues valoresParaInsertar = new ContentValues();
         valoresParaInsertar.put("id_horario", horario.getIdHorario());
-        valoresParaInsertar.put("lunes", horario.getLunesHorarioDisponible().toString());
-        valoresParaInsertar.put("martes", horario.getMartesHorarioDisponible().toString());
-        valoresParaInsertar.put("miercoles", horario.getMiercolesHorarioDisponible().toString());
-        valoresParaInsertar.put("jueves", horario.getJuevesHorarioDisponible().toString());
-        valoresParaInsertar.put("viernes", horario.getViernesHorarioDisponible().toString());
-        valoresParaInsertar.put("sadado", horario.getSabadoHorarioDisponible().toString());
-        valoresParaInsertar.put("domingo", horario.getDomingoHorarioDisponible().toString());
+        valoresParaInsertar.put("lunes", String.valueOf(horario.getLunesHorarioDisponible()));
+        valoresParaInsertar.put("martes", String.valueOf(horario.getMartesHorarioDisponible()));
+        valoresParaInsertar.put("miercoles", String.valueOf(horario.getMiercolesHorarioDisponible()));
+        valoresParaInsertar.put("jueves", String.valueOf(horario.getJuevesHorarioDisponible()));
+        valoresParaInsertar.put("viernes", String.valueOf(horario.getViernesHorarioDisponible()));
+        valoresParaInsertar.put("sabado", String.valueOf(horario.getSabadoHorarioDisponible()));
+        valoresParaInsertar.put("domingo", String.valueOf(horario.getDomingoHorarioDisponible()));
 
 
         return baseDeDatos.insert(NOMBRE_TABLA, null, valoresParaInsertar);

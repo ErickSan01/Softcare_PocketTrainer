@@ -5,22 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.softcare.pockettrainer.adminbasededatos.Usuario;
 
 public class ExperienciaActual extends AppCompatActivity {
-    private static Usuario usuario;
-    private static final double NIVEL1 = 50;
-    private static final double NIVEL2 = NIVEL1 * (Math.pow(2, 2.6));
-    private static final double NIVEL3 = NIVEL1 * (Math.pow(3, 2.6));
-    private static final double NIVEL4 = NIVEL1 * (Math.pow(4, 2.6));
-    private static final double NIVEL5 = NIVEL1 * (Math.pow(5, 2.6));
+    private Usuario usuario;
+    private final double NIVEL1 = 50;
+    private final double NIVEL2 = NIVEL1 * (Math.pow(2, 2.6));
+    private final double NIVEL3 = NIVEL1 * (Math.pow(3, 2.6));
+    private final double NIVEL4 = NIVEL1 * (Math.pow(4, 2.6));
+    private final double NIVEL5 = NIVEL1 * (Math.pow(5, 2.6));
 
     public ExperienciaActual(Usuario usuario){
         this.usuario = usuario;
     }
 
-    public static int obtenerExperiencia(){
+    public int obtenerExperiencia(){
         return usuario.getExp();
     }
 
-    public static int getLevel(){
+    public int getLevel(){
         int exp = obtenerExperiencia();
         if(exp >= NIVEL1){
             return 1;
@@ -40,7 +40,7 @@ public class ExperienciaActual extends AppCompatActivity {
         return 0;
     }
 
-    public static double getExp(){
+    public double getExp(){
         int nivel = getLevel();
         if(nivel == 1){
             return NIVEL1;

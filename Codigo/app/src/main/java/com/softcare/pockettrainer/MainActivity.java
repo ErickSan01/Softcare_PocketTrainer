@@ -64,8 +64,9 @@ public class MainActivity extends AppCompatActivity {
         picker.show();
          */
 
-        //ayudante.agregarHorario();
-        //ayudante.agregarRutinas();
+        ayudante.agregarHorario();
+        ayudante.agregarUsuario();
+        ayudante.agregarRutinas();
 
         //ayudante.agregarEjercicios();
         crearRutina();
