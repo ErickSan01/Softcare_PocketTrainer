@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AyudanteBaseDeDatos ayudante = new AyudanteBaseDeDatos(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AyudanteBaseDeDatos ayudante = new AyudanteBaseDeDatos(this);
