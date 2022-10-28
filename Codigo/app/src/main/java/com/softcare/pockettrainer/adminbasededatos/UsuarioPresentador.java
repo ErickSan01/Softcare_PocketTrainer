@@ -74,7 +74,7 @@ public class UsuarioPresentador {
         valoresParaActualizar.put("exp", usuario.getExp());
         valoresParaActualizar.put("nivel", usuario.getNivel());
         valoresParaActualizar.put("ejercicios_completados", usuario.getEjerciciosCompletados());
-        String campoParaActualizar = "id = ?";
+        String campoParaActualizar = "id_usuario = ?";
         String[] argumentosParaActualizar = {String.valueOf(usuario.getIdUsuario())};
         return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
     }

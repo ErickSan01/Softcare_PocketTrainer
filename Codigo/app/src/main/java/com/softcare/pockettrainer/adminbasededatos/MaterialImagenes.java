@@ -1,5 +1,8 @@
 package com.softcare.pockettrainer.adminbasededatos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MaterialImagenes {
     private int idImagen;
     private int idMaterial;

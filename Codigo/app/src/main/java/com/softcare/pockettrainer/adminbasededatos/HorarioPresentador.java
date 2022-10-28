@@ -55,13 +55,13 @@ public class HorarioPresentador {
         if(!cursor.moveToFirst()) return horarios;
         do{
             int idHorario = cursor.getInt(0);
-            Date lunes = DateToString.cadenaAFecha(cursor.getString(1), "hh:mm");
-            Date martes = DateToString.cadenaAFecha(cursor.getString(2), "hh:mm");
-            Date miercoles = DateToString.cadenaAFecha(cursor.getString(3), "hh:mm");
-            Date jueves = DateToString.cadenaAFecha(cursor.getString(4), "hh:mm");
-            Date viernes = DateToString.cadenaAFecha(cursor.getString(5), "hh:mm");
-            Date sabado = DateToString.cadenaAFecha(cursor.getString(6), "hh:mm");
-            Date domingo = DateToString.cadenaAFecha(cursor.getString(7), "hh:mm");
+            Date lunes = DateToString.cadenaAFecha(cursor.getString(1), "EEE MMM dd hh:mm:ss zzz yyyy");
+            Date martes = DateToString.cadenaAFecha(cursor.getString(2), "EEE MMM dd hh:mm:ss zzz yyyy");
+            Date miercoles = DateToString.cadenaAFecha(cursor.getString(3), "EEE MMM dd hh:mm:ss zzz yyyy");
+            Date jueves = DateToString.cadenaAFecha(cursor.getString(4), "EEE MMM dd hh:mm:ss zzz yyyy");
+            Date viernes = DateToString.cadenaAFecha(cursor.getString(5), "EEE MMM dd hh:mm:ss zzz yyyy");
+            Date sabado = DateToString.cadenaAFecha(cursor.getString(6), "EEE MMM dd hh:mm:ss zzz yyyy");
+            Date domingo = DateToString.cadenaAFecha(cursor.getString(7), "EEE MMM dd hh:mm:ss zzz yyyy");
 
             Horario horario = new Horario(idHorario, lunes, martes, miercoles, jueves, viernes, sabado, domingo);
             horarios.add(horario);
@@ -80,7 +80,7 @@ public class HorarioPresentador {
         valoresParaActualizar.put("viernes", horario.getViernesHorarioDisponible().toString());
         valoresParaActualizar.put("sadado", horario.getSabadoHorarioDisponible().toString());
         valoresParaActualizar.put("domingo", horario.getDomingoHorarioDisponible().toString());
-        String campoParaActualizar = "id = ?";
+        String campoParaActualizar = "id_horario = ?";
         String[] argumentosParaActualizar = {String.valueOf(horario.getIdHorario())};
         return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
     }
@@ -88,7 +88,7 @@ public class HorarioPresentador {
     public int eliminarHorario(Horario horario) {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         String[] argumentos = {String.valueOf(horario.getIdHorario())};
-        return baseDeDatos.delete(NOMBRE_TABLA, "id = ?", argumentos);
+        return baseDeDatos.delete(NOMBRE_TABLA, "id_horario = ?", argumentos);
     }
 
 

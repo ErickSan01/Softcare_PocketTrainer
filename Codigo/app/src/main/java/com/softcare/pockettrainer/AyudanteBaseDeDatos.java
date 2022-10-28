@@ -64,7 +64,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
                 "nombre text, "+
                 "terminado boolean, "+
                 "precio intm, "+
-                "mivel text,"+
+                "nivel text,"+
                 "descripcion text, "+
                 "parteCuerpo text, "+
                 "meta text, "+
@@ -75,19 +75,19 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
                 "FOREIGN KEY (id_rutina) REFERENCES Rutina(id_rutina))", NOMBRE_TABLA_EJERCICIO));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
-                "id_imagen int, "+
+                "id_imagen int primary key, "+
                 "id_ejercicio int, "+
                 "nombre_imagen text, "+
                 "FOREIGN KEY (id_ejercicio) REFERENCES Ejercicio(id_ejercicio))", NOMBRE_TABLA_EJERCICIO_IMAGENES));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
-                "id_imagen int, "+
+                "id_imagen int primary key, "+
                 "id_material int, "+
                 "nombre_imagen text, "+
                 "FOREIGN KEY (id_material) REFERENCES Material(id_material))", NOMBRE_TABLA_MATERIAL_IMAGENES));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
-                "id_rutina int, "+
+                "id_rutina int primary key, "+
                 "parte_cuerpo text, "+
                 "completada boolean, "+
                 "puntosEXP int)", NOMBRE_TABLA_RUTINA));
@@ -115,7 +115,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
                 "domingo Date)", NOMBRE_TABLA_HORARIO));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
-                "id_rutina_programada int, "+
+                "id_rutina_programada int primary key, "+
                 "id_rutina_lunes int, "+
                 "id_rutina_martes int, "+
                 "id_rutina_miercoles int, "+
@@ -168,116 +168,122 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         for (String ejercicio : ejerciciosAmbos){
             String[] campos = ejercicio.split("-");
 
-            int idEjercicio;
-            String nombre;
-            boolean terminado;
-            int precio;
-            String nivel;
-            String descripcion;
-            String parteCuerpo;
-            String meta;
-            int puntosEXP;
-            int idRutina;
-            int idMaterial;
+            if(campos.length == 11){
+                int idEjercicio;
+                String nombre;
+                boolean terminado;
+                int precio;
+                String nivel;
+                String descripcion;
+                String parteCuerpo;
+                String meta;
+                int puntosEXP;
+                int idRutina;
+                int idMaterial;
 
-            idEjercicio = Integer.parseInt(campos[0]);
-            nombre = campos[1];
-            terminado = Boolean.parseBoolean(campos[2]);
-            precio = Integer.parseInt(campos[3]);
-            nivel = campos[4];
-            descripcion = campos[5];
-            parteCuerpo = campos[6];
-            meta = campos[7];
-            puntosEXP = Integer.parseInt(campos[8]);
-            idRutina = Integer.parseInt(campos[9]);
-            idMaterial = Integer.parseInt(campos[10]);
+                idEjercicio = Integer.parseInt(campos[0]);
+                nombre = campos[1];
+                terminado = Boolean.parseBoolean(campos[2]);
+                precio = Integer.parseInt(campos[3]);
+                nivel = campos[4];
+                descripcion = campos[5];
+                parteCuerpo = campos[6];
+                meta = campos[7];
+                puntosEXP = Integer.parseInt(campos[8]);
+                idRutina = 0;
+                idMaterial = Integer.parseInt(campos[10]);
 
-            Ejercicio ejercicioE = null;
+                Ejercicio ejercicioE = null;
 
-            if(idMaterial == 0){
-                ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, 0);
-            } else {
-                ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, idMaterial);
+                if(idMaterial == 0){
+                    ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, 0);
+                } else {
+                    ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, idMaterial);
+                }
+
+                ejercicioPresentador.nuevoEjercicio(ejercicioE);
             }
-
-            ejercicioPresentador.nuevoEjercicio(ejercicioE);
 
         }
 
         for (String ejercicio : ejerciciosAumentar){
             String[] campos = ejercicio.split("-");
 
-            int idEjercicio;
-            String nombre;
-            boolean terminado;
-            int precio;
-            String nivel;
-            String descripcion;
-            String parteCuerpo;
-            String meta;
-            int puntosEXP;
-            int idRutina;
-            int idMaterial;
+            if(campos.length == 11){
+                int idEjercicio;
+                String nombre;
+                boolean terminado;
+                int precio;
+                String nivel;
+                String descripcion;
+                String parteCuerpo;
+                String meta;
+                int puntosEXP;
+                int idRutina;
+                int idMaterial;
 
-            idEjercicio = Integer.parseInt(campos[0]);
-            nombre = campos[1];
-            terminado = Boolean.parseBoolean(campos[2]);
-            precio = Integer.parseInt(campos[3]);
-            nivel = campos[4];
-            descripcion = campos[5];
-            parteCuerpo = campos[6];
-            meta = campos[7];
-            puntosEXP = Integer.parseInt(campos[8]);
-            idRutina = Integer.parseInt(campos[9]);
-            idMaterial = Integer.parseInt(campos[10]);
+                idEjercicio = Integer.parseInt(campos[0]);
+                nombre = campos[1];
+                terminado = Boolean.parseBoolean(campos[2]);
+                precio = Integer.parseInt(campos[3]);
+                nivel = campos[4];
+                descripcion = campos[5];
+                parteCuerpo = campos[6];
+                meta = campos[7];
+                puntosEXP = Integer.parseInt(campos[8]);
+                idRutina = 0;
+                idMaterial = Integer.parseInt(campos[10]);
 
-            Ejercicio ejercicioE = null;
+                Ejercicio ejercicioE = null;
 
-            if(idMaterial == 0){
-                ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, 0);
-            } else {
-                ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, idMaterial);
+                if(idMaterial == 0){
+                    ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, 0);
+                } else {
+                    ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, idMaterial);
+                }
+
+                ejercicioPresentador.nuevoEjercicio(ejercicioE);
             }
-
-            ejercicioPresentador.nuevoEjercicio(ejercicioE);
         }
 
         for (String ejercicio : ejerciciosBajar){
             String[] campos = ejercicio.split("-");
 
-            int idEjercicio;
-            String nombre;
-            boolean terminado;
-            int precio;
-            String nivel;
-            String descripcion;
-            String parteCuerpo;
-            String meta;
-            int puntosEXP;
-            int idRutina;
-            int idMaterial;
+            if(campos.length  == 11){
+                int idEjercicio;
+                String nombre;
+                boolean terminado;
+                int precio;
+                String nivel;
+                String descripcion;
+                String parteCuerpo;
+                String meta;
+                int puntosEXP;
+                int idRutina;
+                int idMaterial;
 
-            idEjercicio = Integer.parseInt(campos[0]);
-            nombre = campos[1];
-            terminado = Boolean.parseBoolean(campos[2]);
-            precio = Integer.parseInt(campos[3]);
-            nivel = campos[4];
-            descripcion = campos[5];
-            parteCuerpo = campos[6];
-            meta = campos[7];
-            puntosEXP = Integer.parseInt(campos[8]);
-            idRutina = Integer.parseInt(campos[9]);
-            idMaterial = Integer.parseInt(campos[10]);
+                idEjercicio = Integer.parseInt(campos[0]);
+                nombre = campos[1];
+                terminado = Boolean.parseBoolean(campos[2]);
+                precio = Integer.parseInt(campos[3]);
+                nivel = campos[4];
+                descripcion = campos[5];
+                parteCuerpo = campos[6];
+                meta = campos[7];
+                puntosEXP = Integer.parseInt(campos[8]);
+                idRutina = 0;
+                idMaterial = Integer.parseInt(campos[10]);
 
-            Ejercicio ejercicioE = null;
+                Ejercicio ejercicioE = null;
 
-            if(idMaterial == 0){
-                ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, 0);
-            } else {
-                ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, idMaterial);
+                if(idMaterial == 0){
+                    ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, 0);
+                } else {
+                    ejercicioE = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosEXP, idRutina, idMaterial);
+                }
+
+                ejercicioPresentador.nuevoEjercicio(ejercicioE);
             }
-
-            ejercicioPresentador.nuevoEjercicio(ejercicioE);
         }
 
 
@@ -432,14 +438,6 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         Date fechaSabado = DateToString.cadenaAFecha(horarioSabado, "hh:mm");
         Date fechaDomingo = DateToString.cadenaAFecha(horarioDomingo, "hh:mm");
 
-        System.out.println(fechaLunes);
-        System.out.println(fechaMartes);
-        System.out.println(fechaMiercoles);
-        System.out.println(fechaJueves);
-        System.out.println(fechaViernes);
-        System.out.println(fechaSabado);
-        System.out.println(fechaDomingo);
-
         Horario horarioUsuario = new Horario(1, fechaLunes, fechaMartes, fechaMiercoles, fechaJueves, fechaViernes, fechaSabado, fechaDomingo);
 
         HorarioPresentador horarioPresentador = new HorarioPresentador(context);
@@ -485,7 +483,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         ArrayList<String> imagenesMaterial = new ArrayList<String>();
 
         try{
-            String archivo = "materiales/imagenes.txt";
+            String archivo = "materiales/materialesImagenes.txt";
             InputStreamReader is = new InputStreamReader(context.getAssets().open(archivo));
             reader = new BufferedReader(is);
 
@@ -506,7 +504,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         ArrayList<String> imagenesMaterial = new ArrayList<String>();
 
         try{
-            String archivo = "materiales/imagenes.txt";
+            String archivo = "ejercicios/ejerciciosImagenes.txt";
             InputStreamReader is = new InputStreamReader(context.getAssets().open(archivo));
             reader = new BufferedReader(is);
 
@@ -524,25 +522,47 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
 
     public void agregarRutinas(){
         ArrayList<String> partesCuerpo = new ArrayList<String>();
-        partesCuerpo.add("Abdomen");
-        partesCuerpo.add("Brazo");
-        partesCuerpo.add("Hombros");
-        partesCuerpo.add("Pecho");
-        partesCuerpo.add("Pierna");
 
         UsuarioPresentador usuarioPresentador = new UsuarioPresentador(context);
+        Usuario user = usuarioPresentador.obtenerUsuario().get(0);
+        String metaUser = user.getMeta();
 
-        ExperienciaActual exp = new ExperienciaActual(usuarioPresentador.obtenerUsuario().get(0));
+        switch(metaUser){
+            case("aumentarMasa"):
+                partesCuerpo.add("Brazo");
+                partesCuerpo.add("Hombro");
+                partesCuerpo.add("Pierna");
+                break;
+            case("ambos"):
+                partesCuerpo.add("Abdomen");
+                partesCuerpo.add("Brazo");
+                partesCuerpo.add("Hombros");
+                partesCuerpo.add("Pecho");
+                partesCuerpo.add("Pierna");
+                break;
+            case("bajarPeso"):
+                partesCuerpo.add("Pecho");
+                partesCuerpo.add("Pierna");
+                break;
+        }
 
-        int idRutinaI = 0;
+        ExperienciaActual exp = new ExperienciaActual(user, context);
+
+        int idRutinaI = 1;
         int diasSeleccionados = contarDias();
-        double expD = exp.getLevel();
+        double expD = exp.getExp();
         double expRutina = expD / diasSeleccionados;
 
         RutinaPresentador presentador = new RutinaPresentador(context);
 
         for (String parteCuerpo : partesCuerpo){
-            Rutina rutina = new Rutina(idRutinaI, parteCuerpo, false, (int) Math.floor(expRutina));
+            Rutina rutina = null;
+            if(expD < 0){
+                rutina = new Rutina(idRutinaI, parteCuerpo, false, (int) Math.floor(expRutina));
+            } else {
+                rutina = new Rutina(idRutinaI, parteCuerpo, false, 20);
+            }
+            idRutinaI++;
 
             presentador.nuevaRutina(rutina);
         }
@@ -560,12 +580,9 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         cantidadDias += BoolToInt.boolToInt(diasLibres.getBoolean("sabado", false));
         cantidadDias += BoolToInt.boolToInt(diasLibres.getBoolean("domingo", false));
 
-        System.out.println(cantidadDias);
 
         return cantidadDias;
     }
-
-
 
     public void agregarUsuario() {
         int idUsuario = 1;
@@ -592,13 +609,13 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
 
         String metaS = "";
         if(musculos){
-            metaS = "musculos";
+            metaS = "aumentarMasa";
         }
         if(ambos){
             metaS = "ambos";
         }
         if(peso){
-            metaS = "peso";
+            metaS = "bajarPeso";
         }
 
         return metaS;

@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.softcare.pockettrainer.adminbasededatos.Horario;
+import com.softcare.pockettrainer.adminbasededatos.HorarioPresentador;
+
 public class AjustesHorarioActivity extends AppCompatActivity {
 
     CheckBox boxLunes;
@@ -69,6 +72,7 @@ public class AjustesHorarioActivity extends AppCompatActivity {
         editor.putBoolean(campo,valor);
 
         editor.apply();
+
         finish();
     }
 

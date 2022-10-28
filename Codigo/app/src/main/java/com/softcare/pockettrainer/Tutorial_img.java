@@ -11,13 +11,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.softcare.pockettrainer.rutinas.Ejercicio;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenes;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenesPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tutorial_img extends AppCompatActivity {
     private Ejercicio ejercicio;
+    private List<EjercicioImagenes> imagenes;
+    private ImageView tutoimg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +37,20 @@ public class Tutorial_img extends AppCompatActivity {
         Button btn2 = (Button) findViewById(R.id.btnlast);
         Button backBtn = (Button) findViewById(R.id.backBtnImg);
 
-        if(ejercicio.getImagen2() == null){
+        tutoimg = findViewById(R.id.tutoimg);
+
+        EjercicioImagenesPresentador eip = new EjercicioImagenesPresentador(this);
+        imagenes = ejercicio.obtenerImagenesPropias(eip.obtenerImagen());
+
+        for (EjercicioImagenes imagen :
+                imagenes) {
+            System.out.println(imagen.getNombreImagen());
+        }
+
+        if(imagenes.size() == 1){
             btn1.setEnabled(false);
         }
-        if(ejercicio.getImagen3() == null){
+        if(imagenes.size() <= 2){
             btn2.setEnabled(false);
         }
 
@@ -48,16 +64,15 @@ public class Tutorial_img extends AppCompatActivity {
     }
 
     public void previousImagen(View v){
-        Log.i("Info", "Button pressed");
-        ImageView imagenEj = (ImageView) findViewById(R.id.tutoimg);
-        String archivo = "imagenes/" + ejercicio.getImagen1() + ".jpeg";
+        EjercicioImagenes imagen = imagenes.get(0);
+        String archivo = "imagenes/" + imagen.getNombreImagen() + ".jpeg";
 
         try {
             InputStream is = getAssets().open(archivo);
 
             Drawable d = Drawable.createFromStream(is, null);
 
-            imagenEj.setImageDrawable(d);
+            tutoimg.setImageDrawable(d);
             is.close();
         } catch (IOException ioe){
             ioe.printStackTrace();
@@ -67,23 +82,18 @@ public class Tutorial_img extends AppCompatActivity {
     }
 
     public void switchImagen(View v){
-        Log.i("Info", "Button pressed");
-        ImageView imagenEj = (ImageView) findViewById(R.id.tutoimg);
-        if(ejercicio.getImagen2() != null){
+        EjercicioImagenes imagen = imagenes.get(1);
+        String archivo = "imagenes/" + imagen.getNombreImagen() + ".jpeg";
 
-            String archivo = "imagenes/" + ejercicio.getImagen2() + ".jpeg";
+        try {
+            InputStream is = getAssets().open(archivo);
 
-            try {
-                InputStream is = getAssets().open(archivo);
+            Drawable d = Drawable.createFromStream(is, null);
 
-                Drawable d = Drawable.createFromStream(is, null);
-
-                imagenEj.setImageDrawable(d);
-                is.close();
-            } catch (IOException ioe){
-                ioe.printStackTrace();
-            }
-
+            tutoimg.setImageDrawable(d);
+            is.close();
+        } catch (IOException ioe){
+            ioe.printStackTrace();
         }
 
         System.out.println(ejercicio.getNombre());
@@ -91,9 +101,21 @@ public class Tutorial_img extends AppCompatActivity {
 
 
     public void lastImagen(View v){
-        Log.i("Info", "Button pressed");
-        ImageView image = (ImageView) findViewById(R.id.tutoimg);
-        image.setImageResource(R.drawable.pockettrainer);
+        EjercicioImagenes imagen = imagenes.get(2);
+        String archivo = "imagenes/" + imagen.getNombreImagen() + ".jpeg";
+
+        try {
+            InputStream is = getAssets().open(archivo);
+
+            Drawable d = Drawable.createFromStream(is, null);
+
+            tutoimg.setImageDrawable(d);
+            is.close();
+        } catch (IOException ioe){
+            ioe.printStackTrace();
+        }
+
+        System.out.println(ejercicio.getNombre());
 
     }
 

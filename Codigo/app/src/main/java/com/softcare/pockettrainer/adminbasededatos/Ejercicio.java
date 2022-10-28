@@ -124,15 +124,24 @@ public class Ejercicio implements Serializable {
         this.idMaterial = idMaterial;
     }
 
-    public List<EjercicioImagenes> obtenerImagenes(ArrayList<EjercicioImagenes> imagenes){
-        List<EjercicioImagenes> imagenesPropias = new ArrayList<EjercicioImagenes>();
-        for(int i = 0; i < imagenes.size(); i++){
-            EjercicioImagenes imagen = imagenes.get(i);
-            int idEjercicioImagen = imagen.getIdEjercicio();
-            if(idEjercicioImagen == idEjercicio){
-                imagenesPropias.add(imagen);
+
+    public List<EjercicioImagenes> obtenerImagenesPropias(ArrayList<EjercicioImagenes> imagenes){
+        List<EjercicioImagenes> imagenesP = new ArrayList<>();
+
+        for (EjercicioImagenes imagen : imagenes) {
+            if(imagen.getIdEjercicio() == idEjercicio){
+                boolean estaDentro = false;
+                for (EjercicioImagenes imagen2: imagenesP) {
+                    if(imagen.getIdImagen() == imagen2.getIdImagen()){
+                        estaDentro = true;
+                    }
+                }
+                if(!estaDentro){
+                    imagenesP.add(imagen);
+                }
             }
         }
-        return imagenesPropias;
+
+        return imagenesP;
     }
 }

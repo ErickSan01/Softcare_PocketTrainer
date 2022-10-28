@@ -38,7 +38,7 @@ public class EjercicioPresentador {
         ArrayList<Ejercicio> ejercicios = new ArrayList<>();
         AyudanteBaseDeDatos ayudanteBaseDeDatos = new AyudanteBaseDeDatos(context);
         SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
-        String[] columnas = {"id_ejercicio", "nombre", "terminado", "precio", "mivel", "descripcion", "parteCuerpo", "meta", "puntosEXP", "id_rutina", "id_material"};
+        String[] columnas = {"id_ejercicio", "nombre", "terminado", "precio", "nivel", "descripcion", "parteCuerpo", "meta", "puntosEXP", "id_rutina", "id_material"};
         Cursor cursor = sqLiteDatabase.query(
                 NOMBRE_TABLA,
                 columnas,
@@ -73,6 +73,54 @@ public class EjercicioPresentador {
         return ejercicios;
     }
 
+    public ArrayList<Ejercicio> obtenerEjercicio(Context context, int idRutina){
+        ArrayList<Ejercicio> ejercicios = new ArrayList<>();
+        AyudanteBaseDeDatos ayudanteBaseDeDatos = new AyudanteBaseDeDatos(context);
+        SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
+        String[] columnas = {"id_ejercicio", "nombre", "terminado", "precio", "nivel", "descripcion", "parteCuerpo", "meta", "puntosEXP", "id_rutina", "id_material"};
+        Cursor cursor = sqLiteDatabase.query(
+                NOMBRE_TABLA,
+                columnas,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+        if(cursor == null){
+            return null;
+        }
+        if(!cursor.moveToFirst()) return null;
+        do{
+            int idEjercicio = cursor.getInt(0);
+            String nombre = cursor.getString(1);
+            Boolean terminado = Boolean.parseBoolean(cursor.getString(2));
+            int precio = cursor.getInt(3);
+            String nivel = cursor.getString(4);
+            String descripcion = cursor.getString(5);
+            String parteCuerpo = cursor.getString(6);
+            String meta = cursor.getString(7);
+            int puntosExp = cursor.getInt(8);
+            int id_rutina = cursor.getInt(9);
+            int id_material = cursor.getInt(10);
+
+            Ejercicio nuevoEjercicio = new Ejercicio(idEjercicio, nombre, terminado, precio, nivel, descripcion, parteCuerpo, meta, puntosExp, id_rutina, id_material);
+
+            ejercicios.add(nuevoEjercicio);
+        }while (cursor.moveToNext());
+        cursor.close();
+
+        ArrayList<Ejercicio> ejerciciosReturn = new ArrayList<>();
+
+        for (Ejercicio ejercicio : ejercicios) {
+            if(ejercicio.getIdRutina() == idRutina){
+                ejerciciosReturn.add(ejercicio);
+            }
+        }
+        
+        return ejerciciosReturn;
+    }
+
     public int guardarCambios(Ejercicio ejercicio) {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         ContentValues valoresParaActualizar = new ContentValues();
@@ -86,7 +134,7 @@ public class EjercicioPresentador {
         valoresParaActualizar.put("puntosEXP",ejercicio.getPuntosEXP());
         valoresParaActualizar.put("id_rutina",ejercicio.getIdRutina());
         valoresParaActualizar.put("id_material",ejercicio.getIdMaterial());
-        String campoParaActualizar = "id = ?";
+        String campoParaActualizar = "id_ejercicio = ?";
         String[] argumentosParaActualizar = {String.valueOf(ejercicio.getIdEjercicio())};
         return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
     }

@@ -22,18 +22,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.softcare.pockettrainer.R;
 import com.softcare.pockettrainer.TutorialActivity;
+import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramada;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramadaPresentador;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.ViewHolder>{
-    private final ArrayList<Ejercicio> listaEjercicios;
     Context context;
+    ArrayList<Ejercicio> listaEjercicios;
+    String dia;
 
-    public EjerciciosAdapter(ArrayList<Ejercicio> ejercicios, Context context) {
-        this.listaEjercicios = ejercicios;
+    public EjerciciosAdapter(Context context, String dia) {
         this.context = context;
+        this.dia = dia;
+        this.listaEjercicios = getRutina();
     }
 
     @NonNull
@@ -46,10 +52,14 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-        System.out.println(position);
-        Ejercicio ejercicios = listaEjercicios.get(position);
-        holder.textView.setText(ejercicios.getNombre());
-        holder.cbSelect.setChecked(false);
+        Ejercicio ejercicio = listaEjercicios.get(position);
+        holder.textView.setText(ejercicio.getNombre());
+        if(ejercicio.isTerminado()){
+            System.out.println("Esta terminado");
+            holder.cbSelect.setChecked(true);
+        } else {
+            holder.cbSelect.setChecked(false);
+        }
         holder.cbSelect.setOnCheckedChangeListener(null);
 
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +67,7 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
 
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), TutorialActivity.class);
-                i.putExtra("ejercicio", ejercicios);
+                i.putExtra("ejercicio", ejercicio);
                 view.getContext().startActivity(i);
             }
         });
@@ -80,5 +90,41 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
             this.textView = (TextView) itemView.findViewById(R.id.nombreEjercicio);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
         }
+    }
+
+    public ArrayList<Ejercicio> getRutina(){
+        RutinaProgramadaPresentador rutinaProgramadaPresentador = new RutinaProgramadaPresentador(context);
+        RutinaProgramada rutinaProgramada = rutinaProgramadaPresentador.obtenerRutinaProgramada().get(0);
+        int idRutinaSeleccionada = 0;
+
+        switch(dia){
+            case("Lunes"):
+                idRutinaSeleccionada = rutinaProgramada.getId_rutina_lunes();
+                break;
+            case("Martes"):
+                idRutinaSeleccionada = rutinaProgramada.getId_rutina_martes();
+                break;
+            case("Miercoles"):
+                idRutinaSeleccionada = rutinaProgramada.getId_rutina_miercoles();
+                break;
+            case("Jueves"):
+                idRutinaSeleccionada = rutinaProgramada.getId_rutina_jueves();
+                break;
+            case("Viernes"):
+                idRutinaSeleccionada = rutinaProgramada.getId_rutina_viernes();
+                break;
+            case("Sabado"):
+                idRutinaSeleccionada = rutinaProgramada.getId_rutina_sabado();
+                break;
+            case("Domingo"):
+                idRutinaSeleccionada = rutinaProgramada.getId_rutina_domingo();
+                break;
+        }
+
+        EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(context);
+
+        System.out.println(ejercicioPresentador.obtenerEjercicio(context, idRutinaSeleccionada).get(0).getNombre());
+
+        return ejercicioPresentador.obtenerEjercicio(context, idRutinaSeleccionada);
     }
 }

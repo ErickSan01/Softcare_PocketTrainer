@@ -13,6 +13,11 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.softcare.pockettrainer.adminbasededatos.Horario;
+import com.softcare.pockettrainer.adminbasededatos.HorarioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramada;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramadaPresentador;
+
 import java.util.Locale;
 
 public class AjustesTiempoActivity extends AppCompatActivity {
@@ -244,6 +249,20 @@ public class AjustesTiempoActivity extends AppCompatActivity {
             guardar("viernes", viernes.getText().toString());
             guardar("sabado", sabado.getText().toString());
             guardar("domingo", domingo.getText().toString());
+
+            RutinaProgramadaPresentador rutinaProgramadaPresentador = new RutinaProgramadaPresentador(this);
+            RutinaProgramada rutinaProgramada = rutinaProgramadaPresentador.obtenerRutinaProgramada().get(0);
+
+            rutinaProgramadaPresentador.eliminarRutinaProgramada(rutinaProgramada);
+
+            HorarioPresentador horarioPresentador = new HorarioPresentador(this);
+            Horario horario = horarioPresentador.obtenerHorario().get(0);
+
+            horarioPresentador.eliminarHorario(horario);
+
+            AyudanteBaseDeDatos ayudante = new AyudanteBaseDeDatos(this);
+
+            ayudante.agregarHorario();
 
             Intent i = new Intent(this, AjustesActivity.class);
             startActivity(i);

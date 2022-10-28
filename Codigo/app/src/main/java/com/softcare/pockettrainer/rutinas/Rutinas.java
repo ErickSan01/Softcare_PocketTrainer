@@ -1,10 +1,10 @@
 package com.softcare.pockettrainer.rutinas;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,30 +12,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.softcare.pockettrainer.AyudanteBaseDeDatos;
 import com.softcare.pockettrainer.R;
-import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Horario;
+import com.softcare.pockettrainer.adminbasededatos.HorarioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Rutina;
 import com.softcare.pockettrainer.adminbasededatos.RutinaPresentador;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramada;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramadaPresentador;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Map;
 
 public class Rutinas extends AppCompatActivity {
-    private AyudanteBaseDeDatos ayudante;
-    private SharedPreferences preferences;
-    private SharedPreferences metaPref;
-    private SharedPreferences fecha;
-    private SharedPreferences rutina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rutinas_activity);
-        preferences = getSharedPreferences("dias", MODE_PRIVATE);
-        metaPref = getSharedPreferences("meta", MODE_PRIVATE);
-        fecha = getSharedPreferences("dia_semana", MODE_PRIVATE);
-        rutina = getSharedPreferences("rutina", MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("dias", MODE_PRIVATE);
+        SharedPreferences metaPref = getSharedPreferences("meta", MODE_PRIVATE);
+        SharedPreferences fecha = getSharedPreferences("dia_semana", MODE_PRIVATE);
+        SharedPreferences rutina = getSharedPreferences("rutina", MODE_PRIVATE);
 
 
         Button backButton = (Button) findViewById(R.id.backBtn);
@@ -43,11 +39,7 @@ public class Rutinas extends AppCompatActivity {
 
         ArrayList<String> dias = getDias(preferences);
 
-        ayudante = new AyudanteBaseDeDatos(this);
-        Map<String, ?> meta = metaPref.getAll();
-        RutinaPresentador rutinaPresentador = new RutinaPresentador(this);
-
-        RutinasAdapter rutinasAdapter = new RutinasAdapter(dias, rutinaPresentador.obtenerRutina(), this);
+        RutinasAdapter rutinasAdapter = new RutinasAdapter(dias, obtenerRutinaProgramada(), this);
         lista.setHasFixedSize(false);
         lista.setLayoutManager(new LinearLayoutManager(this));
         lista.setAdapter(rutinasAdapter);
@@ -67,29 +59,33 @@ public class Rutinas extends AppCompatActivity {
      * @return Regresa un arreglo de Strings que contienen los días libres.
      */
     public ArrayList<String> getDias(SharedPreferences diasP){
-        Map<String, ?> dias = diasP.getAll();
+        HorarioPresentador horarioPresentador = new HorarioPresentador(this);
+        Horario horario = horarioPresentador.obtenerHorario().get(0);
+        ArrayList<String> dias = new ArrayList<>();
 
-        ArrayList<String> diasArr = new ArrayList<String>();
-        ArrayList<Boolean> valsArr = new ArrayList<Boolean>();
-
-        for (String day: dias.keySet()) {
-            diasArr.add(day);
+        if(horario.getLunesHorarioDisponible() != null){
+            dias.add("Lunes");
         }
-        for (Object val: dias.values()) {
-            valsArr.add((Boolean) val);
+        if(horario.getMartesHorarioDisponible() != null){
+            dias.add("Martes");
+        }
+        if(horario.getMiercolesHorarioDisponible() != null){
+            dias.add("Miercoles");
+        }
+        if(horario.getJuevesHorarioDisponible() != null){
+            dias.add("Jueves");
+        }
+        if(horario.getViernesHorarioDisponible() != null){
+            dias.add("Viernes");
+        }
+        if(horario.getSabadoHorarioDisponible() != null){
+            dias.add("Sábado");
+        }
+        if(horario.getDomingoHorarioDisponible() != null){
+            dias.add("Domingo");
         }
 
-        ArrayList<String> diasS = new ArrayList<String>();
-
-        for(int pos = 0; pos < diasArr.size(); pos++){
-            if(valsArr.get(pos)){
-                String dia = diasArr.get(pos);
-                dia = dia.substring(0,1).toUpperCase() + dia.substring(1);
-                diasS.add(dia);
-            }
-        }
-
-        return diasS;
+        return dias;
     }
 
     /*
@@ -190,5 +186,35 @@ public class Rutinas extends AppCompatActivity {
         }
 
         return m;
+    }
+
+
+    public ArrayList<Rutina> obtenerRutinaProgramada(){
+        RutinaProgramadaPresentador rutinaProgramadaPresentador = new RutinaProgramadaPresentador(this);
+        RutinaPresentador rutinaPresentador = new RutinaPresentador(this);
+        RutinaProgramada rutinaProgramada = rutinaProgramadaPresentador.obtenerRutinaProgramada().get(0);
+
+        ArrayList<Rutina> rutinasObtenidas = rutinaPresentador.obtenerRutina();
+
+        ArrayList<Integer> dias = new ArrayList<>();
+        dias.add(rutinaProgramada.getId_rutina_lunes());
+        dias.add(rutinaProgramada.getId_rutina_martes());
+        dias.add(rutinaProgramada.getId_rutina_miercoles());
+        dias.add(rutinaProgramada.getId_rutina_jueves());
+        dias.add(rutinaProgramada.getId_rutina_viernes());
+        dias.add(rutinaProgramada.getId_rutina_sabado());
+        dias.add(rutinaProgramada.getId_rutina_domingo());
+
+        ArrayList<Rutina> rutinas = new ArrayList<>();
+
+        for (int idRutinaDia : dias){
+            if(idRutinaDia != 0){
+                Rutina rutinaAgregar = rutinaPresentador.obtenerRutina(idRutinaDia);
+                rutinas.add(rutinaAgregar);
+            }
+        }
+
+        return rutinas;
+
     }
 }

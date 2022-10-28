@@ -36,7 +36,7 @@ public class RutinaPresentador {
     public ArrayList<Rutina> obtenerRutina(){
         ArrayList<Rutina> rutinas = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
-        String[] columnas = {"id_rutina","parte_cuerpo","completada"};
+        String[] columnas = {"id_rutina","parte_cuerpo","completada", "puntosEXP"};
         Cursor cursor = sqLiteDatabase.query(
                 NOMBRE_TABLA,
                 columnas,
@@ -63,34 +63,40 @@ public class RutinaPresentador {
     }
 
     public Rutina obtenerRutina(int idRutina){
-        String sql = "SELECT * FROM RUTINA WHERE id_rutina = " + idRutina + ";";
-
+        ArrayList<Rutina> rutinas = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
+        String[] columnas = {"id_rutina","parte_cuerpo","completada", "puntosEXP"};
+        Cursor cursor = sqLiteDatabase.query(
+                NOMBRE_TABLA,
+                columnas,
+                null,
+                null,
+                null,
+                null,
+                null
+        );
+        if(cursor == null){
+            return null;
+        }
+        if(!cursor.moveToFirst()) return null;
+        do{
+            int id_rutina= cursor.getInt(0);
+            String parte_cuerpo = cursor.getString(1);
+            boolean completada = Boolean.parseBoolean(cursor.getString(2));
+            int puntosEXP = cursor.getInt(3);
+            Rutina rutina = new Rutina(id_rutina, parte_cuerpo, completada, puntosEXP);
+            rutinas.add(rutina);
+        }while (cursor.moveToNext());
+        cursor.close();
 
-        try {
-            Connection connection = DriverManager.getConnection(sqLiteDatabase.getPath());
-
-            Statement statement = connection.createStatement();
-            ResultSet resultado = statement.executeQuery(sql);
-
-            int idRutina0 = 0;
-            String parteCuerpoO = "";
-            boolean completada = false;
-            int puntosExp = 0;
-
-            while(resultado.next()){
-                idRutina0 = resultado.getInt("id_rutina");
-                parteCuerpoO = resultado.getString("parte_cuerpo");
-                completada = resultado.getBoolean("completada");
-                puntosExp = resultado.getInt("puntosEXP");
+        for (Rutina rutina : rutinas) {
+            if(rutina.getIdRutina() == idRutina){
+                return rutina;
             }
-
-            return new Rutina(idRutina0, parteCuerpoO, completada, puntosExp);
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
 
         return null;
+
     }
 
     public int guardarCambios(Rutina rutina) {

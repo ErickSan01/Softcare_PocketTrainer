@@ -21,6 +21,7 @@ import com.softcare.pockettrainer.adminbasededatos.Rutina;
 import com.softcare.pockettrainer.adminbasededatos.RutinaPresentador;
 import com.softcare.pockettrainer.adminbasededatos.Usuario;
 import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
+import com.softcare.pockettrainer.nivel.ExperienciaActual;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,7 +52,7 @@ public class TutorialActivity extends AppCompatActivity{
         EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(this);
         ImageView imagenEj = (ImageView) findViewById(R.id.imageView2);
         EjercicioImagenesPresentador eip = new EjercicioImagenesPresentador(this);
-        List<EjercicioImagenes> imagenes = ejercicio.obtenerImagenes(eip.obtenerImagen());
+        List<EjercicioImagenes> imagenes = ejercicio.obtenerImagenesPropias(eip.obtenerImagen());
         EjercicioImagenes imagen1 = imagenes.get(0);
 
         String archivo = "imagenes/" + imagen1.getNombreImagen() + ".jpeg";
@@ -113,9 +114,13 @@ public class TutorialActivity extends AppCompatActivity{
 
                     editorEjercicio.commit();
                     editorFecha.commit();
+                    ExperienciaActual experienciaUsuario = new ExperienciaActual(usuario, TutorialActivity.this);
+
+                    experienciaUsuario.setNivel();
                 }
                 return false;
             }
+
         });
     }
 

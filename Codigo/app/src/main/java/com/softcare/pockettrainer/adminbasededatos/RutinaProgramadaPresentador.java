@@ -17,7 +17,7 @@ public class RutinaProgramadaPresentador {
         ayudanteBaseDeDatos = new AyudanteBaseDeDatos(contexto);
     }
 
-    public long nuevoMaterial(RutinaProgramada rutinaProgramada){
+    public long nuevaRutinaProgramada(RutinaProgramada rutinaProgramada){
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         ContentValues valoresParaInsertar = new ContentValues();
         valoresParaInsertar.put("id_rutina_programada", rutinaProgramada.getId_rutina_programada());
@@ -34,7 +34,7 @@ public class RutinaProgramadaPresentador {
     public ArrayList<RutinaProgramada> obtenerRutinaProgramada(){
         ArrayList<RutinaProgramada> rutinaProgramadas = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = ayudanteBaseDeDatos.getReadableDatabase();
-        String[] columnas = {"id_rutina_programado","id_rutina_lunes", "id_rutina_martes", "id_rutina_miercoles", "id_rutina_jueves", "id_rutina_viernes", "id_rutina_sabado", "id_rutina_domingo"};
+        String[] columnas = {"id_rutina_programada","id_rutina_lunes", "id_rutina_martes", "id_rutina_miercoles", "id_rutina_jueves", "id_rutina_viernes", "id_rutina_sabado", "id_rutina_domingo"};
         Cursor cursor = sqLiteDatabase.query(
                 NOMBRE_TABLA,
                 columnas,
@@ -74,7 +74,7 @@ public class RutinaProgramadaPresentador {
         valoresParaActualizar.put("id_rutina_viernes",rutinaProgramada.getId_rutina_viernes());
         valoresParaActualizar.put("id_rutina_sabado",rutinaProgramada.getId_rutina_sabado());
         valoresParaActualizar.put("id_rutina_domingo",rutinaProgramada.getId_rutina_domingo());
-        String campoParaActualizar = "id = ?";
+        String campoParaActualizar = "id_rutina_programada = ?";
         String[] argumentosParaActualizar = {String.valueOf(rutinaProgramada.getId_rutina_domingo())};
         return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
     }
@@ -82,7 +82,7 @@ public class RutinaProgramadaPresentador {
     public int eliminarRutinaProgramada(RutinaProgramada rutinaProgramada) {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         String[] argumentos = {String.valueOf(rutinaProgramada.getId_rutina_programada())};
-        return baseDeDatos.delete(NOMBRE_TABLA, "id = ?", argumentos);
+        return baseDeDatos.delete(NOMBRE_TABLA, "id_rutina_programada = ?", argumentos);
     }
 
 }

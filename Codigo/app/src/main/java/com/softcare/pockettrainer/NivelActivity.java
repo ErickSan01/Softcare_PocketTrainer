@@ -37,7 +37,7 @@ public class NivelActivity extends AppCompatActivity {
 
 
         Button backBtn = (Button) findViewById(R.id.backBtnNivel);
-        ExperienciaActual nvl = new ExperienciaActual(usuario);
+        ExperienciaActual nvl = new ExperienciaActual(usuario, this);
 
         ImageView imagenNvl = (ImageView) findViewById(R.id.imageView6);
         ImageView imagenIns1 = (ImageView) findViewById(R.id.imageView7);

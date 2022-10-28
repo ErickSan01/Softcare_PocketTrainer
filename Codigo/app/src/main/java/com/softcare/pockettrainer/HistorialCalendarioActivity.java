@@ -99,6 +99,7 @@ public class HistorialCalendarioActivity extends AppCompatActivity implements Ca
     public void onItemClick(int position, String dayText) {
         if(!dayText.equals("")) {
             Intent i = new Intent(this, HistorialCalendarioSeleccionActivity.class);
+            System.out.println(dayText + "/" + mesConNumero(selectedDate));
             i.putExtra("fecha", dayText + "/" + mesConNumero(selectedDate));
             startActivity(i);
         }
