@@ -55,7 +55,7 @@ public class EjercicioPresentador {
         do{
             int idEjercicio = cursor.getInt(0);
             String nombre = cursor.getString(1);
-            Boolean terminado = Boolean.parseBoolean(cursor.getString(2));
+            Boolean terminado = Integer.parseInt(cursor.getString(2)) == 1;
             int precio = cursor.getInt(3);
             String nivel = cursor.getString(4);
             String descripcion = cursor.getString(5);
@@ -136,7 +136,9 @@ public class EjercicioPresentador {
         valoresParaActualizar.put("id_material",ejercicio.getIdMaterial());
         String campoParaActualizar = "id_ejercicio = ?";
         String[] argumentosParaActualizar = {String.valueOf(ejercicio.getIdEjercicio())};
-        return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
+        int result = baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
+        baseDeDatos.close();
+        return result;
     }
 
 

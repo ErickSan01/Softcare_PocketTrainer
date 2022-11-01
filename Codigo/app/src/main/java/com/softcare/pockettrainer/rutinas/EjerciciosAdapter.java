@@ -52,22 +52,22 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
-        Ejercicio ejercicio = listaEjercicios.get(position);
-        holder.textView.setText(ejercicio.getNombre());
-        if(ejercicio.isTerminado()){
-            System.out.println("Esta terminado");
-            holder.cbSelect.setChecked(true);
-        } else {
-            holder.cbSelect.setChecked(false);
+        EjercicioPresentador ejercicios = new EjercicioPresentador(context);
+        ArrayList<Ejercicio> ejerciciosBD = ejercicios.obtenerEjercicio(context);
+        Ejercicio ejercicio = null;
+        for (Ejercicio ejercicioBd: ejerciciosBD) {
+            if(ejercicioBd.getIdEjercicio() == listaEjercicios.get(position).getIdEjercicio()){
+                ejercicio = ejercicioBd;
+            }
         }
-        holder.cbSelect.setOnCheckedChangeListener(null);
-
+        holder.textView.setText(ejercicio.getNombre());
+        Ejercicio finalEjercicio = ejercicio;
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
 
-            public void onClick(View view) {
+            @Override
+            public void onClick(View view){
                 Intent i = new Intent(view.getContext(), TutorialActivity.class);
-                i.putExtra("ejercicio", ejercicio);
+                i.putExtra("ejercicio", finalEjercicio);
                 view.getContext().startActivity(i);
             }
         });
@@ -86,7 +86,6 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.cbSelect = (CheckBox) itemView.findViewById(R.id.ejercicioCompletado);
             this.textView = (TextView) itemView.findViewById(R.id.nombreEjercicio);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
         }

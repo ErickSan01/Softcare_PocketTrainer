@@ -1,7 +1,9 @@
 package com.softcare.pockettrainer;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -28,16 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AyudanteBaseDeDatos ayudante = new AyudanteBaseDeDatos(this);
 
-        ayudante.agregarHorario();
-        ayudante.agregarUsuario();
-        ayudante.agregarRutinas();
-        ayudante.agregarEjercicios();
-        ayudante.agregarMateriales();
-        ayudante.agregarMaterialImagenes();
-        ayudante.agregarEjercicioImagenes();
-        crearRutina();
 
         Button btn2 = (Button)findViewById(R.id.btnRutinas);
         Button btn3 = (Button)findViewById(R.id.btnAjustes);
@@ -69,17 +62,30 @@ public class MainActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AjustesActivity.class));
-                asignarRutinas();
+                Intent intent = new Intent(MainActivity.this, AjustesActivity.class);
+                startActivityForResult(intent, 0);
             }
         });
 
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v){
                 startActivity(new Intent(MainActivity.this, NivelActivity.class));
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Intent intent = getIntent();
+        String ajustes = intent.getStringExtra("pantalla");
+
+        System.out.println(ajustes);
+
+        if(ajustes.equals("ajustes")){
+            asignarRutinas();
+        }
     }
 
     @Override
@@ -89,33 +95,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        asignarRutinas();
-    }
-
-    public void crearRutina(){
-        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
-        Usuario usuario = usuarioPresentador.obtenerUsuario().get(0);
-
-        String metaUsuario = usuario.getMeta();
-        EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(this);
-        RutinaPresentador rutinaPresentador = new RutinaPresentador(this);
-
-        ArrayList<Ejercicio> ejercicios = ejercicioPresentador.obtenerEjercicio(this);
-
-        for (Ejercicio ejercicio : ejercicios){
-            if(ejercicio.getMeta().equals(metaUsuario)){
-                ArrayList<Rutina> rutinas = rutinaPresentador.obtenerRutina();
-                for (Rutina rutina : rutinas){
-                    if (ejercicio.getParteCuerpo().equals(rutina.getParteCuerpo().toLowerCase(Locale.ROOT))) {
-                        ejercicio.setIdRutina(rutina.getIdRutina());
-                        ejercicioPresentador.guardarCambios(ejercicio);
-                    }
-                }
-            }
-        }
-
-        asignarRutinas();
-
     }
 
     public void asignarRutinas(){

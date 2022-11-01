@@ -32,17 +32,11 @@ public class EjerciciosRutina extends AppCompatActivity {
         String parteCuerpo = (String) intent.getSerializableExtra("parteCuerpo");
 
         RecyclerView listaEjercicios = (RecyclerView) findViewById(R.id.listaEjercicios);
-        SharedPreferences preferences = getSharedPreferences("meta", MODE_PRIVATE);
-        SharedPreferences dias = getSharedPreferences("dias", MODE_PRIVATE);
-        SharedPreferences tieneRutina = getSharedPreferences("tiene_rutina", MODE_PRIVATE);
-        Map<String, ?> meta = preferences.getAll();
 
         Button btnEx = (Button) findViewById(R.id.backBtnEx);
         TextView rutinaText = findViewById(R.id.rutinaText);
 
         rutinaText.setText(parteCuerpo);
-
-        Rutinas rutinas = new Rutinas();
 
         EjerciciosAdapter adapterEj = new EjerciciosAdapter(this, dia);
 
@@ -57,7 +51,36 @@ public class EjerciciosRutina extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        setContentView(R.layout.activity_ejercicios_rutina);
+        Intent intent = getIntent();
+
+        String dia = (String) intent.getSerializableExtra("dia");
+        String parteCuerpo = (String) intent.getSerializableExtra("parteCuerpo");
+
+        RecyclerView listaEjercicios = (RecyclerView) findViewById(R.id.listaEjercicios);
+
+        Button btnEx = (Button) findViewById(R.id.backBtnEx);
+        TextView rutinaText = findViewById(R.id.rutinaText);
+
+        rutinaText.setText(parteCuerpo);
+
+        EjerciciosAdapter adapterEj = new EjerciciosAdapter(this, dia);
+
+        listaEjercicios.setHasFixedSize(false);
+        listaEjercicios.setLayoutManager(new LinearLayoutManager(this));
+        listaEjercicios.setAdapter(adapterEj);
+
+        /* Boton para regresar a la página de rutinas */
+        btnEx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
 }

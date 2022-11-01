@@ -95,8 +95,6 @@ public class Tutorial_img extends AppCompatActivity {
         } catch (IOException ioe){
             ioe.printStackTrace();
         }
-
-        System.out.println(ejercicio.getNombre());
     }
 
 

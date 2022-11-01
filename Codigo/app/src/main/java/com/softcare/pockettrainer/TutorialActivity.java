@@ -56,7 +56,7 @@ public class TutorialActivity extends AppCompatActivity{
         EjercicioImagenes imagen1 = imagenes.get(0);
 
         String archivo = "imagenes/" + imagen1.getNombreImagen() + ".jpeg";
-        if(ejercicio.isTerminado()==true){
+        if(ejercicio.isTerminado()){
             btnCompletar.setEnabled(false);
         }
 
@@ -70,8 +70,6 @@ public class TutorialActivity extends AppCompatActivity{
         } catch (IOException ioe){
             ioe.printStackTrace();
         }
-
-        System.out.println(ejercicio.getNombre());
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
