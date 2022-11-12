@@ -18,7 +18,7 @@ public class MetaActivity extends AppCompatActivity {
         String eleccionDelgado = i.getStringExtra("cuerpo");
         if(eleccionDelgado.equalsIgnoreCase("delgado")){
             Button botonDelgado = findViewById(R.id.buttonPeso);
-            Button botonAmbos = findViewById(R.id.buttonAmbos);
+            Button botonAmbos = findViewById(R.id.buttonFornido);
             deshabilitarBoton(botonDelgado);
             deshabilitarBoton(botonAmbos);
         }

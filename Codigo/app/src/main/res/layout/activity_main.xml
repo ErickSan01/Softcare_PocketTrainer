@@ -11,67 +11,64 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/mainm"
+        android:background="@drawable/home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnNivel"
-        android:layout_width="102dp"
-        android:layout_height="165dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="114dp"
+        android:layout_height="186dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="185dp"
         android:layout_weight="1"
         android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAjustes"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonHistorial" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRutinas"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnRutinas"
-        android:layout_width="115dp"
-        android:layout_height="174dp"
-        android:layout_marginTop="288dp"
+        android:layout_width="113dp"
+        android:layout_height="186dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="112dp"
         android:layout_weight="1"
         android:background="#00FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toStartOf="@+id/btnAgenda"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnAjustes"
-        android:layout_width="103dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="115dp"
+        android:layout_height="186dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="185dp"
+        android:layout_weight="1"
+        android:background="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgenda"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btnAgenda"
+        android:layout_width="114dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginEnd="44dp"
         android:layout_weight="1"
         android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonPrueba" />
-
-    <Button
-        android:id="@+id/buttonPrueba"
-        android:layout_width="98dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="28dp"
-        android:layout_weight="1"
-        android:background="#00FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonHistorial"
-        android:layout_width="92dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="176dp"
-        android:layout_weight="1"
-        android:background="#00FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

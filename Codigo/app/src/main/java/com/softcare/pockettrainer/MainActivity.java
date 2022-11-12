@@ -3,26 +3,20 @@ package com.softcare.pockettrainer;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
-import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
 import com.softcare.pockettrainer.adminbasededatos.Horario;
 import com.softcare.pockettrainer.adminbasededatos.HorarioPresentador;
 import com.softcare.pockettrainer.adminbasededatos.Rutina;
 import com.softcare.pockettrainer.adminbasededatos.RutinaPresentador;
 import com.softcare.pockettrainer.adminbasededatos.RutinaProgramada;
 import com.softcare.pockettrainer.adminbasededatos.RutinaProgramadaPresentador;
-import com.softcare.pockettrainer.adminbasededatos.Usuario;
-import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
 import com.softcare.pockettrainer.rutinas.Rutinas;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,15 +29,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn2 = (Button)findViewById(R.id.btnRutinas);
         Button btn3 = (Button)findViewById(R.id.btnAjustes);
         Button btn4 = (Button)findViewById(R.id.btnNivel);
-        Button btn5 = (Button)findViewById(R.id.buttonPrueba);
-        Button btn6 = (Button)findViewById(R.id.buttonHistorial);
-
-        btn6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HistorialUsuarioActivity.class));
-            }
-        });
+        Button btn5 = (Button)findViewById(R.id.btnAgenda);
 
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
