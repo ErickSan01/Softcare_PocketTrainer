@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1F2124"
+    android:background="@drawable/metas"
     tools:context=".AjustesMetaActivity">
 
     <Button
@@ -20,90 +20,43 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewMeta"
-        android:layout_width="191dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="96dp"
-        android:text="@string/meta"
-        android:textColor="#A2B9ED"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="150dp"
-        android:layout_height="129dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="32dp"
-        android:src="@drawable/meta1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMeta"
-        tools:srcCompat="@drawable/meta1" />
-
     <Button
         android:id="@+id/buttonMusculo"
-        android:layout_width="158dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="4dp"
-        android:onClick="musculo"
-        android:text="@string/masa_muscular"
-        android:background="@drawable/buttonselector"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        tools:ignore="OnClick" />
-
-    <ImageView
-        android:id="@+id/imageView2"
         android:layout_width="151dp"
-        android:layout_height="126dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="48dp"
-        android:src="@drawable/meta2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.112"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMeta"
-        tools:srcCompat="@drawable/meta2" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="239dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="260dp"
+        android:layout_height="239dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="15dp"
+        android:background="#00FFFFFF"
+        android:onClick="musculo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/meta3"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMeta"
-        tools:srcCompat="@drawable/meta3" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="OnClick" />
 
     <Button
         android:id="@+id/buttonFornido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_width="152dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="32dp"
+        android:background="#00FFFFFF"
         android:onClick="ambos"
-        android:text="@string/ambos"
-        android:background="@drawable/buttonselector"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPeso"
         tools:ignore="OnClick" />
 
     <Button
         android:id="@+id/buttonPeso"
-        android:layout_width="150dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="145dp"
+        android:layout_height="242dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="137dp"
+        android:background="#00FFFFFF"
         android:onClick="peso"
-        android:text="@string/bajar"
-        android:background="@drawable/buttonselector"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMusculo"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="OnClick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
