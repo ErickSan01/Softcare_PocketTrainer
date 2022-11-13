@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tutorial"
+    android:background="@drawable/tutorialejer"
     tools:context=".TutorialActivity">
+
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="248dp"
-        android:layout_height="260dp"
+        android:layout_width="294dp"
+        android:layout_height="219dp"
         android:layout_alignParentStart="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="true"
@@ -18,7 +19,7 @@
         android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
         android:layout_centerInParent="true"
-        android:layout_marginTop="89dp"
+        android:layout_marginTop="70dp"
         android:background="#A3DCEF"
         android:backgroundTint="#A3DCEF"
         android:layoutDirection="inherit"
@@ -28,7 +29,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/logo_softcare" />
-
 
     <Button
         android:id="@+id/button5"
@@ -87,9 +87,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginRight="115dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginRight="117dp"
+        android:layout_marginBottom="25dp"
         android:background="#00FFFFFF"
         android:layoutDirection="locale"
         app:layout_constraintBottom_toBottomOf="parent"

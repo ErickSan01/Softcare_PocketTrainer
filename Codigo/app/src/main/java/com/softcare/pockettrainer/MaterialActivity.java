@@ -50,18 +50,18 @@ public class MaterialActivity extends AppCompatActivity {
 
         imagenesMaterial = materialEjercicio.obtenerImagenesPropias(imagenes);
 
-        Button step2 = (Button) findViewById(R.id.button6);
-        Button step3 = (Button) findViewById(R.id.button7);
+        /*Button step2 = (Button) findViewById(R.id.button6);
+        Button step3 = (Button) findViewById(R.id.button7);*/
         Button backBtn = findViewById(R.id.backBtnImg2);
 
         System.out.println(imagenesMaterial.size());
-
+/*
         if(imagenesMaterial.size() == 1){
             step2.setEnabled(false);
         }
         if(imagenesMaterial.size() < 2){
             step3.setEnabled(false);
-        }
+        }*/
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

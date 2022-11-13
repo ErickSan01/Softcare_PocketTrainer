@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/equipoentrenamiento"
+    android:background="@drawable/materialreq"
     tools:context=".MaterialActivity">
 
     <Button
@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/ivstr"
-        android:layout_width="306dp"
-        android:layout_height="293dp"
+        android:layout_width="255dp"
+        android:layout_height="241dp"
         android:layout_marginTop="120dp"
 
         android:background="@drawable/custombutton"

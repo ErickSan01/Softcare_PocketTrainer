@@ -33,8 +33,8 @@
 
     <Button
         android:id="@+id/buttonPeso"
-        android:layout_width="151dp"
-        android:layout_height="242dp"
+        android:layout_width="146dp"
+        android:layout_height="245dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="136dp"
         android:background="#00FFFFFF"
