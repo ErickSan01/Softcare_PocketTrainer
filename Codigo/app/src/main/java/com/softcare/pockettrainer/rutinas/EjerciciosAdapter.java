@@ -61,6 +61,9 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
             }
         }
         holder.textView.setText(ejercicio.getNombre());
+        if(ejercicio.isTerminado()){
+            holder.cbSelect.setChecked(true);
+        }
         Ejercicio finalEjercicio = ejercicio;
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
 
@@ -86,6 +89,7 @@ public class EjerciciosAdapter extends RecyclerView.Adapter<EjerciciosAdapter.Vi
 
         public ViewHolder(View itemView) {
             super(itemView);
+            this.cbSelect = (CheckBox) itemView.findViewById(R.id.ejercicioCompletado);
             this.textView = (TextView) itemView.findViewById(R.id.nombreEjercicio);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
         }
