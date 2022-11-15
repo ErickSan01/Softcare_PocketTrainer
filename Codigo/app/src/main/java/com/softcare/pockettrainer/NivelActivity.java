@@ -39,17 +39,16 @@ public class NivelActivity extends AppCompatActivity {
         Button backBtn = (Button) findViewById(R.id.backBtnNivel);
         ExperienciaActual nvl = new ExperienciaActual(usuario, this);
 
+        nivel = usuario.getNivel();
+        experiencia = usuario.getExp();
+        cantidadEjercicios = usuario.getEjerciciosCompletados();
+
         ImageView imagenNvl = (ImageView) findViewById(R.id.imageView6);
         ImageView imagenIns1 = (ImageView) findViewById(R.id.imageView7);
         ImageView imagenIns2 = (ImageView) findViewById(R.id.imageView8);
         ImageView imagenIns3 = (ImageView) findViewById(R.id.imageView9);
         ImageView imagenIns4 = (ImageView) findViewById(R.id.imageView10);
         TextView exp = (TextView) findViewById(R.id.ex);
-
-
-        nivel = usuario.getNivel();
-        experiencia = usuario.getExp();
-        cantidadEjercicios = usuario.getEjerciciosCompletados();
 
         exp.setText(String.valueOf((int) experiencia));
 

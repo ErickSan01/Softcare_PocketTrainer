@@ -4,75 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo"
+    android:background="@drawable/ajustes"
     tools:context=".AjustesActivity">
-
-    <TextView
-        android:id="@+id/textViewPreferencias"
-        android:layout_width="148dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/ajustes"
-        android:textColor="@color/texto"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewHorario"
-        android:layout_width="254dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/horario"
-        android:textColor="@color/texto"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewPreferencias" />
 
     <ListView
         android:id="@+id/ListView1"
-        android:layout_width="347dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="156dp"
+        android:layout_width="318dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="36dp"
         android:background="#9A9CEA"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSalir"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonHorario"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/buttonHorario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="112dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/buttonselector"
         android:onClick="editar"
         android:text="@string/editar"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonHorario3" />
 
     <Button
         android:id="@+id/buttonHorario2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/buttonselector"
         android:onClick="editarCuerpo"
         android:text="@string/cambiar"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListView1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonHorario3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/buttonselector"
         android:onClick="editarMeta"
@@ -82,57 +61,46 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonHorario2" />
 
     <TextView
-        android:id="@+id/textViewCuerpo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/cuerpo_elegido"
-        android:textColor="@color/texto"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListView1" />
-
-    <TextView
-        android:id="@+id/textViewMeta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
-        android:text="@string/meta_elegido"
-        android:textColor="@color/texto"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCuerpoUsuario" />
-
-    <TextView
         android:id="@+id/textViewMetaUsuario"
-        android:layout_width="150dp"
-        android:layout_height="33dp"
+        android:layout_width="210dp"
+        android:layout_height="37dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="72dp"
         android:text="TextView"
         android:textColor="@color/texto"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/buttonHorario3"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMeta" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCuerpoUsuario" />
+
+    <TextView
+        android:id="@+id/textViewHorario"
+        android:layout_width="199dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="16dp"
+        android:text="Mi Horario:"
+        android:textColor="@color/texto"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/ListView1"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHorario"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewCuerpoUsuario"
-        android:layout_width="127dp"
-        android:layout_height="35dp"
+        android:layout_width="214dp"
+        android:layout_height="37dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="308dp"
+        android:layout_marginTop="92dp"
         android:text="TextView"
         android:textColor="@color/texto"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHorario2"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCuerpo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/backBtnAjustes"
@@ -151,11 +119,12 @@
         android:id="@+id/buttonSalir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/buttonselector"
         android:text="@string/guardar_y_salir"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ListView1" />
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
