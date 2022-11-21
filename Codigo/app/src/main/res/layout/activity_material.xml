@@ -22,9 +22,9 @@
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/ivstr"
-        android:layout_width="255dp"
-        android:layout_height="255dp"
         android:layout_centerHorizontal="true"
+        android:layout_height="255dp"
+        android:layout_width="255dp"
         android:layout_marginTop="120dp"
         app:iss_auto_cycle="true"
         app:iss_period="1000"

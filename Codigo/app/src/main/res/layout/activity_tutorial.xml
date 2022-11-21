@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tutorialejer"
+    android:background="@drawable/instructions"
     tools:context=".TutorialActivity">
     
     <com.denzcoskun.imageslider.ImageSlider
@@ -12,8 +12,8 @@
         android:layout_width="200dp"
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
         app:iss_auto_cycle="true"
+        android:layout_marginTop="40dp"
         app:iss_period="1000"
         app:iss_placeholder="@drawable/logo_softcare"
         app:iss_error_image="@drawable/logo_softcare"
@@ -77,9 +77,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="94dp"
-        android:layout_marginRight="112dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="105dp"
+        android:layout_marginRight="78dp"
+        android:layout_marginBottom="19dp"
         android:background="@drawable/custombutton"
         android:layoutDirection="locale"
         android:text="COMPLETAR"
