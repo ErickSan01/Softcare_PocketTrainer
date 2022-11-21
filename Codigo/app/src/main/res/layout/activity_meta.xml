@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/metas"
+    android:background="@drawable/goals"
     tools:context=".CuerpoActivity">
 
     <Button
