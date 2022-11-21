@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenes;
 import com.softcare.pockettrainer.adminbasededatos.Material;
 import com.softcare.pockettrainer.adminbasededatos.MaterialImagenes;
 import com.softcare.pockettrainer.adminbasededatos.MaterialImagenesPresentador;
@@ -50,79 +53,16 @@ public class MaterialActivity extends AppCompatActivity {
 
         imagenesMaterial = materialEjercicio.obtenerImagenesPropias(imagenes);
 
-        /*Button step2 = (Button) findViewById(R.id.button6);
-        Button step3 = (Button) findViewById(R.id.button7);*/
-        Button backBtn = findViewById(R.id.backBtnImg2);
 
-        System.out.println(imagenesMaterial.size());
-/*
-        if(imagenesMaterial.size() == 1){
-            step2.setEnabled(false);
+        ImageSlider imageSlider = findViewById(R.id.ivstr);
+        ArrayList<SlideModel> imageList = new ArrayList<>();
+
+        for (MaterialImagenes imagen : imagenesMaterial) {
+            String archivoS = "file:///android_asset/imagenes/materiales/" + imagen.getNombreImagen() + ".png";
+            System.out.println(archivoS);
+            imageList.add(new SlideModel("file:///android_asset/imagenes/materiales/" + imagen.getNombreImagen() + ".png", null));
         }
-        if(imagenesMaterial.size() < 2){
-            step3.setEnabled(false);
-        }*/
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-    }
-
-
-    public void previousImagen(View v){
-        ImageView imagenEj = (ImageView) findViewById(R.id.ivstr);
-
-        String archivo = "imagenes/materiales/" + imagenesMaterial.get(0).getNombreImagen() + ".png";
-
-        try {
-            InputStream is = getAssets().open(archivo);
-
-            Drawable d = Drawable.createFromStream(is, null);
-
-            imagenEj.setImageDrawable(d);
-            is.close();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
-    }
-
-
-    public void switchImagen(View v){
-        ImageView imagenEj = (ImageView) findViewById(R.id.ivstr);
-
-        String archivo = "imagenes/materiales/" + imagenesMaterial.get(1).getNombreImagen() + ".png";
-
-        try {
-            InputStream is = getAssets().open(archivo);
-
-            Drawable d = Drawable.createFromStream(is, null);
-
-            imagenEj.setImageDrawable(d);
-            is.close();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
-    }
-
-
-
-    public void lastImagen(View v){
-        ImageView imagenEj = (ImageView) findViewById(R.id.ivstr);
-
-        String archivo = "imagenes/materiales/" + imagenesMaterial.get(2).getNombreImagen() + ".png";
-
-        try {
-            InputStream is = getAssets().open(archivo);
-
-            Drawable d = Drawable.createFromStream(is, null);
-
-            imagenEj.setImageDrawable(d);
-            is.close();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
+        imageSlider.setImageList(imageList);
     }
 }

@@ -20,18 +20,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+    <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/ivstr"
         android:layout_width="255dp"
-        android:layout_height="241dp"
+        android:layout_height="255dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
-
-        android:background="@drawable/custombutton"
-        android:src="@drawable/logo_softcare"
+        app:iss_auto_cycle="true"
+        app:iss_period="1000"
+        app:iss_placeholder="@drawable/logo_softcare"
+        app:iss_error_image="@drawable/logo_softcare"
+        app:iss_delay="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_softcare" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

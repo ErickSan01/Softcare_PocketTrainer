@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.MotionEvent;
@@ -13,6 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
 import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenes;
 import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenesPresentador;
@@ -23,6 +26,7 @@ import com.softcare.pockettrainer.adminbasededatos.Usuario;
 import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
 import com.softcare.pockettrainer.nivel.ExperienciaActual;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -50,7 +54,6 @@ public class TutorialActivity extends AppCompatActivity{
         Button backBtn = (Button) findViewById(R.id.backBtnEj);
         ejercicio = (Ejercicio) intent.getSerializableExtra("ejercicio");
         EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(this);
-        ImageView imagenEj = (ImageView) findViewById(R.id.imageView2);
         EjercicioImagenesPresentador eip = new EjercicioImagenesPresentador(this);
         List<EjercicioImagenes> imagenes = ejercicio.obtenerImagenesPropias(eip.obtenerImagen());
         EjercicioImagenes imagen1 = imagenes.get(0);
@@ -58,18 +61,24 @@ public class TutorialActivity extends AppCompatActivity{
         String archivo = "imagenes/" + imagen1.getNombreImagen() + ".jpeg";
         if(ejercicio.isTerminado()){
             btnCompletar.setEnabled(false);
+            btnCompletar.setBackgroundColor(Color.GREEN);
         }
 
-        try {
-            InputStream is = getAssets().open(archivo);
+        ImageSlider imageSlider = findViewById(R.id.imageView2);
+        ArrayList<SlideModel> imageList = new ArrayList<>();
 
-            Drawable d = Drawable.createFromStream(is, null);
-
-            imagenEj.setImageDrawable(d);
-            is.close();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
+        for (EjercicioImagenes imagen : imagenes) {
+            String archivoS = "file:///android_asset/imagenes/" + imagen.getNombreImagen() + ".jpeg";
+            try {
+                Drawable d = Drawable.createFromStream(getAssets().open("imagenes/burpess1.jpeg"), null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println(archivoS);
+            imageList.add(new SlideModel("file:///android_asset/imagenes/" + imagen.getNombreImagen() + ".jpeg", null));
         }
+
+        imageSlider.setImageList(imageList);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override

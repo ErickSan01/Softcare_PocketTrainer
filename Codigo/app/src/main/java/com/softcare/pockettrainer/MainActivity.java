@@ -69,9 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println(ajustes);
 
-        if(ajustes.equals("ajustes")){
-            asignarRutinas();
-        }
+
     }
 
     @Override
