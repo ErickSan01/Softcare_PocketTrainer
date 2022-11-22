@@ -74,4 +74,6 @@ public class HistorialUsuarioActivity extends AppCompatActivity {
             textViewAdvertencia.setText("Oops!, todavía no tienes rutinas\n completadas, trabaja duro para\n comenzar tu aventura!");
         }
     }
+
+
 }
