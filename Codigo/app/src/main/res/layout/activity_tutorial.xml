@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/instructions"
+    android:background="@drawable/instr"
     tools:context=".TutorialActivity">
-    
+
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/imageView2"
         android:layout_width="200dp"
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
-        app:iss_auto_cycle="true"
         android:layout_marginTop="40dp"
+        app:iss_auto_cycle="true"
+        app:iss_delay="0"
+        app:iss_error_image="@drawable/logo_softcare"
         app:iss_period="1000"
         app:iss_placeholder="@drawable/logo_softcare"
-        app:iss_error_image="@drawable/logo_softcare"
-        app:iss_delay="0"
-        />
+        tools:ignore="MissingClass" />
 
     <Button
         android:id="@+id/button5"
@@ -85,6 +85,16 @@
         android:text="COMPLETAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/backBtnEj" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnmat"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="249dp"
+        android:layout_toStartOf="@+id/button5"
+        android:text="TextView" />
 
 
 </RelativeLayout>
