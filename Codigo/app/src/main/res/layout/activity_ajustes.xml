@@ -62,15 +62,15 @@
 
     <TextView
         android:id="@+id/textViewMetaUsuario"
-        android:layout_width="210dp"
-        android:layout_height="37dp"
+        android:layout_width="213dp"
+        android:layout_height="68dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="60dp"
         android:text="TextView"
         android:textColor="@color/texto"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/buttonHorario3"
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCuerpoUsuario" />
 
@@ -91,7 +91,7 @@
     <TextView
         android:id="@+id/textViewCuerpoUsuario"
         android:layout_width="214dp"
-        android:layout_height="37dp"
+        android:layout_height="51dp"
         android:layout_marginStart="34dp"
         android:layout_marginTop="92dp"
         android:text="TextView"
