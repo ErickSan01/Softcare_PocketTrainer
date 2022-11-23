@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    tools:context=".DiasLibresCuestionario">
+
+    <TextView
+        android:id="@+id/textViewSeleccionaHorario2"
+        android:layout_width="314dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="@dimen/_17sdp"
+        android:text="@string/diasDisponiblesNuevo"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutPrincipal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewSeleccionaHorario2"
+        android:layout_marginTop="@dimen/_30ssp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <CheckBox
+                android:id="@+id/checkBoxLunes"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/lunes"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBoxMartes"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/martes"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBoxMiercoles"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/seleccion_miercoles"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBoxJueves"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/seleccion_jueves"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBoxViernes"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/viernes"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBoxSabado"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/seleccion_sabado"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"/>
+
+            <CheckBox
+                android:id="@+id/checkBoxDomingo"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="@string/seleccion_domingo"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/editTextTimeLunes"
+                        android:layout_width="107dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="16dp"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
+                        android:backgroundTint="@color/white"/>
+
+                    <Button
+                        android:id="@+id/buttonLunes"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/custombutton"
+                        android:text="@string/elegir"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/editTextTime"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/editTextTimeMartes"
+                        android:layout_width="107dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="16dp"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
+                        android:backgroundTint="@color/white"/>
+
+                    <Button
+                        android:id="@+id/buttonMartes"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/custombutton"
+                        android:text="@string/elegir"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/editTextTime"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/editTextTimeMiercoles"
+                        android:layout_width="107dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="16dp"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
+                        android:backgroundTint="@color/white"/>
+
+                    <Button
+                        android:id="@+id/buttonMiercoles"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/custombutton"
+                        android:text="@string/elegir"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/editTextTime"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/editTextTimeJueves"
+                        android:layout_width="107dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="16dp"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
+                        android:backgroundTint="@color/white"/>
+
+                    <Button
+                        android:id="@+id/buttonJueves"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/custombutton"
+                        android:text="@string/elegir"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/editTextTime"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/editTextTimeViernes"
+                        android:layout_width="107dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="16dp"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
+                        android:backgroundTint="@color/white"/>
+
+                    <Button
+                        android:id="@+id/buttonViernes"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/custombutton"
+                        android:text="@string/elegir"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/editTextTime"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/editTextTimeSabado"
+                        android:layout_width="107dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="16dp"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
+                        android:backgroundTint="@color/white"/>
+
+                    <Button
+                        android:id="@+id/buttonSabado"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/custombutton"
+                        android:text="@string/elegir"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/editTextTime"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/editTextTimeDomingo"
+                        android:layout_width="107dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="16dp"
+                        android:ems="10"
+                        android:inputType="time"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
+                        android:backgroundTint="@color/white"/>
+
+                    <Button
+                        android:id="@+id/buttonDomingo"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/custombutton"
+                        android:text="@string/elegir"
+                        android:textColor="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/editTextTime"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewHoras" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/siguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/siguiente"
+        android:background="@drawable/buttonselector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPrincipal"
+        android:layout_marginTop="10dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

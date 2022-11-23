@@ -1,5 +1,7 @@
 package com.softcare.pockettrainer;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -48,10 +51,13 @@ public class TutorialActivity extends AppCompatActivity{
         UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         Intent intent = getIntent();
         btnCompletar = (Button) findViewById(R.id.btnCompletar);
-
-        Button backBtn = (Button) findViewById(R.id.backBtnEj);
         ejercicio = (Ejercicio) intent.getSerializableExtra("ejercicio");
         EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(this);
         EjercicioImagenesPresentador eip = new EjercicioImagenesPresentador(this);
@@ -79,13 +85,6 @@ public class TutorialActivity extends AppCompatActivity{
         }
 
         imageSlider.setImageList(imageList);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
 
         btnCompletar.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -147,5 +146,15 @@ public class TutorialActivity extends AppCompatActivity{
         Intent img = new Intent(this, MaterialActivity.class);
         img.putExtra("ejercicio", ejercicio);
         startActivity(img);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
