@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 
 public class HistorialCalendarioActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
@@ -68,11 +69,16 @@ public class HistorialCalendarioActivity extends AppCompatActivity implements Ca
         @SuppressLint({"NewApi", "LocalSuppress"}) LocalDate firstOfMonth = selectedDate.withDayOfMonth(1);
         @SuppressLint({"NewApi", "LocalSuppress"}) int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
 
+
         for(int i = 1; i <= 42; i++){
             if(i <= dayOfWeek || i > daysInMonth + dayOfWeek){
                 daysInMonthArray.add("");
             }else{
-                daysInMonthArray.add(String.valueOf(i - dayOfWeek));
+                //daysInMonthArray.add(String.valueOf(i - dayOfWeek));
+                @SuppressLint({"NewApi", "LocalSuppress"}) LocalDate fecha = selectedDate.withDayOfMonth(i - dayOfWeek);
+                //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                @SuppressLint({"NewApi", "LocalSuppress"}) String fechaFormateada = fecha.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                daysInMonthArray.add(fechaFormateada);
             }
         }
         return daysInMonthArray;
