@@ -1,5 +1,7 @@
 package com.softcare.pockettrainer;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -34,6 +37,10 @@ public class HistorialCalendarioActivity extends AppCompatActivity implements Ca
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial_calendario);
+        //Botón de retroceder
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         initWidgets();
         selectedDate = LocalDate.now();
         setMonthView();
@@ -136,5 +143,14 @@ public class HistorialCalendarioActivity extends AppCompatActivity implements Ca
         for(int i = 0; i < todosEjerciciosCompletados.size(); i++){
             listaFinalEjerciciosCompletados.add(listaTemporal[i]);
         }
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
