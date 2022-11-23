@@ -7,6 +7,12 @@
     android:background="#1F2124"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/mainmenu3" />
+
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,14 +80,16 @@
                 android:id="@+id/btnAjustes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#6AB0B6"
-                android:drawableTop="@drawable/ic_baseline_settings_24"
+                android:backgroundTint="#6AB0B6"
+                android:drawableTop="@drawable/ic_baseline_settings_64"
                 android:paddingLeft="32dp"
                 android:paddingTop="16dp"
                 android:paddingRight="32dp"
                 android:paddingBottom="10dp"
                 android:text="Ajustes"
-                android:textColor="#FFFFFF" />
+                android:textColor="#e8e9e9" />
+
+
         </TableRow>
     </TableLayout>
 
