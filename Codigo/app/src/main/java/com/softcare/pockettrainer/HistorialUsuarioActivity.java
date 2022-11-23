@@ -16,8 +16,6 @@ import java.util.ArrayList;
 
 public class HistorialUsuarioActivity extends AppCompatActivity {
 
-    SharedPreferences preferenciasFecha = this.getSharedPreferences("fechaEjercicio", this.MODE_PRIVATE);
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +73,4 @@ public class HistorialUsuarioActivity extends AppCompatActivity {
         }
     }
 
-    public boolean ejercicioCompletado(String fecha){
-        return preferenciasFecha.getBoolean(fecha, false);
-    }
 }
