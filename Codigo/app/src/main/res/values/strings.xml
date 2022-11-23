@@ -91,4 +91,8 @@
     <string name="historial_texto">Tu historial:</string>
     <string name="historial">Mi Historial</string>
     <string name="realizar_4_series_de_15_repeticiones_con_descanso_de_30_segundos_al_terminar_una_serie">Realizar 4 series de 15 repeticiones, con descanso de 30 segundos al terminar una serie</string>
+    <string name="descansos">◉ Tus descansos son de 30 segundos al terminar una serie de 15 repeticiones.</string>
+    <string name="repeticiones">◉ Realizar 4 series de 15 repeticiones.</string>
+    <string name="tutorial_de_ejercicio">Tutorial de ejercicio</string>
+    <string name="diasDisponiblesNuevo">Selecciona los días y las horas que tengas disponibles para hacer ejercicio:</string>
 </resources>
