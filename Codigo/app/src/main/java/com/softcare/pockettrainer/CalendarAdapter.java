@@ -1,8 +1,5 @@
 package com.softcare.pockettrainer;
 
-import static android.content.Context.MODE_PRIVATE;
-
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +14,12 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>{
 
     private final ArrayList<String> daysOfMonth;
     private final OnItemListener onItemListener;
+    private final ArrayList<Object> todosEjerciciosCompletados;
 
-    public CalendarAdapter(ArrayList<String> daysOfMonth, OnItemListener onItemListener) {
+    public CalendarAdapter(ArrayList<String> daysOfMonth, OnItemListener onItemListener, ArrayList<Object> todosEjerciciosCompletados) {
         this.daysOfMonth = daysOfMonth;
         this.onItemListener = onItemListener;
+        this.todosEjerciciosCompletados = todosEjerciciosCompletados;
     }
 
     @NonNull
@@ -38,13 +37,12 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>{
         String fecha = daysOfMonth.get(position);
         String dia = obtenerNumeroDia(fecha);
         holder.dayOfMonth.setText(dia);
-        ExtraccionFechas extraccion = new ExtraccionFechas();
-        if(!fecha.equals("")){
-            if(extraccion.ejercicioCompletado(fecha)){
+
+        if(!fecha.equalsIgnoreCase("")){
+            if(todosEjerciciosCompletados.contains(fecha)){
                 holder.dayOfMonth.setTextColor(Color.GREEN);
             }
         }
-
     }
 
     @Override
@@ -66,6 +64,4 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>{
             return fecha.substring(0,2);
         }
     }
-
-
 }

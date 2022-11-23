@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,12 +17,16 @@ import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
 
 public class HistorialCalendarioActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
 
     private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
     private LocalDate selectedDate;
+    private Set<String> todosEjerciciosCompletados;
+    private ArrayList<Object> listaFinalEjerciciosCompletados = new ArrayList<>();
 
     @SuppressLint("NewApi")
     @Override
@@ -51,12 +56,13 @@ public class HistorialCalendarioActivity extends AppCompatActivity implements Ca
             }
         });
 
+        buscarFechasEjerciciosCompletados();
     }
 
     private void setMonthView() {
         monthYearText.setText(monthYearFromDate(selectedDate));
         ArrayList<String> daysInMonth = daysInMonthArray(selectedDate);
-        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this, listaFinalEjerciciosCompletados);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
@@ -113,5 +119,14 @@ public class HistorialCalendarioActivity extends AppCompatActivity implements Ca
             String message = "selected date " + dayText + " " + monthYearFromDate(selectedDate);
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }*/
+    }
+    private void buscarFechasEjerciciosCompletados(){
+        SharedPreferences preferencias = getSharedPreferences("fechaEjercicio", MODE_PRIVATE);
+        Map mapa = preferencias.getAll();
+        todosEjerciciosCompletados = mapa.keySet();
+        Object listaTemporal[] = todosEjerciciosCompletados.toArray();
+        for(int i = 0; i < todosEjerciciosCompletados.size(); i++){
+            listaFinalEjerciciosCompletados.add(listaTemporal[i]);
+        }
     }
 }

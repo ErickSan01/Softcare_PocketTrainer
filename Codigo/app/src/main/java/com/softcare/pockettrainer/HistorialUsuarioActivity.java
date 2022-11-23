@@ -10,13 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class HistorialUsuarioActivity extends AppCompatActivity {
+
+    SharedPreferences preferenciasFecha = this.getSharedPreferences("fechaEjercicio", this.MODE_PRIVATE);
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -75,5 +75,7 @@ public class HistorialUsuarioActivity extends AppCompatActivity {
         }
     }
 
-
+    public boolean ejercicioCompletado(String fecha){
+        return preferenciasFecha.getBoolean(fecha, false);
+    }
 }
