@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#1F2124"
-    tools:context=".MainActivity">
+    android:backgroundTint="#000000"
+    tools:context=".HomeActivity">
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
             android:showDividers="middle">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnAgenda"
+                android:id="@+id/btn_AgendaMenu"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
                 android:textColor="#e8e9e9" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnRutinas"
+                android:id="@+id/btn_MiRutinaMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#3EDF95"
@@ -58,7 +58,7 @@
             android:showDividers="middle">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnNivel"
+                android:id="@+id/btn_MisLogrosMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#976DE1"
@@ -71,7 +71,7 @@
                 android:textColor="#e8e9e9" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnAjustes"
+                android:id="@+id/btn_AjustesMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#6AB0B6"
@@ -84,5 +84,4 @@
                 android:textColor="#FFFFFF" />
         </TableRow>
     </TableLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

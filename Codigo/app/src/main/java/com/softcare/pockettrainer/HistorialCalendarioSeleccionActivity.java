@@ -21,6 +21,7 @@ public class HistorialCalendarioSeleccionActivity extends AppCompatActivity {
 
     private Usuario usuario;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +77,8 @@ public class HistorialCalendarioSeleccionActivity extends AppCompatActivity {
             textViewAccion.setText("No hubo rutina ese día!");
             textViewRutina.setText("");
         }
+
+
 
     }
 }

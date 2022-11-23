@@ -27,6 +27,7 @@ public class HistorialCalendarioActivity extends AppCompatActivity implements Ca
     private LocalDate selectedDate;
     private Set<String> todosEjerciciosCompletados;
     private ArrayList<Object> listaFinalEjerciciosCompletados = new ArrayList<>();
+    private Button btn_historial;
 
     @SuppressLint("NewApi")
     @Override
@@ -57,6 +58,13 @@ public class HistorialCalendarioActivity extends AppCompatActivity implements Ca
         });
 
         buscarFechasEjerciciosCompletados();
+        btn_historial = findViewById(R.id.btn_historial);
+        btn_historial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HistorialCalendarioActivity.this, HistorialUsuarioActivity.class));
+            }
+        });
     }
 
     private void setMonthView() {
