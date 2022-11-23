@@ -1,11 +1,14 @@
 package com.softcare.pockettrainer;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,18 +23,22 @@ public class AjustesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajustes);
+        //Botón de retroceder
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         cargarPreferenciasHorario();
         cargarPreferenciasCuerpo();
         cargarPreferenciasMeta();
 
-        Button backBtn = (Button) findViewById(R.id.backBtnAjustes);
+        /*Button backBtn = (Button) findViewById(R.id.backBtnAjustes);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
 
         Button salir = (Button) findViewById(R.id.buttonSalir);
 
@@ -208,6 +215,15 @@ public class AjustesActivity extends AppCompatActivity {
         D.apply();
 
         finish();
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
