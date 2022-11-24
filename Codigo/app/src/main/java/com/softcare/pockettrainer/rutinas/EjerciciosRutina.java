@@ -3,11 +3,15 @@ package com.softcare.pockettrainer.rutinas;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +30,10 @@ public class EjerciciosRutina extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ejercicios_rutina);
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
         Intent intent = getIntent();
 
         String dia = (String) intent.getSerializableExtra("dia");
@@ -39,10 +47,15 @@ public class EjerciciosRutina extends AppCompatActivity {
         rutinaText.setText(parteCuerpo);
 
         EjerciciosAdapter adapterEj = new EjerciciosAdapter(this, dia);
-
         listaEjercicios.setHasFixedSize(false);
         listaEjercicios.setLayoutManager(new LinearLayoutManager(this));
         listaEjercicios.setAdapter(adapterEj);
+        DividerItemDecoration divider = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+
+        divider.setDrawable(getDrawable(R.drawable.list_divider));
+
+        listaEjercicios.addItemDecoration(divider);
+
 
         /* Boton para regresar a la página de rutinas */
         btnEx.setOnClickListener(new View.OnClickListener() {
@@ -82,5 +95,15 @@ public class EjerciciosRutina extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

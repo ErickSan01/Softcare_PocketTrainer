@@ -15,6 +15,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.softcare.pockettrainer.adminbasededatos.Horario;
+import com.softcare.pockettrainer.adminbasededatos.HorarioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Usuario;
+import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
+
 import java.util.ArrayList;
 
 public class AjustesActivity extends AppCompatActivity {
@@ -31,6 +36,8 @@ public class AjustesActivity extends AppCompatActivity {
         cargarPreferenciasCuerpo();
         cargarPreferenciasMeta();
 
+        TextView texto = findViewById(R.id.textViewHorario);
+        texto.setText("Mi Horario:");
         /*Button backBtn = (Button) findViewById(R.id.backBtnAjustes);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -39,24 +46,11 @@ public class AjustesActivity extends AppCompatActivity {
                 finish();
             }
         });*/
-
-        Button salir = (Button) findViewById(R.id.buttonSalir);
-
-        salir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AjustesActivity.this, MainActivity.class);
-                intent.putExtra("pantalla", "ajustes");
-                setResult(2, intent);
-                finish();
-            }
-        });
     }
 
     @SuppressLint("SetTextI18n")
     private void cargarPreferenciasHorario(){
         ListView lista = findViewById(R.id.ListView1);
-        TextView texto = findViewById(R.id.textViewHorario);
 
         ArrayList<String> dias = new ArrayList<>();
         int conteo = 0;
@@ -66,6 +60,17 @@ public class AjustesActivity extends AppCompatActivity {
 
         String hora;
 
+        HorarioPresentador horarioPresentador = new HorarioPresentador(this);
+        Horario horario = horarioPresentador.obtenerHorario().get(0);
+
+        boolean lunesB = !(horario.getLunesHorarioDisponible() == null);
+        boolean martesB = !(horario.getMartesHorarioDisponible() == null);
+        boolean miercolesB = !(horario.getMiercolesHorarioDisponible() == null);
+        boolean juevesB = !(horario.getJuevesHorarioDisponible() == null);
+        boolean viernesB = !(horario.getViernesHorarioDisponible() == null);
+        boolean sabadoB = !(horario.getSabadoHorarioDisponible() == null);
+        boolean domingoB = !(horario.getDomingoHorarioDisponible() == null);
+
         boolean lunes = preferenciasD.getBoolean("lunes",false);
         boolean martes = preferenciasD.getBoolean("martes",false);
         boolean miercoles = preferenciasD.getBoolean("miercoles",false);
@@ -74,44 +79,42 @@ public class AjustesActivity extends AppCompatActivity {
         boolean sabado = preferenciasD.getBoolean("sabado",false);
         boolean domingo = preferenciasD.getBoolean("domingo",false);
 
-        if(lunes){
+        if(lunesB){
             hora = preferenciasT.getString("lunes","");
             dias.add("Lunes: "+ hora);
             conteo++;
         }
-        if(martes){
+        if(martesB){
             hora = preferenciasT.getString("martes","");
             dias.add("Martes: "+ hora);
             conteo++;
         }
-        if(miercoles){
+        if(miercolesB){
             hora = preferenciasT.getString("miercoles","");
             dias.add("Miercoles: "+ hora);
             conteo++;
         }
-        if(jueves){
+        if(juevesB){
             hora = preferenciasT.getString("jueves","");
             dias.add("Jueves: "+ hora);
             conteo++;
         }
-        if(viernes){
+        if(viernesB){
             hora = preferenciasT.getString("viernes","");
             dias.add("Viernes: "+ hora);
             conteo++;
         }
-        if(sabado){
+        if(sabadoB){
             hora = preferenciasT.getString("sabado","");
             dias.add("Sabado: "+ hora);
             conteo++;
         }
-        if(domingo){
+        if(domingoB){
             hora = preferenciasT.getString("domingo","");
             dias.add("Domingo: "+ hora);
             conteo++;
         }
 
-        String temporal = texto.getText().toString();
-        texto.setText(temporal+" ("+conteo+" días a la semana) ");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dias);
         lista.setAdapter(adapter);
 
@@ -121,38 +124,47 @@ public class AjustesActivity extends AppCompatActivity {
         TextView textoBase = findViewById(R.id.textViewCuerpoUsuario);
         SharedPreferences preferenciasC = getSharedPreferences("cuerpo", MODE_PRIVATE);
 
-        boolean delgado = preferenciasC.getBoolean("delgado",false);
-        boolean robusto = preferenciasC.getBoolean("robusto",false);
-        boolean fornido = preferenciasC.getBoolean("fornido",false);
+        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
+        Usuario usuario = usuarioPresentador.obtenerUsuario().get(0);
+        String tipoCuerpo = "";
 
-        if(delgado){
-            textoBase.setText("Delgado");
+        switch(usuario.getTipoCuerpo()){
+            case("delgado"):
+                tipoCuerpo = "Delgado";
+                break;
+            case("robusto"):
+                tipoCuerpo = "Robusto";
+                break;
+            case("fornido"):
+                tipoCuerpo = "Fornido";
+                break;
         }
-        if(robusto){
-            textoBase.setText("Robusto");
-        }
-        if(fornido){
-            textoBase.setText("Fornido");
-        }
+
+        textoBase.setText(tipoCuerpo);
     }
 
     private void cargarPreferenciasMeta(){
         TextView textoMeta = findViewById(R.id.textViewMetaUsuario);
         SharedPreferences preferenciasM = getSharedPreferences("meta", MODE_PRIVATE);
 
-        boolean delgado = preferenciasM.getBoolean("peso",false);
-        boolean robusto = preferenciasM.getBoolean("musculo",false);
-        boolean fornido = preferenciasM.getBoolean("ambos",false);
+        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
+        Usuario usuario = usuarioPresentador.obtenerUsuario().get(0);
 
-        if(delgado){
-            textoMeta.setText("Perder peso");
+        String meta = "";
+
+        switch(usuario.getMeta()){
+            case("bajarPeso"):
+                meta = "Perder Peso";
+                break;
+            case("aumentarMasa"):
+                meta = "Ganar musculo";
+                break;
+            case("ambos"):
+                meta = "Perder peso y Ganar músculo";
+                break;
         }
-        if(robusto){
-            textoMeta.setText("Ganar musculo");
-        }
-        if(fornido){
-            textoMeta.setText("Perder peso y Ganar músculo");
-        }
+
+        textoMeta.setText(meta);
     }
 
     public void editar(View view){
@@ -226,4 +238,11 @@ public class AjustesActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onRestart() {
+        cargarPreferenciasCuerpo();
+        cargarPreferenciasHorario();
+        cargarPreferenciasMeta();
+        super.onRestart();
+    }
 }

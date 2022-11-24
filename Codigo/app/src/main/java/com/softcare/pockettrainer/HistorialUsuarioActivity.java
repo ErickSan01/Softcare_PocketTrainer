@@ -1,11 +1,14 @@
 package com.softcare.pockettrainer;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -21,6 +24,10 @@ public class HistorialUsuarioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial_usuario);
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
         cargarPreferencias();
     }
 
@@ -71,6 +78,16 @@ public class HistorialUsuarioActivity extends AppCompatActivity {
             TextView textViewAdvertencia = findViewById(R.id.textViewAdvertencia);
             textViewAdvertencia.setText("Oops!, todavía no tienes rutinas\n completadas, trabaja duro para\n comenzar tu aventura!");
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

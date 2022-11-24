@@ -2,11 +2,15 @@ package com.softcare.pockettrainer.rutinas;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +32,10 @@ public class Rutinas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rutinas_activity);
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
         SharedPreferences preferences = getSharedPreferences("dias", MODE_PRIVATE);
         SharedPreferences metaPref = getSharedPreferences("meta", MODE_PRIVATE);
         SharedPreferences fecha = getSharedPreferences("dia_semana", MODE_PRIVATE);
@@ -43,6 +51,11 @@ public class Rutinas extends AppCompatActivity {
         lista.setHasFixedSize(false);
         lista.setLayoutManager(new LinearLayoutManager(this));
         lista.setAdapter(rutinasAdapter);
+        DividerItemDecoration divider = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
+
+        divider.setDrawable(getDrawable(R.drawable.list_divider));
+
+        lista.addItemDecoration(divider);
 
         /* Boton para regresar a la página principal */
         backButton.setOnClickListener(new View.OnClickListener(){
@@ -216,5 +229,15 @@ public class Rutinas extends AppCompatActivity {
 
         return rutinas;
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

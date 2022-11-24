@@ -77,16 +77,14 @@
         </activity>
         <activity
             android:name=".RecompensasActivity"
-            android:exported="false"
-            android:theme="@style/Theme.PocketTrainer.NoActionBar">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".NivelActivity"
-            android:exported="false"
-            android:theme="@style/Theme.PocketTrainer.NoActionBar">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -129,8 +127,7 @@
         <activity
             android:name=".rutinas.EjerciciosRutina"
             android:exported="false"
-            android:label="@string/title_activity_ejercicios_rutina"
-            android:theme="@style/Theme.PocketTrainer.NoActionBar">
+            android:label="Pocket Trainer">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -204,8 +201,7 @@
         </activity>
         <activity
             android:name=".rutinas.Rutinas"
-            android:exported="false"
-            android:theme="@style/Theme.PocketTrainer.NoActionBar">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

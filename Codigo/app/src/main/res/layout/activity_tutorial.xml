@@ -8,6 +8,7 @@
     tools:context=".TutorialActivity">
 
     <LinearLayout
+        android:id="@+id/layoutLinear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -16,11 +17,11 @@
             android:id="@+id/titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
             android:layout_marginTop="18dp"
             android:text="@string/tutorial_de_ejercicio"
             android:textColor="#FFFFFF"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            android:layout_gravity="center_horizontal"/>
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/imageView2"
@@ -31,30 +32,34 @@
             app:iss_error_image="@drawable/logo_softcare"
             app:iss_period="1500"
             app:iss_placeholder="@drawable/logo_softcare"
-            tools:ignore="MissingClass" />
+            tools:ignore="MissingClass"
+            android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="388dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
             android:text="@string/descansos"
             android:textColor="#FFFFFF"
-            android:textSize="21.5sp" />
+            android:textSize="21.5sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/_10ssp"/>
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:text="@string/repeticiones"
             android:textColor="#FFFFFF"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/_10ssp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
 
             <Button
                 android:id="@+id/btnmat"
@@ -64,6 +69,7 @@
                 android:onClick="verMaterial"
                 android:text="material"
                 android:background="@drawable/custombutton"
+                android:layout_marginRight="@dimen/_10sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
@@ -81,17 +87,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnCompletar"
-            android:layout_width="228dp"
-            android:layout_height="38dp"
-            android:layout_marginBottom="19dp"
-            android:background="@drawable/custombutton"
-            android:layoutDirection="locale"
-            android:text="COMPLETAR"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnCompletar"
+        android:layout_width="228dp"
+        android:layout_height="38dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custombutton"
+        android:layoutDirection="locale"
+        android:text="COMPLETAR"
+        />
 
 </RelativeLayout>

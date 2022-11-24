@@ -1,11 +1,14 @@
 package com.softcare.pockettrainer;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -29,6 +32,9 @@ public class NivelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nivel);
+        ActionBar actionBar = getSupportActionBar();
+
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
         AyudanteBaseDeDatos ayuda = new AyudanteBaseDeDatos(this);
@@ -36,7 +42,6 @@ public class NivelActivity extends AppCompatActivity {
         usuario = usuarioPresentador.obtenerUsuario().get(0);
 
 
-        Button backBtn = (Button) findViewById(R.id.backBtnNivel);
         ExperienciaActual nvl = new ExperienciaActual(usuario, this);
 
         nivel = usuario.getNivel();
@@ -139,18 +144,20 @@ public class NivelActivity extends AppCompatActivity {
             Drawable platinum = getResources().getDrawable(idPlat);
             imagenIns4.setImageDrawable(platinum);
         }
-
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     public void verNivel(View v){
         Intent img = new Intent(this, RecompensasActivity.class);
         startActivity(img);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

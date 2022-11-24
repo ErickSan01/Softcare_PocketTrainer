@@ -5,19 +5,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/recompensas"
-    tools:context=".RecompensasActivity">
-
-  <Button
-      android:id="@+id/backBtnNivel2"
-      android:layout_width="54dp"
-      android:layout_height="49dp"
-      android:layout_alignParentBottom="true"
-      android:layout_marginStart="10dp"
-      android:layout_marginBottom="10dp"
-      android:background="@drawable/custombutton"
-      android:text="@string/back"
-      android:textColor="@android:color/black"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".RecompensasActivity"/>
