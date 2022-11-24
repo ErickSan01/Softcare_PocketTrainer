@@ -36,7 +36,6 @@ public class NivelActivity extends AppCompatActivity {
         usuario = usuarioPresentador.obtenerUsuario().get(0);
 
 
-        Button backBtn = (Button) findViewById(R.id.backBtnNivel);
         ExperienciaActual nvl = new ExperienciaActual(usuario, this);
 
         nivel = usuario.getNivel();
@@ -141,12 +140,6 @@ public class NivelActivity extends AppCompatActivity {
         }
 
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     public void verNivel(View v){
