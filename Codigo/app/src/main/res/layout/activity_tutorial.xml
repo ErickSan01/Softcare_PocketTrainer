@@ -15,13 +15,12 @@
 
         <TextView
             android:id="@+id/titulo"
-            android:layout_width="wrap_content"
+            android:layout_width="385dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:text="@string/tutorial_de_ejercicio"
             android:textColor="#FFFFFF"
-            android:textSize="40sp"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="43sp" />
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/imageView2"
@@ -65,7 +64,7 @@
                 android:id="@+id/btnmat"
                 android:layout_width="146dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#00A3DCEF"
+                android:background="@drawable/custombutton"
                 android:onClick="verMaterial"
                 android:text="material"
                 android:background="@drawable/custombutton"
@@ -79,10 +78,10 @@
                 android:id="@+id/button5"
                 android:layout_width="145dp"
                 android:layout_height="wrap_content"
+                android:background="@drawable/custombutton"
                 android:backgroundTint="#A3DCEF"
                 android:onClick="verGif"
                 android:text="ver gif"
-                android:background="@drawable/custombutton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
         </LinearLayout>
