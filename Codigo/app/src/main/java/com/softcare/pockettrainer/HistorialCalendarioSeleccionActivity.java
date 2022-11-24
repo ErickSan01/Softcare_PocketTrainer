@@ -59,8 +59,6 @@ public class HistorialCalendarioSeleccionActivity extends AppCompatActivity {
 
         boolean fechaSeleccionada = prefFecha.getBoolean(dia, false);
 
-        System.out.println(dia);
-
         if(fechaSeleccionada){
             String ejercicioCompletado = prefEjercicio.getString(dia, "");
             if(!ejercicioCompletado.equals("")){
