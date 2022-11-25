@@ -79,4 +79,10 @@ public class UsuarioPresentador {
         return baseDeDatos.update(NOMBRE_TABLA, valoresParaActualizar, campoParaActualizar, argumentosParaActualizar);
     }
 
+    public int eliminarUsuario(Usuario usuario) {
+        SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
+        String[] argumentos = {String.valueOf(usuario.getIdUsuario())};
+        return baseDeDatos.delete(NOMBRE_TABLA, "id_usuario = ?", argumentos);
+    }
+
 }

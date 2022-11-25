@@ -69,6 +69,5 @@ public class CuerpoActivity extends AppCompatActivity {
         }
 
         editor.apply();
-        finish();
     }
 }

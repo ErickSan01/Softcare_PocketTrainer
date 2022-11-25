@@ -57,6 +57,6 @@ public class MaterialImagenesPresentador {
     public int eliminarImagen(MaterialImagenes materialImagenes) {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         String[] argumentos = {String.valueOf(materialImagenes.getIdImagen())};
-        return baseDeDatos.delete(NOMBRE_TABLA, "id = ?", argumentos);
+        return baseDeDatos.delete(NOMBRE_TABLA, "id_imagen = ?", argumentos);
     }
 }

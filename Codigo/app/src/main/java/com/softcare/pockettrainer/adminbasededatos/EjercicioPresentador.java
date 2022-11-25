@@ -145,7 +145,7 @@ public class EjercicioPresentador {
     public int eliminarEjercicio(Ejercicio ejercicio) {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         String[] argumentos = {String.valueOf(ejercicio.getIdEjercicio())};
-        return baseDeDatos.delete(NOMBRE_TABLA, "id = ?", argumentos);
+        return baseDeDatos.delete(NOMBRE_TABLA, "id_ejercicio = ?", argumentos);
     }
 }
 

@@ -68,6 +68,6 @@ public class MaterialesPresentador {
     public int eliminarMaterial(Material material) {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         String[] argumentos = {String.valueOf(material.getIdMaterial())};
-        return baseDeDatos.delete(NOMBRE_TABLA, "id = ?", argumentos);
+        return baseDeDatos.delete(NOMBRE_TABLA, "id_material = ?", argumentos);
     }
 }

@@ -15,8 +15,20 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenes;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioImagenesPresentador;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
 import com.softcare.pockettrainer.adminbasededatos.Horario;
 import com.softcare.pockettrainer.adminbasededatos.HorarioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Material;
+import com.softcare.pockettrainer.adminbasededatos.MaterialImagenes;
+import com.softcare.pockettrainer.adminbasededatos.MaterialImagenesPresentador;
+import com.softcare.pockettrainer.adminbasededatos.MaterialesPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Rutina;
+import com.softcare.pockettrainer.adminbasededatos.RutinaPresentador;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramada;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramadaPresentador;
 import com.softcare.pockettrainer.adminbasededatos.Usuario;
 import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
 
@@ -33,8 +45,6 @@ public class AjustesActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         cargarPreferenciasHorario();
-        cargarPreferenciasCuerpo();
-        cargarPreferenciasMeta();
 
         TextView texto = findViewById(R.id.textViewHorario);
         texto.setText("Mi Horario:");
@@ -46,6 +56,15 @@ public class AjustesActivity extends AppCompatActivity {
                 finish();
             }
         });*/
+
+        Button btnReset = findViewById(R.id.buttonReset);
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reset(view);
+            }
+        });
     }
 
     @SuppressLint("SetTextI18n")
@@ -120,53 +139,6 @@ public class AjustesActivity extends AppCompatActivity {
 
     }
 
-    private void cargarPreferenciasCuerpo(){
-        TextView textoBase = findViewById(R.id.textViewCuerpoUsuario);
-        SharedPreferences preferenciasC = getSharedPreferences("cuerpo", MODE_PRIVATE);
-
-        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
-        Usuario usuario = usuarioPresentador.obtenerUsuario().get(0);
-        String tipoCuerpo = "";
-
-        switch(usuario.getTipoCuerpo()){
-            case("delgado"):
-                tipoCuerpo = "Delgado";
-                break;
-            case("robusto"):
-                tipoCuerpo = "Robusto";
-                break;
-            case("fornido"):
-                tipoCuerpo = "Fornido";
-                break;
-        }
-
-        textoBase.setText(tipoCuerpo);
-    }
-
-    private void cargarPreferenciasMeta(){
-        TextView textoMeta = findViewById(R.id.textViewMetaUsuario);
-        SharedPreferences preferenciasM = getSharedPreferences("meta", MODE_PRIVATE);
-
-        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
-        Usuario usuario = usuarioPresentador.obtenerUsuario().get(0);
-
-        String meta = "";
-
-        switch(usuario.getMeta()){
-            case("bajarPeso"):
-                meta = "Perder Peso";
-                break;
-            case("aumentarMasa"):
-                meta = "Ganar musculo";
-                break;
-            case("ambos"):
-                meta = "Perder peso y Ganar músculo";
-                break;
-        }
-
-        textoMeta.setText(meta);
-    }
-
     public void editar(View view){
         Intent i = new Intent(this, DiasLibresCuestionario.class);
         i.putExtra("origen", 2);
@@ -184,32 +156,9 @@ public class AjustesActivity extends AppCompatActivity {
     }
 
     public void reset(View v){
-        SharedPreferences prefD = getSharedPreferences("dias", MODE_PRIVATE);
-        SharedPreferences prefT = getSharedPreferences("tiempo", MODE_PRIVATE);
         SharedPreferences prefC = getSharedPreferences("cuerpo", MODE_PRIVATE);
         SharedPreferences prefM = getSharedPreferences("meta", MODE_PRIVATE);
         SharedPreferences datos = getSharedPreferences("primer_pantalla", MODE_PRIVATE);
-
-
-        SharedPreferences.Editor editorD = prefD.edit();
-        editorD.putBoolean("lunes",false);
-        editorD.putBoolean("martes",false);
-        editorD.putBoolean("miercoles",false);
-        editorD.putBoolean("jueves",false);
-        editorD.putBoolean("viernes",false);
-        editorD.putBoolean("sabado",false);
-        editorD.putBoolean("domingo",false);
-        editorD.apply();
-
-        SharedPreferences.Editor editorT = prefT.edit();
-        editorT.putString("lunes","");
-        editorT.putString("martes","");
-        editorT.putString("miercoles","");
-        editorT.putString("jueves","");
-        editorT.putString("viernes","");
-        editorT.putString("sabado","");
-        editorT.putString("domingo","");
-        editorT.apply();
 
         SharedPreferences.Editor editorC = prefC.edit();
         editorC.putBoolean("delgado",false);
@@ -227,7 +176,57 @@ public class AjustesActivity extends AppCompatActivity {
         D.putBoolean("tiene_datos",false);
         D.apply();
 
-        finish();
+        RutinaPresentador rutinaPresentador = new RutinaPresentador(this);
+
+        ArrayList<Rutina> rutinas = rutinaPresentador.obtenerRutina();
+
+        for (Rutina rutina :
+                rutinas) {
+            rutinaPresentador.eliminarRutina(rutina);
+        }
+
+        RutinaProgramadaPresentador rutinaProgramadaPresentador = new RutinaProgramadaPresentador(this);
+        RutinaProgramada rutinaProgramada = rutinaProgramadaPresentador.obtenerRutinaProgramada().get(0);
+
+        rutinaProgramadaPresentador.eliminarRutinaProgramada(rutinaProgramada);
+
+        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
+        Usuario usuario = usuarioPresentador.obtenerUsuario().get(0);
+
+        usuarioPresentador.eliminarUsuario(usuario);
+
+        EjercicioImagenesPresentador ejercicioImagenesPresentador = new EjercicioImagenesPresentador(this);
+        EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(this);
+
+        ArrayList<EjercicioImagenes> ejercicioImagenes = ejercicioImagenesPresentador.obtenerImagen();
+
+        for (EjercicioImagenes ejercicioImagen : ejercicioImagenes){
+            ejercicioImagenesPresentador.eliminarImagen(ejercicioImagen);
+        }
+
+        ArrayList<Ejercicio> ejercicios = ejercicioPresentador.obtenerEjercicio(this);
+        for (Ejercicio ejercicio :
+                ejercicios) {
+            ejercicioPresentador.eliminarEjercicio(ejercicio);
+        }
+
+        MaterialImagenesPresentador materialImagenesPresentador = new MaterialImagenesPresentador(this);
+        MaterialesPresentador materialesPresentador = new MaterialesPresentador(this);
+
+        ArrayList<MaterialImagenes> materialImagenes = materialImagenesPresentador.obtenerImagen();
+
+        for (MaterialImagenes materialImagen : materialImagenes){
+            materialImagenesPresentador.eliminarImagen(materialImagen);
+        }
+
+        ArrayList<Material> materiales = materialesPresentador.obtenerMaterial();
+        for (Material material :
+                materiales) {
+            materialesPresentador.eliminarMaterial(material);
+        }
+
+        Intent i = new Intent(this, CuerpoActivity.class);
+        startActivity(i);
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -241,9 +240,7 @@ public class AjustesActivity extends AppCompatActivity {
 
     @Override
     protected void onRestart() {
-        cargarPreferenciasCuerpo();
         cargarPreferenciasHorario();
-        cargarPreferenciasMeta();
         super.onRestart();
     }
 }
