@@ -123,6 +123,9 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>{
             if(anoActual == anoFecha && mesActual == mesFecha && diaActual < diaFecha) {
                 return true;
             }
+            if(anoActual == anoFecha && mesActual < mesFecha && diaActual > diaFecha) {
+                return true;
+            }
             return false;
         }else{
             return false;

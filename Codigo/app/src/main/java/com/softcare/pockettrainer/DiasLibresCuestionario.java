@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class DiasLibresCuestionario extends AppCompatActivity {
@@ -302,32 +303,64 @@ public class DiasLibresCuestionario extends AppCompatActivity {
         time_picker.setTitle("Selecciona la hora:");
         time_picker.show();
     }
-
     private boolean verificarCampos(){
-        boolean resultado = false;
+        ArrayList<Boolean> resultado = new ArrayList<>();
+
         if(checkLunes.isChecked()){
-            resultado = !textLunes.getText().toString().equals("");
+            if(!textLunes.getText().toString().equals("")){
+                resultado.add(true);
+            }else{
+                resultado.add(false);
+            }
         }
         if(checkMartes.isChecked()){
-            resultado = resultado && !textMartes.getText().toString().equals("");
+            if(!textMartes.getText().toString().equals("")){
+                resultado.add(true);
+            }else{
+                resultado.add(false);
+            }
         }
         if(checkMiercoles.isChecked()){
-            resultado = resultado && !textMiercoles.getText().toString().equals("");
+            if(!textMiercoles.getText().toString().equals("")){
+                resultado.add(true);
+            }else{
+                resultado.add(false);
+            }
         }
         if(checkJueves.isChecked()){
-            resultado = resultado && !textJueves.getText().toString().equals("");
+            if(!textJueves.getText().toString().equals("")){
+                resultado.add(true);
+            }else{
+                resultado.add(false);
+            }
         }
         if(checkViernes.isChecked()){
-            resultado = resultado && !textViernes.getText().toString().equals("");
+            if(!textViernes.getText().toString().equals("")){
+                resultado.add(true);
+            }else{
+                resultado.add(false);
+            }
         }
         if(checkSabado.isChecked()){
-            resultado = resultado && !textSabado.getText().toString().equals("");
+            if(!textSabado.getText().toString().equals("")){
+                resultado.add(true);
+            }else{
+                resultado.add(false);
+            }
         }
         if(checkDomingo.isChecked()){
-            resultado = resultado && !textDomingo.getText().toString().equals("");
+            if(!textDomingo.getText().toString().equals("")){
+                resultado.add(true);
+            }else{
+                resultado.add(false);
+            }
+        }
+        if(resultado.contains(false)){
+            return false;
+        }else{
+            return true;
         }
 
-        return resultado;
     }
 
     public void siguiente(){

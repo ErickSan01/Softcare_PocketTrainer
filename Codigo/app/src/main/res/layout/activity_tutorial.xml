@@ -67,7 +67,6 @@
                 android:background="@drawable/custombutton"
                 android:onClick="verMaterial"
                 android:text="material"
-                android:background="@drawable/custombutton"
                 android:layout_marginRight="@dimen/_10sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"

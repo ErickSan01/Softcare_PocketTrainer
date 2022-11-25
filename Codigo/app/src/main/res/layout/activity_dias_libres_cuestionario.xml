@@ -12,9 +12,9 @@
         android:layout_width="314dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:textSize="@dimen/_17sdp"
         android:text="@string/diasDisponiblesNuevo"
         android:textColor="@color/white"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,70 +24,72 @@
         android:id="@+id/layoutPrincipal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewSeleccionaHorario2"
-        android:layout_marginTop="@dimen/_30ssp">
+        app:layout_constraintTop_toBottomOf="@+id/textViewSeleccionaHorario2">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <CheckBox
                 android:id="@+id/checkBoxLunes"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/lunes"
-                android:textColor="@color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@color/white" />
 
             <CheckBox
                 android:id="@+id/checkBoxMartes"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/martes"
-                android:textColor="@color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@color/white" />
 
             <CheckBox
                 android:id="@+id/checkBoxMiercoles"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/seleccion_miercoles"
-                android:textColor="@color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@color/white" />
 
             <CheckBox
                 android:id="@+id/checkBoxJueves"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/seleccion_jueves"
-                android:textColor="@color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@color/white" />
 
             <CheckBox
                 android:id="@+id/checkBoxViernes"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/viernes"
-                android:textColor="@color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@color/white" />
 
             <CheckBox
                 android:id="@+id/checkBoxSabado"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/seleccion_sabado"
-                android:textColor="@color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@color/white" />
 
             <CheckBox
                 android:id="@+id/checkBoxDomingo"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/seleccion_domingo"
-                android:textColor="@color/white"
-                android:layout_marginTop="16dp"/>
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <LinearLayout
@@ -104,20 +106,21 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
+
                     <EditText
                         android:id="@+id/editTextTimeLunes"
                         android:layout_width="107dp"
                         android:layout_height="48dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/white"
                         android:ems="10"
                         android:inputType="time"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-                        android:backgroundTint="@color/white"/>
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
                     <Button
                         android:id="@+id/buttonLunes"
@@ -143,14 +146,14 @@
                         android:layout_height="48dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/white"
                         android:ems="10"
                         android:inputType="time"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-                        android:backgroundTint="@color/white"/>
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
                     <Button
                         android:id="@+id/buttonMartes"
@@ -176,14 +179,14 @@
                         android:layout_height="48dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/white"
                         android:ems="10"
                         android:inputType="time"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-                        android:backgroundTint="@color/white"/>
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
                     <Button
                         android:id="@+id/buttonMiercoles"
@@ -209,14 +212,14 @@
                         android:layout_height="48dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/white"
                         android:ems="10"
                         android:inputType="time"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-                        android:backgroundTint="@color/white"/>
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
                     <Button
                         android:id="@+id/buttonJueves"
@@ -242,14 +245,14 @@
                         android:layout_height="48dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/white"
                         android:ems="10"
                         android:inputType="time"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-                        android:backgroundTint="@color/white"/>
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
                     <Button
                         android:id="@+id/buttonViernes"
@@ -275,14 +278,14 @@
                         android:layout_height="48dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/white"
                         android:ems="10"
                         android:inputType="time"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-                        android:backgroundTint="@color/white"/>
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
                     <Button
                         android:id="@+id/buttonSabado"
@@ -308,14 +311,14 @@
                         android:layout_height="48dp"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/white"
                         android:ems="10"
                         android:inputType="time"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/textViewMartesHora"
-                        app:layout_constraintTop_toBottomOf="@+id/editTextTime"
-                        android:backgroundTint="@color/white"/>
+                        app:layout_constraintTop_toBottomOf="@+id/editTextTime" />
 
                     <Button
                         android:id="@+id/buttonDomingo"
