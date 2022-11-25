@@ -321,6 +321,11 @@ public class DiasLibresCuestionario extends AppCompatActivity {
                             rutinaPresentador.eliminarRutina(rutina);
                         }
 
+                        RutinaProgramadaPresentador rutinaProgramadaPresentador = new RutinaProgramadaPresentador(DiasLibresCuestionario.this);
+                        RutinaProgramada rutinaProgramada = rutinaProgramadaPresentador.obtenerRutinaProgramada().get(0);
+
+                        rutinaProgramadaPresentador.eliminarRutinaProgramada(rutinaProgramada);
+
                         ayudanteBaseDeDatos.agregarRutinas();
 
                         crearRutina();
