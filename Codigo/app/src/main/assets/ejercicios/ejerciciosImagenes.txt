@@ -60,5 +60,8 @@
 60-29-sentadillaDeOso1
 61-29-sentadillaDeOso2
 62-30-zancada1
-63-31-zancada2
-64-32-zancada3
+63-30-zancada2
+64-30-zancada1
+65-30-zancada3
+66-31-sentadilla1
+67-31-sentadilla2

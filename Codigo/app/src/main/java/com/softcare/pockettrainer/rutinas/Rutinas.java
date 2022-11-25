@@ -42,7 +42,6 @@ public class Rutinas extends AppCompatActivity {
         SharedPreferences rutina = getSharedPreferences("rutina", MODE_PRIVATE);
 
 
-        Button backButton = (Button) findViewById(R.id.backBtn);
         RecyclerView lista = (RecyclerView) findViewById(R.id.listaRutinas);
 
         ArrayList<String> dias = getDias(preferences);
@@ -56,14 +55,6 @@ public class Rutinas extends AppCompatActivity {
         divider.setDrawable(getDrawable(R.drawable.list_divider));
 
         lista.addItemDecoration(divider);
-
-        /* Boton para regresar a la página principal */
-        backButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     /**

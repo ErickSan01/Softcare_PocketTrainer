@@ -60,26 +60,24 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnmat"
                 android:layout_width="146dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
+                android:backgroundTint="@color/logo"
                 android:onClick="verMaterial"
                 android:text="material"
-                android:background="@drawable/custombutton"
                 android:layout_marginRight="@dimen/_10sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button5"
                 android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/custombutton"
-                android:backgroundTint="#A3DCEF"
+                android:backgroundTint="@color/logo"
                 android:onClick="verGif"
                 android:text="ver gif"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -88,13 +86,13 @@
 
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnCompletar"
         android:layout_width="228dp"
         android:layout_height="38dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/custombutton"
+        android:backgroundTint="@color/logo"
         android:layoutDirection="locale"
         android:text="COMPLETAR"
         />

@@ -168,7 +168,8 @@ public class AjustesActivity extends AppCompatActivity {
     }
 
     public void editar(View view){
-        Intent i = new Intent(this, AjustesHorarioActivity.class);
+        Intent i = new Intent(this, DiasLibresCuestionario.class);
+        i.putExtra("origen", 2);
         startActivity(i);
     }
 

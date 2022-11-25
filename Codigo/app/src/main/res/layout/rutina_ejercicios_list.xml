@@ -3,7 +3,7 @@
     android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeightLarge"
-    android:background="@color/fondo">
+    android:background="#2c2f33">
 
     <CheckBox
         android:id="@+id/ejercicioCompletado"

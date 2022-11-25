@@ -34,26 +34,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/backBtnEx"
-        android:layout_width="54dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/back"
-        android:textColor="@android:color/black"
-        android:backgroundTint="@color/boton"
-        android:background="@drawable/buttonselector"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaEjercicios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:divider="@color/white"
         android:textColor="@color/texto"
-        android:divider = "@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/backBtnEx"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rutinaText" />

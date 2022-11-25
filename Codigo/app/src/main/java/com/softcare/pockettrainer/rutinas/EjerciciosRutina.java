@@ -41,7 +41,6 @@ public class EjerciciosRutina extends AppCompatActivity {
 
         RecyclerView listaEjercicios = (RecyclerView) findViewById(R.id.listaEjercicios);
 
-        Button btnEx = (Button) findViewById(R.id.backBtnEx);
         TextView rutinaText = findViewById(R.id.rutinaText);
 
         rutinaText.setText(parteCuerpo);
@@ -56,14 +55,6 @@ public class EjerciciosRutina extends AppCompatActivity {
 
         listaEjercicios.addItemDecoration(divider);
 
-
-        /* Boton para regresar a la página de rutinas */
-        btnEx.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     @Override
@@ -76,8 +67,6 @@ public class EjerciciosRutina extends AppCompatActivity {
         String parteCuerpo = (String) intent.getSerializableExtra("parteCuerpo");
 
         RecyclerView listaEjercicios = (RecyclerView) findViewById(R.id.listaEjercicios);
-
-        Button btnEx = (Button) findViewById(R.id.backBtnEx);
         TextView rutinaText = findViewById(R.id.rutinaText);
 
         rutinaText.setText(parteCuerpo);
@@ -87,14 +76,6 @@ public class EjerciciosRutina extends AppCompatActivity {
         listaEjercicios.setHasFixedSize(false);
         listaEjercicios.setLayoutManager(new LinearLayoutManager(this));
         listaEjercicios.setAdapter(adapterEj);
-
-        /* Boton para regresar a la página de rutinas */
-        btnEx.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     @Override

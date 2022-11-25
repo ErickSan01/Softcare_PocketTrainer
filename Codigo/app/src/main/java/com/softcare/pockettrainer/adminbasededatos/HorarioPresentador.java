@@ -24,13 +24,13 @@ public class HorarioPresentador {
         SQLiteDatabase baseDeDatos = ayudanteBaseDeDatos.getWritableDatabase();
         ContentValues valoresParaInsertar = new ContentValues();
         valoresParaInsertar.put("id_horario", horario.getIdHorario());
-        valoresParaInsertar.put("lunes", String.valueOf(horario.getLunesHorarioDisponible()));
-        valoresParaInsertar.put("martes", String.valueOf(horario.getMartesHorarioDisponible()));
-        valoresParaInsertar.put("miercoles", String.valueOf(horario.getMiercolesHorarioDisponible()));
-        valoresParaInsertar.put("jueves", String.valueOf(horario.getJuevesHorarioDisponible()));
-        valoresParaInsertar.put("viernes", String.valueOf(horario.getViernesHorarioDisponible()));
-        valoresParaInsertar.put("sabado", String.valueOf(horario.getSabadoHorarioDisponible()));
-        valoresParaInsertar.put("domingo", String.valueOf(horario.getDomingoHorarioDisponible()));
+        valoresParaInsertar.put("lunes", horario.getLunesHorarioDisponible());
+        valoresParaInsertar.put("martes", horario.getMartesHorarioDisponible());
+        valoresParaInsertar.put("miercoles", horario.getMiercolesHorarioDisponible());
+        valoresParaInsertar.put("jueves", horario.getJuevesHorarioDisponible());
+        valoresParaInsertar.put("viernes", horario.getViernesHorarioDisponible());
+        valoresParaInsertar.put("sabado", horario.getSabadoHorarioDisponible());
+        valoresParaInsertar.put("domingo", horario.getDomingoHorarioDisponible());
 
 
         return baseDeDatos.insert(NOMBRE_TABLA, null, valoresParaInsertar);
@@ -55,15 +55,59 @@ public class HorarioPresentador {
         if(!cursor.moveToFirst()) return horarios;
         do{
             int idHorario = cursor.getInt(0);
-            Date lunes = DateToString.cadenaAFecha(cursor.getString(1), "EEE MMM dd hh:mm:ss zzz yyyy");
-            Date martes = DateToString.cadenaAFecha(cursor.getString(2), "EEE MMM dd hh:mm:ss zzz yyyy");
-            Date miercoles = DateToString.cadenaAFecha(cursor.getString(3), "EEE MMM dd hh:mm:ss zzz yyyy");
-            Date jueves = DateToString.cadenaAFecha(cursor.getString(4), "EEE MMM dd hh:mm:ss zzz yyyy");
-            Date viernes = DateToString.cadenaAFecha(cursor.getString(5), "EEE MMM dd hh:mm:ss zzz yyyy");
-            Date sabado = DateToString.cadenaAFecha(cursor.getString(6), "EEE MMM dd hh:mm:ss zzz yyyy");
-            Date domingo = DateToString.cadenaAFecha(cursor.getString(7), "EEE MMM dd hh:mm:ss zzz yyyy");
+            String lunes = cursor.getString(1);
+            String martes = cursor.getString(2);
+            String miercoles = cursor.getString(3);
+            String jueves = cursor.getString(4);
+            String viernes = cursor.getString(5);
+            String sabado = cursor.getString(6);
+            String domingo = cursor.getString(7);
 
-            Horario horario = new Horario(idHorario, lunes, martes, miercoles, jueves, viernes, sabado, domingo);
+            String lunesFinal = "";
+            String martesFinal = "";
+            String miercolesFinal = "";
+            String juevesFinal = "";
+            String viernesFinal = "";
+            String sabadoFinal = "";
+            String domingoFinal = "";
+
+            if(!lunes.isEmpty()){
+                lunesFinal = lunes;
+            } else {
+                lunesFinal = null;
+            }
+            if(!martes.isEmpty()){
+                martesFinal = martes;
+            } else {
+                martesFinal = null;
+            }
+            if(!miercoles.isEmpty()){
+                miercolesFinal = miercoles;
+            } else {
+                miercolesFinal = null;
+            }
+            if(!jueves.isEmpty()){
+                juevesFinal = jueves;
+            } else {
+                juevesFinal = null;
+            }
+            if(!viernes.isEmpty()){
+                viernesFinal = viernes;
+            } else {
+                viernesFinal = null;
+            }
+            if(!sabado.isEmpty()){
+                sabadoFinal = sabado;
+            } else {
+                sabadoFinal = null;
+            }
+            if(!domingo.isEmpty()){
+                domingoFinal = domingo;
+            } else {
+                domingoFinal = null;
+            }
+
+            Horario horario = new Horario(idHorario, lunesFinal, martesFinal, miercolesFinal, juevesFinal, viernesFinal, sabadoFinal, domingoFinal);
             horarios.add(horario);
         }while (cursor.moveToNext());
         cursor.close();

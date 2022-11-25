@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HistorialCalendarioActivity">
+    tools:context=".HistorialCalendarioActivity"
+    android:background="@color/fondo">
 
     <Button
         android:id="@+id/btn_historial"
@@ -62,7 +63,8 @@
             android:layout_weight="1"
             android:text="DOM"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="0dp"
@@ -70,7 +72,8 @@
             android:layout_weight="1"
             android:text="LUN"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="0dp"
@@ -78,7 +81,8 @@
             android:layout_weight="1"
             android:text="MAR"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="0dp"
@@ -86,7 +90,8 @@
             android:layout_weight="1"
             android:text="MIE"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="0dp"
@@ -94,7 +99,8 @@
             android:layout_weight="1"
             android:text="JUE"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="0dp"
@@ -102,7 +108,8 @@
             android:layout_weight="1"
             android:text="VIE"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
 
         <TextView
             android:layout_width="0dp"
@@ -110,14 +117,15 @@
             android:layout_weight="1"
             android:text="SAB"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendarRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 

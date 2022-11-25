@@ -1,19 +1,18 @@
 package com.softcare.pockettrainer.adminbasededatos;
 
-import java.util.Date;
 
 public class Horario {
 
     private int idHorario;
-    private Date lunesHorarioDisponible;
-    private Date martesHorarioDisponible;
-    private Date miercolesHorarioDisponible;
-    private Date juevesHorarioDisponible;
-    private Date viernesHorarioDisponible;
-    private Date sabadoHorarioDisponible;
-    private Date domingoHorarioDisponible;
+    private String lunesHorarioDisponible;
+    private String martesHorarioDisponible;
+    private String miercolesHorarioDisponible;
+    private String juevesHorarioDisponible;
+    private String viernesHorarioDisponible;
+    private String sabadoHorarioDisponible;
+    private String domingoHorarioDisponible;
 
-    public Horario(int idHorario, Date lunesHorarioDisponible, Date martesHorarioDisponible, Date miercolesHorarioDisponible, Date juevesHorarioDisponible, Date viernesHorarioDisponible, Date sabadoHorarioDisponible, Date domingoHorarioDisponible) {
+    public Horario(int idHorario, String lunesHorarioDisponible, String martesHorarioDisponible, String miercolesHorarioDisponible, String juevesHorarioDisponible, String viernesHorarioDisponible, String sabadoHorarioDisponible, String domingoHorarioDisponible) {
         this.idHorario = idHorario;
         this.lunesHorarioDisponible = lunesHorarioDisponible;
         this.martesHorarioDisponible = martesHorarioDisponible;
@@ -32,59 +31,59 @@ public class Horario {
         this.idHorario = idHorario;
     }
 
-    public Date getLunesHorarioDisponible() {
+    public String getLunesHorarioDisponible() {
         return lunesHorarioDisponible;
     }
 
-    public void setLunesHorarioDisponible(Date lunesHorarioDisponible) {
+    public void setLunesHorarioDisponible(String lunesHorarioDisponible) {
         this.lunesHorarioDisponible = lunesHorarioDisponible;
     }
 
-    public Date getMartesHorarioDisponible() {
+    public String getMartesHorarioDisponible() {
         return martesHorarioDisponible;
     }
 
-    public void setMartesHorarioDisponible(Date martesHorarioDisponible) {
+    public void setMartesHorarioDisponible(String martesHorarioDisponible) {
         this.martesHorarioDisponible = martesHorarioDisponible;
     }
 
-    public Date getMiercolesHorarioDisponible() {
+    public String getMiercolesHorarioDisponible() {
         return miercolesHorarioDisponible;
     }
 
-    public void setMiercolesHorarioDisponible(Date miercolesHorarioDisponible) {
+    public void setMiercolesHorarioDisponible(String miercolesHorarioDisponible) {
         this.miercolesHorarioDisponible = miercolesHorarioDisponible;
     }
 
-    public Date getJuevesHorarioDisponible() {
+    public String getJuevesHorarioDisponible() {
         return juevesHorarioDisponible;
     }
 
-    public void setJuevesHorarioDisponible(Date juevesHorarioDisponible) {
+    public void setJuevesHorarioDisponible(String juevesHorarioDisponible) {
         this.juevesHorarioDisponible = juevesHorarioDisponible;
     }
 
-    public Date getViernesHorarioDisponible() {
+    public String getViernesHorarioDisponible() {
         return viernesHorarioDisponible;
     }
 
-    public void setViernesHorarioDisponible(Date viernesHorarioDisponible) {
+    public void setViernesHorarioDisponible(String viernesHorarioDisponible) {
         this.viernesHorarioDisponible = viernesHorarioDisponible;
     }
 
-    public Date getSabadoHorarioDisponible() {
+    public String getSabadoHorarioDisponible() {
         return sabadoHorarioDisponible;
     }
 
-    public void setSabadoHorarioDisponible(Date sabadoHorarioDisponible) {
+    public void setSabadoHorarioDisponible(String sabadoHorarioDisponible) {
         this.sabadoHorarioDisponible = sabadoHorarioDisponible;
     }
 
-    public Date getDomingoHorarioDisponible() {
+    public String getDomingoHorarioDisponible() {
         return domingoHorarioDisponible;
     }
 
-    public void setDomingoHorarioDisponible(Date domingoHorarioDisponible) {
+    public void setDomingoHorarioDisponible(String domingoHorarioDisponible) {
         this.domingoHorarioDisponible = domingoHorarioDisponible;
     }
 }

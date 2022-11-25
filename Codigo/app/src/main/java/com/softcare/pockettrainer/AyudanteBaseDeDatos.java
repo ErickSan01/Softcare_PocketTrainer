@@ -106,13 +106,13 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
                 "id_horario int primary key, "+
-                "lunes Date, "+
-                "martes Date, "+
-                "miercoles Date, "+
-                "jueves Date, "+
-                "viernes Date, "+
-                "sabado Date, "+
-                "domingo Date)", NOMBRE_TABLA_HORARIO));
+                "lunes text, "+
+                "martes text, "+
+                "miercoles text, "+
+                "jueves text, "+
+                "viernes text, "+
+                "sabado text, "+
+                "domingo text)", NOMBRE_TABLA_HORARIO));
 
         db.execSQL(String.format("CREATE TABLE IF NOT EXISTS %s("+
                 "id_rutina_programada int primary key, "+
@@ -430,15 +430,7 @@ public class AyudanteBaseDeDatos extends SQLiteOpenHelper {
         String horarioSabado = horario.getString("sabado", "");
         String horarioDomingo = horario.getString("domingo", "");
 
-        Date fechaLunes = DateToString.cadenaAFecha(horarioLunes, "hh:mm");
-        Date fechaMartes = DateToString.cadenaAFecha(horarioMartes, "hh:mm");
-        Date fechaMiercoles = DateToString.cadenaAFecha(horarioMiercoles, "hh:mm");
-        Date fechaJueves = DateToString.cadenaAFecha(horarioJueves, "hh:mm");
-        Date fechaViernes = DateToString.cadenaAFecha(horarioViernes, "hh:mm");
-        Date fechaSabado = DateToString.cadenaAFecha(horarioSabado, "hh:mm");
-        Date fechaDomingo = DateToString.cadenaAFecha(horarioDomingo, "hh:mm");
-
-        Horario horarioUsuario = new Horario(1, fechaLunes, fechaMartes, fechaMiercoles, fechaJueves, fechaViernes, fechaSabado, fechaDomingo);
+        Horario horarioUsuario = new Horario(1, horarioLunes, horarioMartes, horarioMiercoles, horarioJueves, horarioViernes, horarioSabado, horarioDomingo);
 
         HorarioPresentador horarioPresentador = new HorarioPresentador(context);
 

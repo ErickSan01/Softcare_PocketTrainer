@@ -15,6 +15,18 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.softcare.pockettrainer.adminbasededatos.Ejercicio;
+import com.softcare.pockettrainer.adminbasededatos.EjercicioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Horario;
+import com.softcare.pockettrainer.adminbasededatos.HorarioPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Rutina;
+import com.softcare.pockettrainer.adminbasededatos.RutinaPresentador;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramada;
+import com.softcare.pockettrainer.adminbasededatos.RutinaProgramadaPresentador;
+import com.softcare.pockettrainer.adminbasededatos.Usuario;
+import com.softcare.pockettrainer.adminbasededatos.UsuarioPresentador;
+
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class DiasLibresCuestionario extends AppCompatActivity {
@@ -38,10 +50,16 @@ public class DiasLibresCuestionario extends AppCompatActivity {
     CheckBox checkSabado;
     CheckBox checkDomingo;
 
+    int anterior;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dias_libres_cuestionario);
+
+        Intent intent = getIntent();
+
+        anterior = intent.getIntExtra("origen", 0);
 
         Button botonElegirLunes = findViewById(R.id.buttonLunes);
         Button botonElegirMartes = findViewById(R.id.buttonMartes);
@@ -85,6 +103,35 @@ public class DiasLibresCuestionario extends AppCompatActivity {
         checkViernes.setChecked(false);
         checkSabado.setChecked(false);
         checkDomingo.setChecked(false);
+
+        if(anterior == 2){
+            SharedPreferences pDias = getSharedPreferences("dias", MODE_PRIVATE);
+            SharedPreferences pTiempo = getSharedPreferences("tiempo", MODE_PRIVATE);
+
+            checkLunes.setChecked(pDias.getBoolean("lunes", false));
+            checkMartes.setChecked(pDias.getBoolean("martes", false));
+            checkMiercoles.setChecked(pDias.getBoolean("miercoles", false));
+            checkJueves.setChecked(pDias.getBoolean("jueves", false));
+            checkViernes.setChecked(pDias.getBoolean("viernes", false));
+            checkSabado.setChecked(pDias.getBoolean("sabado", false));
+            checkDomingo.setChecked(pDias.getBoolean("domingo", false));
+
+            botonElegirLunes.setEnabled(pDias.getBoolean("lunes", false));
+            botonElegirMartes.setEnabled(pDias.getBoolean("martes", false));
+            botonElegirMiercoles.setEnabled(pDias.getBoolean("miercoles", false));
+            botonElegirJueves.setEnabled(pDias.getBoolean("jueves", false));
+            botonElegirViernes.setEnabled(pDias.getBoolean("viernes", false));
+            botonElegirSabado.setEnabled(pDias.getBoolean("sabado", false));
+            botonElegirDomingo.setEnabled(pDias.getBoolean("domingo", false));
+
+            textLunes.setText(pTiempo.getString("lunes", ""));
+            textMartes.setText(pTiempo.getString("martes", ""));
+            textMiercoles.setText(pTiempo.getString("miercoles", ""));
+            textJueves.setText(pTiempo.getString("jueves", ""));
+            textViernes.setText(pTiempo.getString("viernes", ""));
+            textSabado.setText(pTiempo.getString("sabado", ""));
+            textDomingo.setText(pTiempo.getString("domingo", ""));
+        }
 
 
         checkLunes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -244,7 +291,47 @@ public class DiasLibresCuestionario extends AppCompatActivity {
         botonSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                siguiente();
+                if(anterior == 1){
+                    siguiente();
+                }
+                if(anterior == 2){
+                    if(verificarCampos()){
+                        guardar("lunes", textLunes.getText().toString());
+                        guardar("martes", textMartes.getText().toString());
+                        guardar("miercoles", textMiercoles.getText().toString());
+                        guardar("jueves", textJueves.getText().toString());
+                        guardar("viernes", textViernes.getText().toString());
+                        guardar("sabado", textSabado.getText().toString());
+                        guardar("domingo", textDomingo.getText().toString());
+
+                        AyudanteBaseDeDatos ayudanteBaseDeDatos = new AyudanteBaseDeDatos(DiasLibresCuestionario.this);
+
+                        HorarioPresentador horarioPresentador = new HorarioPresentador(DiasLibresCuestionario.this);
+                        Horario horarioViejo = horarioPresentador.obtenerHorario().get(0);
+
+                        horarioPresentador.eliminarHorario(horarioViejo);
+
+                        ayudanteBaseDeDatos.agregarHorario();
+
+                        RutinaPresentador rutinaPresentador = new RutinaPresentador(DiasLibresCuestionario.this);
+                        ArrayList<Rutina> rutinas = rutinaPresentador.obtenerRutina();
+
+                        for (Rutina rutina :
+                                rutinas) {
+                            rutinaPresentador.eliminarRutina(rutina);
+                        }
+
+                        ayudanteBaseDeDatos.agregarRutinas();
+
+                        crearRutina();
+
+                        finish();
+                    }else{
+                        Toast.makeText(DiasLibresCuestionario.this, "Selecciona al menos una hora libre por día para ejercitarte", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    finish();
+                }
             }
         });
 
@@ -296,7 +383,7 @@ public class DiasLibresCuestionario extends AppCompatActivity {
                 }
             }
         };
-        int style = AlertDialog.THEME_HOLO_DARK;
+        int style = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
 
         TimePickerDialog time_picker = new TimePickerDialog(this, style, time_listener, hora, minuto, false);
         time_picker.setTitle("Selecciona la hora:");
@@ -345,5 +432,113 @@ public class DiasLibresCuestionario extends AppCompatActivity {
         }else{
             Toast.makeText(this, "Selecciona al menos una hora libre por día para ejercitarte", Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+
+
+    public void crearRutina(){
+        UsuarioPresentador usuarioPresentador = new UsuarioPresentador(this);
+        Usuario usuario = usuarioPresentador.obtenerUsuario().get(0);
+
+        String metaUsuario = usuario.getMeta();
+        EjercicioPresentador ejercicioPresentador = new EjercicioPresentador(this);
+        RutinaPresentador rutinaPresentador = new RutinaPresentador(this);
+
+        ArrayList<Ejercicio> ejercicios = ejercicioPresentador.obtenerEjercicio(this);
+
+        for (Ejercicio ejercicio : ejercicios){
+            if(ejercicio.getMeta().equals(metaUsuario)){
+                ArrayList<Rutina> rutinas = rutinaPresentador.obtenerRutina();
+                for (Rutina rutina : rutinas){
+                    if (ejercicio.getParteCuerpo().equals(rutina.getParteCuerpo().toLowerCase(Locale.ROOT))) {
+                        ejercicio.setIdRutina(rutina.getIdRutina());
+                        ejercicioPresentador.guardarCambios(ejercicio);
+                    }
+                }
+            }
+        }
+
+        asignarRutinas();
+
+    }
+
+    public void asignarRutinas(){
+        RutinaPresentador rutinaPresentador = new RutinaPresentador(this);
+        RutinaProgramadaPresentador rutinaProgramadaPresentador = new RutinaProgramadaPresentador(this);
+        HorarioPresentador horarioPresentador = new HorarioPresentador(this);
+        RutinaProgramada rutinaProgramada;
+
+        ArrayList<Rutina> rutinas = rutinaPresentador.obtenerRutina();
+        Horario horario = horarioPresentador.obtenerHorario().get(0);
+        int idRutinaLunes = 0;
+        int idRutinaMartes = 0;
+        int idRutinaMiercoles = 0;
+        int idRutinaJueves = 0;
+        int idRutinaViernes = 0;
+        int idRutinaSabado = 0;
+        int idRutinaDomingo = 0;
+
+        int rutina = 0;
+
+        if(horario.getLunesHorarioDisponible() != null){
+            idRutinaLunes = rutinas.get(rutina).getIdRutina();
+            rutina++;
+        }
+        if(horario.getMartesHorarioDisponible() != null){
+            if(rutina < rutinas.size()){
+                idRutinaMartes = rutinas.get(rutina).getIdRutina();
+            } else {
+                rutina = 0;
+                idRutinaMartes = rutinas.get(rutina).getIdRutina();
+            }
+            rutina ++;
+        }
+        if(horario.getMiercolesHorarioDisponible() != null){
+            if(rutina < rutinas.size()){
+                idRutinaMiercoles = rutinas.get(rutina).getIdRutina();
+            } else {
+                rutina = 0;
+                idRutinaMiercoles = rutinas.get(rutina).getIdRutina();
+            }
+            rutina ++;
+        }
+        if(horario.getJuevesHorarioDisponible() != null){
+            if(rutina < rutinas.size()){
+                idRutinaJueves = rutinas.get(rutina).getIdRutina();
+            } else {
+                rutina = 0;
+                idRutinaJueves = rutinas.get(rutina).getIdRutina();
+            }
+            rutina ++;
+        }
+        if(horario.getViernesHorarioDisponible() != null){
+            if(rutina < rutinas.size()){
+                idRutinaViernes = rutinas.get(rutina).getIdRutina();
+            } else {
+                rutina = 0;
+                idRutinaViernes = rutinas.get(rutina).getIdRutina();
+            }
+            rutina ++;
+        }
+        if(horario.getSabadoHorarioDisponible() != null){
+            if(rutina < rutinas.size()){
+                idRutinaSabado = rutinas.get(rutina).getIdRutina();
+            } else {
+                rutina = 0;
+                idRutinaSabado = rutinas.get(rutina).getIdRutina();
+            }
+            rutina ++;
+        }
+        if(horario.getDomingoHorarioDisponible() != null){
+            if (rutina >= rutinas.size()) {
+                rutina = 0;
+            }
+            idRutinaDomingo = rutinas.get(rutina).getIdRutina();
+        }
+
+        rutinaProgramada = new RutinaProgramada(1, idRutinaLunes, idRutinaMartes, idRutinaMiercoles, idRutinaJueves, idRutinaViernes, idRutinaSabado, idRutinaDomingo);
+
+        rutinaProgramadaPresentador.nuevaRutinaProgramada(rutinaProgramada);
     }
 }
