@@ -334,8 +334,6 @@ public class DiasLibresCuestionario extends AppCompatActivity {
                     }else{
                         Toast.makeText(DiasLibresCuestionario.this, "Selecciona al menos una hora libre por día para ejercitarte", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    finish();
                 }
             }
         });
@@ -446,7 +444,7 @@ public class DiasLibresCuestionario extends AppCompatActivity {
                 resultado.add(false);
             }
         }
-        if(resultado.contains(false)){
+        if(resultado.contains(false) || resultado.size() == 0){
             return false;
         }else{
             return true;
